@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const port = 3000;
-const User = require("./user");
+const evento = require("./evento");
 const { randomInt } = require('crypto');
 
 async function iniciar(){
@@ -21,27 +21,43 @@ async function iniciar(){
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('<h1>HOLA</h1>');
+app.get('/', async (req, res) => {
+    try {
+    const eventos = await evento.find(); // get all documents
+    res.status(200).json(eventos);       // send them as JSON
+  } catch (error) {
+    console.error('Error al obtener los eventos:', error);
+    res.status(500).send('Error al obtener los eventos');
+  }
 });
 
-app.post('/crear', (req, res) => {
-    const body = req.body
-    console.log(body)
-    const nombreUsuario = body.nombre
-    const nivelUsuario = body.nivel
-    const claseUsuario = body.clase
-    crearUsuario({nombre: nombreUsuario, nivel: nivelUsuario, clase: claseUsuario})
-    res.send('usuario creado con exito')
-})
+app.delete("/eventos/:id", async (req, res) => {
+    try {
+    const params = req.params;
+    console.log(params);
+    await evento.findByIdAndDelete(params.id);
+    res.send("Usuario eliminando con exito" + params.id);
+    } catch (error) {
+        console.error('Error al eliminar el evento:', error);
+        res.status(500).send('Error al eliminar el evento');
+    }
+});
 
-async function crearUsuario(usuarioTraido)
-{
-    const nombrePj = usuarioTraido.nombre;
-    const nivelPj = usuarioTraido.nivel;
-    const clasePj = usuarioTraido.clase;
-const usuaruio = await User.create({nombre: nombrePj, nivel: nivelPj, clase: clasePj});
-console.log("Usuario creado: " + usuaruio);
-}
+app.post('/crear', async (req, res) => {
+    const body = req.body
+    const nombreEvento = body.nombreEvento
+    const linkImagen = body.linkImagen
+    const fecha = body.fecha
+    const descripcion = body.descripcion
+    const precio = body.precio
+    const location = body.location
+    const categoria = body.categoria
+    if (!nombreEvento || !linkImagen || !fecha || !descripcion || !precio || !location || !categoria) {
+        return res.status(400).send('Faltan datos obligatorios');
+    }
+    const eventoNuevo = await evento.create({nombreEvento: nombreEvento, linkImagen: linkImagen, fecha: fecha, descripcion: descripcion, precio: precio, location: location, categoria: categoria});
+    res.send('usuario creado con exito')
+    console.log(eventoNuevo);
+})
 
 iniciar();
