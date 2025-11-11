@@ -5,6 +5,13 @@
     src: url('stretch_pro (1)\\StretchPro.otf'); /*URL to font*/
 }
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
 a {
 color: #000;
 text-align: center;
@@ -17,54 +24,82 @@ line-height: normal;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #E3EBFF;
 }
 
-main {
-    width: 90vw;
+.contenedor{
+    margin: auto;
+    width: 95%;
+    max-width: 1920px;
+}
+
+header .contenedor{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 header {
-display: flex;
-height: 20vh;
-padding: 0 41px;
-align-items: center;
-justify-content: space-between;
-flex-shrink: 0;
-}
-
-nav {
-display: flex;
-justify-content: flex-end;
-align-items: center;
-gap: 2vw;
-flex-shrink: 0;
+    background-color: #BFCEFF;
+    display: flex;
+    height: 20vh;
 }
 
 nav a {
+    display: inline-block;
 padding: 10px;
 border-radius: 67.568px;
 border: 2.333px solid #000;
 background: #FFF;
 box-shadow: 2.333px 2.333px 0 0 #000;
+margin-left: 0.5em;
 }
 
 #contenedorImagenPortada {
     height: 60vh;
     width: 100%;
-    background-color: blanchedalmond;
+    padding: 2em;
 }
 
-#imagenPortada {
+.imagenPortada{
+    width: 100%;
     height: 100%;
-    position: absolute;
+/*     background-image: url(img/portadafoto.jpg);
+    background-size: cover; */
+    background-color: blanchedalmond;
+    border-radius: 20px;
+    align-content: flex-end;
+}
+
+h1{
+    color: #FF006E;
+text-shadow: 5px 4px 0 #000;
+/* Sretch/h1 */
+-webkit-text-stroke-width: 2px;
+-webkit-text-stroke-color: #000;
+font-family: "Stretch Pro";
+font-style: normal;
+font-size: 48px;
+font-weight: 400;
+line-height: 58px; /* 120.833% */
+}
+
+h2{
+    color: #8338EC;
+/* Sombra */
+text-shadow: 5px 4px 0 #000;
+/* Sretch/h2 */
+-webkit-text-stroke-width: 2px;
+-webkit-text-stroke-color: #000;
+font-family: "Stretch Pro";
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: 58px; 
 }
 
 #tituloPortada {
     position: relative;
     font-family: "Extend";
+    
 }
