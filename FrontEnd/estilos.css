@@ -5,6 +5,41 @@
     src: url('stretch_pro (1)\\StretchPro.otf'); /*URL to font*/
 }
 
+.botonAmarillo {
+    width: 171px;
+    height: 47px;
+    gap: 6px;
+    border-radius: 57px;
+    border: 2px solid #000;
+    background: #FCC400;
+/* Sombra boton */
+    box-shadow: 2px 2px 0 0 #000;
+    color: #000;
+/* Public/p Semibold */
+font-family: "Public Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.botonBlanco {
+    width: 171px;
+    height: 47px;
+    gap: 6px;
+    border-radius: 57px;
+    border: 2px solid #000;
+/* Sombra boton */
+    box-shadow: 2px 2px 0 0 #000;
+    color: #000;
+/* Public/p Semibold */
+font-family: "Public Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
 *{
     padding: 0;
     margin: 0;
