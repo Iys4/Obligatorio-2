@@ -21,14 +21,9 @@ async function iniciar(){
 
 app.use(express.json());
 
-app.get('/', async (req, res) => {
-    try {
-    const eventos = await evento.find(); // get all documents
-    res.status(200).json(eventos);       // send them as JSON
-  } catch (error) {
-    console.error('Error al obtener los eventos:', error);
-    res.status(500).send('Error al obtener los eventos');
-  }
+app.get('/eventos', async (req, res) => {
+    const eventos =  await evento.find();
+    res.send(eventos);
 });
 
 app.delete("/eventos/:id", async (req, res) => {
@@ -45,6 +40,7 @@ app.delete("/eventos/:id", async (req, res) => {
 
 app.post('/crear', async (req, res) => {
     const body = req.body
+    const creadorEvento = body.creadorEvento
     const nombreEvento = body.nombreEvento
     const linkImagen = body.linkImagen
     const fecha = body.fecha
@@ -52,12 +48,37 @@ app.post('/crear', async (req, res) => {
     const precio = body.precio
     const location = body.location
     const categoria = body.categoria
-    if (!nombreEvento || !linkImagen || !fecha || !descripcion || !precio || !location || !categoria) {
+    if (!creadorEvento || !nombreEvento || !linkImagen || !fecha || !descripcion || !precio || !location || !categoria) {
         return res.status(400).send('Faltan datos obligatorios');
     }
     const eventoNuevo = await evento.create({nombreEvento: nombreEvento, linkImagen: linkImagen, fecha: fecha, descripcion: descripcion, precio: precio, location: location, categoria: categoria});
     res.send('usuario creado con exito')
     console.log(eventoNuevo);
 })
+
+
+app.put('/eventos/:id', async (req, res) => {
+    try {
+    const params = req.params;
+    const body = req.body
+    const creadorEvento = body.creadorEvento
+    const nombreEvento = body.nombreEvento
+    const linkImagen = body.linkImagen
+    const fecha = body.fecha
+    const descripcion = body.descripcion
+    const precio = body.precio
+    const location = body.location
+    const categoria = body.categoria
+    if (!creadorEvento || !nombreEvento || !linkImagen || !fecha || !descripcion || !precio || !location || !categoria) {
+        return res.status(400).send('Faltan datos obligatorios');
+    }
+    console.log(params);
+    console.log(body);
+    await evento.findByIdAndUpdate(params.id, body);
+    res.send("Evento actualizado con exito " + params.id);
+    } catch (error) {
+        console.error('Error al actualizar el evento:', error);
+        res.status(500).send('Error al actualizar el evento');
+    }});
 
 iniciar();
