@@ -141,7 +141,7 @@ line-height: 58px;
 
 .evento {
 padding: 10px;
-width: 25vw;
+width: 20vw;
 height: 60vh;
 border-radius: 23.889px;
 border: 1.405px solid #000;
@@ -215,4 +215,53 @@ border-radius: 37.066px;
 border: 1.28px solid #000;
 background: #FFD23F;
 box-shadow: 1.28px 1.28px 0 0 #000;
+}
+
+#listaExplorarMain {
+display: flex;
+width: 20vw;
+flex-direction: column;
+align-items: flex-end;
+gap: 7px;
+flex-shrink: 0;
+border-radius: var(--Border-radius, 5px);
+border: 2px solid var(--Border, #000);
+background: #FFF;
+
+/* Sombra boton */
+box-shadow: 2px 2px 0 0 #000;
+}
+
+.opcionesMenu {
+    border: 1px solid #000;
+}
+
+#listaExplorarMain div {
+display: flex;
+padding: 8px;
+align-items: center;
+gap: 8px;
+align-self: stretch;
+}
+
+#contenedorEventosMain {
+    width: 75vw;
+}
+
+#contenedorEventosYSelectMain {
+    display: flex;
+}
+
+footer {
+display: flex;
+width: 100%;
+height: 197px;
+padding: 40px 49px;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-start;
+gap: 10px;
+flex-shrink: 0;
+border: 2px solid #000;
+background: #BFCEFF;
 }

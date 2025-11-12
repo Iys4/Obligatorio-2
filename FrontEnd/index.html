@@ -14,7 +14,7 @@
         <a href="index.html"><img src="img/logo.png" volver a inicio" id="logoHeader"></a>
         <nav>
             <a href="index.html" id="inicioHeader">Inicio</a>
-            <a href="" id="crearEventoHeader">Crear evento</a>
+            <a href="crearEvento.html" id="crearEventoHeader">Crear evento</a>
             <a href="" id="perfilHeader">Perfil</a>
         </nav>
         </div>
@@ -29,12 +29,12 @@
         <div id="eventosYCrearEvento">
             <h2>Eventos</h2>
             <button class="botonAmarillo">
-                <p>Crear evento<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <a href="crearEvento.html">Crear evento<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M16 19H22M16 2V6M19 16V22M21 12.598V6C21 5.46957 20.7893 4.96086 20.4142 4.58579C20.0391 4.21071 19.5304 4 19 4H5C4.46957 4 3.96086 4.21071 3.58579 4.58579C3.21071 4.96086 3 5.46957 3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H13.5M3 10H21M8 2V6"
                             stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></p>
+                    </svg></a>
             </button>
         </div>
         <div id="filtrosMain">
@@ -89,6 +89,9 @@
                 </svg>
             </button>
         </div>
+        <div id="contenedorEventosYSelectMain">
+
+
         <div id="contenedorEventosMain">
             <div class="evento">
                 <img src="" alt="imagen de evento" class="imagenEventoMain">
@@ -116,9 +119,7 @@
                 </div>
             </div>
         </div>
-        </div>
-    </main>
-    <div id="listaExplorarMain">
+            <div id="listaExplorarMain">
         <div data-categoria="conciertos"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -196,10 +197,29 @@
                     stroke="black" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             Actividades familiares</div>
+
+            <div class="opcionesMenu">Modalidad <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M6 9L12 15L18 9" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div>
+<div> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.9 12.1L16.414 7.58602M16.414 7.58602C16.7891 7.21103 16.9999 6.70241 17 6.17202V4.82802C17.0001 4.29763 17.2109 3.789 17.586 3.41402L18.7 2.30002C18.8869 2.11679 19.1382 2.01416 19.4 2.01416C19.6618 2.01416 19.9131 2.11679 20.1 2.30002L21.7 3.90002C21.8832 4.08695 21.9859 4.33826 21.9859 4.60002C21.9859 4.86177 21.8832 5.11309 21.7 5.30002L20.586 6.41402C20.211 6.78912 19.7024 6.9999 19.172 7.00002H17.828C17.2976 7.00013 16.789 7.21092 16.414 7.58602ZM6 16L8 18M8.23 9.85002C8.45726 9.30246 8.84165 8.83451 9.33465 8.50525C9.82765 8.17599 10.4072 8.00018 11 8.00002C12.3261 8.00002 13.5979 8.5268 14.5355 9.46448C15.4732 10.4022 16 11.6739 16 13C15.9998 13.5929 15.824 14.1724 15.4948 14.6654C15.1655 15.1584 14.6976 15.5428 14.15 15.77L13.23 16.15C12.8651 16.3023 12.5534 16.5592 12.3345 16.8885C12.1156 17.2178 11.9992 17.6046 12 18C12 19.0609 11.5786 20.0783 10.8284 20.8284C10.0783 21.5786 9.06087 22 8 22C6.4087 22 4.88258 21.3679 3.75736 20.2427C2.63214 19.1174 2 17.5913 2 16C2 14.9392 2.42143 13.9217 3.17157 13.1716C3.92172 12.4214 4.93913 12 6 12C6.39542 12.0008 6.78221 11.8844 7.11149 11.6655C7.44077 11.4466 7.69776 11.135 7.85 10.77L8.23 9.85002Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>Presencial</div>
+<div> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M2 20H22M5 4H19C20.1046 4 21 4.89543 21 6V14C21 15.1046 20.1046 16 19 16H5C3.89543 16 3 15.1046 3 14V6C3 4.89543 3.89543 4 5 4Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Virtual</div>
+<div> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M5.8 11.3L2 22L12.7 18.21M4 3H4.01M22 8H22.01M15 2H15.01M22 20H22.01M22 2L19.76 2.75C19.1224 2.96239 18.5783 3.38964 18.2208 3.95872C17.8633 4.52781 17.7146 5.20339 17.8 5.87C17.9 6.73 17.23 7.5 16.35 7.5H15.97C15.11 7.5 14.37 8.1 14.21 8.94L14 10M22 13L21.18 12.67C20.32 12.33 19.36 12.87 19.2 13.78C19.09 14.48 18.48 15 17.77 15H17M11 2L11.33 2.82C11.67 3.68 11.13 4.64 10.22 4.8C9.52 4.9 9 5.52 9 6.23V7M11 13C12.93 14.93 13.83 17.17 13 18C12.17 18.83 9.93 17.93 8 16C6.07 14.07 5.17 11.83 6 11C6.83 10.17 9.07 11.07 11 13Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Semipresencial</div>
+<div class="opcionesMenu">Precio <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M6 9L12 15L18 9" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
+<div>Minimo</div>
+<div>Maximo</div>
     </div>
-    <div id="listaFiltrarMain">
-        h
-    </div>
+        </div>
+                </div>
+    </main>
     <footer>
         <div>
             <a href="index.html"><img src="logo.png" alt="Volver a inicio" id="logoFooter"></a>
