@@ -98,6 +98,8 @@ nav a {
     background: #FFF;
     box-shadow: 2.333px 2.333px 0 0 #000;
     margin-left: 0.5em;
+       font-size: 18px;
+           padding: 1em;
 }
 
 #contenedorImagenPortada {
@@ -186,7 +188,7 @@ h2 {
     background-color: white;
 }
 
-.opcionesMenu{
+.opcionesMenu {
     font-family: "Public Sans";
     font-size: 20px;
     font-style: normal;
@@ -199,7 +201,7 @@ h2 {
 
 .evento {
     padding: 11px;
-    width: 20vw;
+    width: 20%;
     height: 45vh;
     border-radius: 23.889px;
     border: 2px solid #000;
@@ -217,7 +219,7 @@ h2 {
     background: url(<path-to-image>) lightgray 50% / cover no-repeat;
 }
 
-.evento h4 {
+h4 {
     color: #000;
 
     /* Sretch/p */
@@ -229,14 +231,13 @@ h2 {
     /* 125% */
 }
 
-.evento h5 {
+h5 {
     color: #464646;
     font-family: "Stretch Pro";
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
-    /* 142.857% */
 }
 
 .evento p {
@@ -260,11 +261,16 @@ h2 {
     /* 188.889% */
 }
 
+#eventosYBoton p {
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .botonMeInteresa {
     color: #000;
     text-align: center;
     font-family: "Public Sans";
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -317,9 +323,35 @@ footer {
     padding: 40px 49px;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
     gap: 10px;
     flex-shrink: 0;
     border: 2px solid #000;
     background: #BFCEFF;
+}
+
+#logoFooter {
+    height: 50px;
+}
+
+#linksFooter {
+    display: flex;
+    flex-direction: column;
+}
+
+#redesFooter {
+    display: flex;
+    flex-direction: column;
+}
+
+footer a {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    text-align: left;
+    margin-top: 0.5em;
+    gap: 6px;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
