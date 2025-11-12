@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="estilosCrearEvento.css">
+</head>
+
+<body>
+    <header>
+        <div class="contenedor header">
+            <a href="index.html"><img src="img/logo.png" volver a inicio" id="logoHeader"></a>
+            <nav>
+                <a href="index.html" id="inicioHeader">Inicio</a>
+                <a href="" id="crearEventoHeader">Crear evento</a>
+                <a href="" id="perfilHeader">Perfil</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="imgPortadaCrearEvento">
+            <img src="" alt="imagenPortada">
+        </div>
+        <div id="textoPortadaCrearEvento">
+
+        </div>
+        <div id="contenedorCrearEvento">
+            <div id="nombrarEventoCE" class="contenedorInputCE">
+                <h3>Nombre de tu evento</h3>
+                <input type="text" placeholder="el nombre de tu evento" class="inputCE">
+            </div>
+            <div id="descripcionEventoCE" class="contenedorInputCE">
+                <h3>Descripcion de tu evento</h3>
+                <input type="text" placeholder="Describe tu evento" class="inputCE" id="descriptorEventoCE">
+            </div>
+            <div id="imagenesInputCE">
+                <h3>Imagenes</h3>
+                <div id="contenedorDeImagenesCE">
+                    <div id="imagenAgregarCE0" class="contenedorImagenCE">
+                    </div>
+                    <div id="imagenAgregarCE1" class="contenedorImagenCE">
+                    </div>
+                    <div id="imagenAgregarCE2" class="contenedorImagenCE">
+                    </div>
+                    <div id="imagenAgregarCE3" class="contenedorImagenCE">
+                    </div>
+                </div>
+            </div>
+            <div id="contenedorPrecioUbicacionFecha">
+                <div id="inputPrecio" class="contenedorInputCE">
+                    <h3>Precio</h3>
+                    <input type="text" placeholder="Precio de entrada" class="inputCE">
+                </div>
+                <div id="inputUbicacion" class="contenedorInputCE">
+                    <h3>Ubicación</h3>
+                    <input type="text" placeholder="Ubicación del evento" class="inputCE">
+                </div>
+                <div id="inputFecha" class="contenedorInputCE">
+                    <h3>Fecha</h3>
+                    <input type="date" class="inputCE">
+                </div>
+            </div>
+            <div id="contenedorSeleccionarCategoria" class="contenedorSelectCE">
+                <h3>Seleccionar categoría</h3>
+                <select name="categorias" id="selectCategoriaCE">
+                    <option value="musica">Música</option>
+                    <option value="deportes">Deportes</option>
+                    <option value="teatro">Teatro</option>
+                    <option value="conferencias">Conferencias</option>
+                    <option value="festivales">Festivales</option>
+                    <option value="otros">Otros</option>
+                </select>
+            </div>
+            <div id="contenedorSeleccionarMetodoDePago" class="contenedorSelectCE">
+                <h3>Seleccionar método de pago</h3>
+                <select name="metodosDePago" id="selectMetodoDePagoCE">
+                    <option value="tarjetaCredito">Tarjeta de crédito</option>
+                    <option value="tarjetaDebito">Tarjeta de débito</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="mercadoPago">Mercado Pago</option>
+                </select>
+            </div>
+            <div id="modalSeleccionarEdadCE" class="modalesCE">
+                <h3>Tu evento es apto para menores de edad</h3>
+                <div id="contenedorButtonsModalCE">
+                    <button class="buttonModalCE" id="TRUE+18">Sí</button>
+                    <button class="buttonModalCE" id="FALSE+18">No</button>
+                </div>
+            </div>
+                <div id="modalSeleccionarPresencialCE" class="modalesCE">
+                <h3>Es un evento presencial</h3>
+                <div id="contenedorButtonsModalCE">
+                    <button class="buttonModalCE" id="TRUETechado">Sí</button>
+                    <button class="buttonModalCE" id="FALSETechado">No</button>
+                </div>
+            </div>
+            <div id="modalSuspendidoLluvia">
+                <h3>El evento se suspende en caso de lluvia</h3>
+                <div id="contenedorButtonsModalCE">
+                    <button class="buttonModalCE" id="TRUESuspendidoLluvia">Sí</button>
+                    <button class="buttonModalCE" id="FALSESuspendidoLluvia">No</button>
+                </div>
+            </div>
+            <div id="botonCrearEventoCE">
+                <button id="buttonCrearEvento">Crear evento <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M16 19H22M16 2V6M19 16V22M21 12.598V6C21 5.46957 20.7893 4.96086 20.4142 4.58579C20.0391 4.21071 19.5304 4 19 4H5C4.46957 4 3.96086 4.21071 3.58579 4.58579C3.21071 4.96086 3 5.46957 3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H13.5M3 10H21M8 2V6" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg></button>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <a href="index.html"><img src="logo.png" alt="Volver a inicio" id="logoFooter"></a>
+            <h4>Descubrí. Viví. Compartí.</h4>
+            <p>© 2025 ¿Qué Hay? Todos los derechos reservados.</p>
+        </div>
+        <div>
+            <h4>Links</h4>
+            <a href="index.html">Inicio</a>
+            <a href="">Crear Evento</a>
+            <a href="">Perfil</a>
+        </div>
+        <div>
+            <h4>Redes sociales</h4>
+            <a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M14.5837 5.4165H14.592M5.83366 1.6665H14.167C16.4682 1.6665 18.3337 3.53198 18.3337 5.83317V14.1665C18.3337 16.4677 16.4682 18.3332 14.167 18.3332H5.83366C3.53247 18.3332 1.66699 16.4677 1.66699 14.1665V5.83317C1.66699 3.53198 3.53247 1.6665 5.83366 1.6665ZM13.3337 9.47484C13.4365 10.1684 13.318 10.8767 12.9951 11.499C12.6722 12.1213 12.1613 12.626 11.535 12.9412C10.9087 13.2564 10.199 13.3662 9.50681 13.2548C8.8146 13.1434 8.17513 12.8166 7.67936 12.3208C7.18359 11.825 6.85677 11.1856 6.74538 10.4933C6.63399 9.80113 6.74371 9.09141 7.05893 8.46515C7.37415 7.83888 7.87881 7.32795 8.50115 7.00504C9.12348 6.68212 9.83179 6.56366 10.5253 6.6665C11.2328 6.77141 11.8877 7.10106 12.3934 7.60676C12.8991 8.11246 13.2288 8.7674 13.3337 9.47484Z"
+                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Instagram</a>
+            <a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M11.6175 8.66L17.9463 1.25H16.4462L10.9525 7.68375L6.5625 1.25H1.5L8.1375 10.98L1.5 18.75H3L8.8025 11.955L13.4388 18.75H18.5012L11.6175 8.66ZM9.56375 11.065L8.89125 10.0962L3.54 2.3875H5.84375L10.1613 8.60875L10.8337 9.5775L16.4475 17.665H14.1437L9.56375 11.065Z"
+                        fill="black" />
+                </svg>
+                Twitter</a>
+            <a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2.08309 14.1667C1.50095 11.4194 1.50095 8.58061 2.08309 5.83333C2.15959 5.55434 2.30738 5.30006 2.51193 5.0955C2.71649 4.89095 2.97077 4.74316 3.24976 4.66667C7.7193 3.92622 12.2802 3.92622 16.7498 4.66667C17.0288 4.74316 17.283 4.89095 17.4876 5.0955C17.6921 5.30006 17.8399 5.55434 17.9164 5.83333C18.4986 8.58061 18.4986 11.4194 17.9164 14.1667C17.8399 14.4457 17.6921 14.6999 17.4876 14.9045C17.283 15.1091 17.0288 15.2568 16.7498 15.3333C12.2802 16.0739 7.71929 16.0739 3.24976 15.3333C2.97077 15.2568 2.71649 15.1091 2.51193 14.9045C2.30738 14.6999 2.15959 14.4457 2.08309 14.1667Z"
+                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M8.3331 12.5L12.4998 10L8.3331 7.5V12.5Z" stroke="black" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                Youtube</a>
+        </div>
+    </footer>
+</body>
+
+</html>
