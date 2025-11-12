@@ -1,8 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&family=Jacquard+24&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 @font-face {
-    font-family: 'Extend'; /*a name to be used later*/
-    src: url('stretch_pro (1)\\StretchPro.otf'); /*URL to font*/
+    font-family: 'Extend';
+    /*a name to be used later*/
+    src: url('stretch_pro (1)\\StretchPro.otf');
+    /*URL to font*/
+}
+
+p {
+    font-family: "Public Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
 }
 
 .botonAmarillo {
@@ -12,15 +22,15 @@
     border-radius: 57px;
     border: 2px solid #000;
     background: #FCC400;
-/* Sombra boton */
+    /* Sombra boton */
     box-shadow: 2px 2px 0 0 #000;
     color: #000;
-/* Public/p Semibold */
-font-family: "Public Sans";
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+    /* Public/p Semibold */
+    font-family: "Public Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 
 .botonBlanco {
@@ -29,18 +39,18 @@ line-height: normal;
     gap: 6px;
     border-radius: 57px;
     border: 2px solid #000;
-/* Sombra boton */
+    /* Sombra boton */
     box-shadow: 2px 2px 0 0 #000;
     color: #000;
-/* Public/p Semibold */
-font-family: "Public Sans";
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+    /* Public/p Semibold */
+    font-family: "Public Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -48,27 +58,27 @@ line-height: normal;
 }
 
 a {
-color: #000;
-text-align: center;
-/* Public/p Semibold */
-font-family: "Public Sans";
-font-size: 16px;
-text-decoration: none;
-font-weight: 600;
-line-height: normal;
+    color: #000;
+    text-align: center;
+    /* Public/p Semibold */
+    font-family: "Public Sans";
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    line-height: normal;
 }
 
 body {
     background-color: #E3EBFF;
 }
 
-.contenedor{
+.contenedor {
     margin: auto;
     width: 95%;
     max-width: 1920px;
 }
 
-header .contenedor{
+header .contenedor {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,12 +92,12 @@ header {
 
 nav a {
     display: inline-block;
-padding: 10px;
-border-radius: 67.568px;
-border: 2.333px solid #000;
-background: #FFF;
-box-shadow: 2.333px 2.333px 0 0 #000;
-margin-left: 0.5em;
+    padding: 10px;
+    border-radius: 67.568px;
+    border: 2.333px solid #000;
+    background: #FFF;
+    box-shadow: 2.333px 2.333px 0 0 #000;
+    margin-left: 0.5em;
 }
 
 #contenedorImagenPortada {
@@ -96,94 +106,145 @@ margin-left: 0.5em;
     padding: 2em 0em;
 }
 
-.imagenPortada{
+.imagenPortada {
     width: 100%;
     height: 100%;
-/*     background-image: url(img/portadafoto.jpg);
+    /*     background-image: url(img/portadafoto.jpg);
     background-size: cover; */
     background-color: blanchedalmond;
     border-radius: 20px;
     align-content: flex-end;
 }
 
-h1{
-    color: #FF006E;
-text-shadow: 5px 4px 0 #000;
-/* Sretch/h1 */
--webkit-text-stroke-width: 2px;
--webkit-text-stroke-color: #000;
-font-family: "Stretch Pro";
-font-style: normal;
-font-size: 48px;
-font-weight: 400;
-line-height: 58px; /* 120.833% */
+#eventosYCrearEvento {
+    display: flex;
+    justify-content: space-between;
 }
 
-h2{
+h1 {
+    color: #FF006E;
+    text-shadow: 5px 4px 0 #000;
+    /* Sretch/h1 */
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000;
+    font-family: "Stretch Pro";
+    font-style: normal;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 58px;
+    /* 120.833% */
+}
+
+h2 {
     color: #8338EC;
-/* Sombra */
-text-shadow: 5px 4px 0 #000;
-/* Sretch/h2 */
--webkit-text-stroke-width: 2px;
--webkit-text-stroke-color: #000;
-font-family: "Stretch Pro";
-font-size: 40px;
-font-style: normal;
-font-weight: 400;
-line-height: 58px; 
+    /* Sombra */
+    text-shadow: 5px 4px 0 #000;
+    /* Sretch/h2 */
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000;
+    font-family: "Stretch Pro";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 58px;
 }
 
 #tituloPortada {
     position: relative;
     font-family: "Extend";
-    
+
+}
+
+#filtrosMain {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+#inpBuscarMainYIcono {
+    display: flex;
+    padding: 8px 15px;
+    align-items: center;
+    gap: 6px;
+    border-radius: 25px;
+    border: 2px solid var(--Border, #000);
+    background: #FFF;
+    /* Sombra boton */
+    box-shadow: 2px 2px 0 0 #000;
+}
+
+#inpBuscarMain {
+    font-family: "Public Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    border: none;
+}
+
+#botonBuscarMain {
+    border: none;
+    background-color: white;
+}
+
+.opcionesMenu{
+    font-family: "Public Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 34px;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
 }
 
 .evento {
-padding: 10px;
-width: 20vw;
-height: 60vh;
-border-radius: 23.889px;
-border: 1.405px solid #000;
-background: #F0F0F0;
-display: flex;
-flex-direction: column;
+    padding: 11px;
+    width: 20vw;
+    height: 45vh;
+    border-radius: 23.889px;
+    border: 2px solid #000;
+    background: #F0F0F0;
+    display: flex;
+    flex-direction: column;
 
-justify-content: space-around;
+    justify-content: space-around;
 }
 
 .imagenEventoMain {
-height: 40%;
-border-radius: 23.889px;
-border: 1.405px solid #000;
-background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+    height: 55%;
+    border-radius: 24px;
+    border: 2px solid #000;
+    background: url(<path-to-image>) lightgray 50% / cover no-repeat;
 }
 
 .evento h4 {
     color: #000;
 
-/* Sretch/p */
-font-family: "Stretch Pro";
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 20px; /* 125% */
+    /* Sretch/p */
+    font-family: "Stretch Pro";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 125% */
 }
+
 .evento h5 {
-color: #464646;
-font-family: "Stretch Pro";
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 20px; /* 142.857% */
+    color: #464646;
+    font-family: "Stretch Pro";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
 }
 
 .evento p {
     color: #000;
-font-family: "Public Sans";
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
+    font-family: "Public Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
 }
 
 
@@ -191,57 +252,54 @@ font-weight: 400;
     justify-content: space-around;
     display: flex;
     color: #000;
-font-family: "Public Sans";
-font-size: 18px;
-font-style: normal;
-font-weight: 600;
-line-height: 34px; /* 188.889% */
+    font-family: "Public Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 34px;
+    /* 188.889% */
 }
 
 .botonMeInteresa {
     color: #000;
-text-align: center;
-font-family: "Public Sans";
-font-size: 12px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-display: flex;
-padding: 0 15px;
-justify-content: center;
-align-items: center;
-gap: 4.26px;
-border-radius: 37.066px;
-border: 1.28px solid #000;
-background: #FFD23F;
-box-shadow: 1.28px 1.28px 0 0 #000;
+    text-align: center;
+    font-family: "Public Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    padding: 0 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 4.26px;
+    border-radius: 37.066px;
+    border: 1.28px solid #000;
+    background: #FFD23F;
+    box-shadow: 1.28px 1.28px 0 0 #000;
 }
 
 #listaExplorarMain {
-display: flex;
-width: 20vw;
-flex-direction: column;
-align-items: flex-end;
-gap: 7px;
-flex-shrink: 0;
-border-radius: var(--Border-radius, 5px);
-border: 2px solid var(--Border, #000);
-background: #FFF;
+    display: flex;
+    width: 20vw;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7px;
+    flex-shrink: 0;
+    border-radius: var(--Border-radius, 5px);
+    border: 2px solid var(--Border, #000);
+    background: #FFF;
 
-/* Sombra boton */
-box-shadow: 2px 2px 0 0 #000;
-}
-
-.opcionesMenu {
-    border: 1px solid #000;
+    /* Sombra boton */
+    box-shadow: 2px 2px 0 0 #000;
 }
 
 #listaExplorarMain div {
-display: flex;
-padding: 8px;
-align-items: center;
-gap: 8px;
-align-self: stretch;
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
 }
 
 #contenedorEventosMain {
@@ -253,15 +311,15 @@ align-self: stretch;
 }
 
 footer {
-display: flex;
-width: 100%;
-height: 197px;
-padding: 40px 49px;
-flex-direction: row;
-justify-content: space-between;
-align-items: flex-start;
-gap: 10px;
-flex-shrink: 0;
-border: 2px solid #000;
-background: #BFCEFF;
+    display: flex;
+    width: 100%;
+    height: 197px;
+    padding: 40px 49px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    flex-shrink: 0;
+    border: 2px solid #000;
+    background: #BFCEFF;
 }
