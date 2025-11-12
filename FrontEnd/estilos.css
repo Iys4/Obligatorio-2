@@ -93,7 +93,7 @@ margin-left: 0.5em;
 #contenedorImagenPortada {
     height: 60vh;
     width: 100%;
-    padding: 2em;
+    padding: 2em 0em;
 }
 
 .imagenPortada{
