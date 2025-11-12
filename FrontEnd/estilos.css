@@ -16,12 +16,11 @@ p {
 }
 
 .botonAmarillo {
-    width: 171px;
-    height: 47px;
+    padding: 0.5em 1em;
     gap: 6px;
     border-radius: 57px;
     border: 2px solid #000;
-    background: #FCC400;
+    background-color: #FFD23F;
     /* Sombra boton */
     box-shadow: 2px 2px 0 0 #000;
     color: #000;
@@ -33,9 +32,12 @@ p {
     line-height: normal;
 }
 
+
 .botonBlanco {
-    width: 171px;
-    height: 47px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 1em;
     gap: 6px;
     border-radius: 57px;
     border: 2px solid #000;
@@ -98,8 +100,8 @@ nav a {
     background: #FFF;
     box-shadow: 2.333px 2.333px 0 0 #000;
     margin-left: 0.5em;
-       font-size: 18px;
-           padding: 1em;
+    font-size: 18px;
+    padding: 1em;
 }
 
 #contenedorImagenPortada {
@@ -163,6 +165,22 @@ h2 {
     margin-bottom: 1em;
 }
 
+#ExpPopSig{
+    display: flex;
+}
+
+#botonExplorarMain{
+    border-radius: 57px 0px 0px 57px;
+}
+
+#botonPopularesMain{
+    border-radius: 0px;
+}
+
+#botonSiguiendoMain{
+    border-radius:  0px 57px 57px 0px;
+}
+
 #inpBuscarMainYIcono {
     display: flex;
     padding: 8px 15px;
@@ -219,6 +237,31 @@ h2 {
     background: url(<path-to-image>) lightgray 50% / cover no-repeat;
 }
 
+.ubicacionEvento{
+    display: flex;
+}
+
+.ubicacionEvento p{
+    font-size: 16px;
+        color: #000;
+    font-family: "Public Sans";
+    font-style: normal;
+    font-weight: 400;
+}
+
+.tagsEvento{
+    display: flex;
+    gap: 0.5em;
+}
+
+.tagsEvento p{
+        font-size: 14px;
+        color: #000;
+    font-family: "Public Sans";
+    font-style: normal;
+    font-weight: 400;
+}
+
 h4 {
     color: #000;
 
@@ -238,14 +281,6 @@ h5 {
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
-}
-
-.evento p {
-    color: #000;
-    font-family: "Public Sans";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
 }
 
 
