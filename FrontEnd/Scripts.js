@@ -1,12 +1,21 @@
 const contenedorEventosMain = document.querySelector('#contenedorEventosMain');
 
+async function obtenerEventos() {
+  const response = await fetch('http://localhost:3000/eventos', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  return response.json();
+}
+
+
 async function listarEventos() {
-
   try {
-    const response = await fetch(`http://localhost:3000/eventos`);
-    const arrayEventos = await response.json();
+    const arrayEventos = await obtenerEventos();
 
-    contenedorEventosMain.innerHTML = ""; // limpiar antes de renderizar
+    contenedorEventosMain.innerHTML = ""; 
 
     arrayEventos.forEach(evento => {
       contenedorEventosMain.innerHTML += `
@@ -26,7 +35,7 @@ async function listarEventos() {
           </div>
               <div id="eventosYBoton">
               <p>$${evento.precio}</p>
-              <button class="botonMeInteresa">
+              <button class="botonAmarilloTiny">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -48,6 +57,19 @@ async function listarEventos() {
 
 listarEventos();
 
+const btnPopulares = document.querySelector('#botonPopularesMain');
+const btnSiguiendo = document.querySelector('#botonSiguiendoMain');
+const btnPrecio = document.querySelector('#botonPrecioMain');
 
+btnPrecio.addEventListener('click', filtrarPrecio);
 
+async function filtrarPrecio() {
+  try {
+    const arrayEventos = await obtenerEventos(); 
+    const eventosOrdenados = [...arrayEventos].sort((a, b) => a.precio - b.precio);
+    listarEventos(eventosOrdenados);
+  } catch (e) {
+    console.log('Error al filtrar por precio');
+  }
+}
 

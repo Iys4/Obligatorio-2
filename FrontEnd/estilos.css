@@ -16,6 +16,7 @@ p {
 }
 
 .botonAmarillo {
+    display: inline-flex;
     padding: 0.5em 1em;
     gap: 6px;
     border-radius: 57px;
@@ -27,6 +28,24 @@ p {
     /* Public/p Semibold */
     font-family: "Public Sans";
     font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.botonAmarilloTiny {
+    display: inline-flex;
+    padding: 0.5em 1em;
+    gap: 6px;
+    border-radius: 57px;
+    border: 2px solid #000;
+    background-color: #FFD23F;
+    /* Sombra boton */
+    box-shadow: 2px 2px 0 0 #000;
+    color: #000;
+    /* Public/p Semibold */
+    font-family: "Public Sans";
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -123,6 +142,11 @@ nav a {
 #eventosYCrearEvento {
     display: flex;
     justify-content: space-between;
+        margin-bottom: 1em;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 h1 {
@@ -169,16 +193,19 @@ h2 {
     display: flex;
 }
 
-#botonExplorarMain{
+
+
+#botonPopularesMain{
+    
     border-radius: 57px 0px 0px 57px;
 }
 
-#botonPopularesMain{
+#botonSiguiendoMain{
     border-radius: 0px;
 }
 
-#botonSiguiendoMain{
-    border-radius:  0px 57px 57px 0px;
+#botonPrecioMain{
+        border-radius:  0px 57px 57px 0px;
 }
 
 #inpBuscarMainYIcono {
@@ -253,11 +280,8 @@ h2 {
 .tagsEvento{
     display: flex;
     gap: 0.5em;
-}
-
-.tagsEvento p{
         font-size: 14px;
-        color: #000;
+    color: #000;
     font-family: "Public Sans";
     font-style: normal;
     font-weight: 400;
@@ -294,7 +318,6 @@ h5 {
     font-style: normal;
     font-weight: 600;
     line-height: 34px;
-    /* 188.889% */
 }
 
 #eventosYBoton p {
@@ -302,24 +325,7 @@ h5 {
     font-weight: 600;
 }
 
-.botonMeInteresa {
-    color: #000;
-    text-align: center;
-    font-family: "Public Sans";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    display: flex;
-    padding: 0 15px;
-    justify-content: center;
-    align-items: center;
-    gap: 4.26px;
-    border-radius: 37.066px;
-    border: 1.28px solid #000;
-    background: #FFD23F;
-    box-shadow: 1.28px 1.28px 0 0 #000;
-}
+
 
 #listaExplorarMain {
     display: flex;
