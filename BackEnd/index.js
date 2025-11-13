@@ -4,6 +4,8 @@ const app = express();
 const port = 3000;
 const evento = require("./evento");
 const { randomInt } = require('crypto');
+const cors = require('cors');
+app.use(cors());
 
 async function iniciar(){
     try{
