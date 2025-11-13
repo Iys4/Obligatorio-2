@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>¿Qué Hay? - Crear Evento</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="estilosCrearEvento.css">
 </head>
@@ -12,10 +12,10 @@
 <body>
     <header>
         <div class="contenedor header">
-            <a href="index.html"><img src="img/logo.png" volver a inicio" id="logoHeader"></a>
+            <a href="index.html"><img src="img/logo.png" alt="volver a inicio" id="logoHeader"></a>
             <nav>
                 <a href="index.html" id="inicioHeader">Inicio</a>
-                <a href="" id="crearEventoHeader">Crear evento</a>
+                <a href="crearEvento.html" id="crearEventoHeader">Crear evento</a>
                 <a href="" id="perfilHeader">Perfil</a>
             </nav>
         </div>
@@ -64,9 +64,9 @@
                     <input type="date" class="inputCE">
                 </div>
             </div>
-            <div id="contenedorSeleccionarCategoria" class="contenedorSelectCE">
+            <div id="contenedorSeleccionarCategoria" >
                 <h3>Seleccionar categoría</h3>
-                <select name="categorias" id="selectCategoriaCE">
+                <select name="categorias" id="selectCategoriaCE" class="contenedorSelectCE">
                     <option value="musica">Música</option>
                     <option value="deportes">Deportes</option>
                     <option value="teatro">Teatro</option>
@@ -75,16 +75,17 @@
                     <option value="otros">Otros</option>
                 </select>
             </div>
-            <div id="contenedorSeleccionarMetodoDePago" class="contenedorSelectCE">
+            <div id="contenedorSeleccionarMetodoDePago">
                 <h3>Seleccionar método de pago</h3>
-                <select name="metodosDePago" id="selectMetodoDePagoCE">
+                <select name="metodosDePago" id="selectMetodoDePagoCE" class="contenedorSelectCE">
                     <option value="tarjetaCredito">Tarjeta de crédito</option>
                     <option value="tarjetaDebito">Tarjeta de débito</option>
                     <option value="paypal">PayPal</option>
                     <option value="mercadoPago">Mercado Pago</option>
                 </select>
             </div>
-            <div id="modalSeleccionarEdadCE" class="modalesCE">
+            <div id="contenedorEdadModalidadSuspension">
+                <div id="modalSeleccionarEdadCE" class="modalesCE">
                 <h3>Tu evento es apto para menores de edad</h3>
                 <div id="contenedorButtonsModalCE">
                     <button class="buttonModalCE" id="TRUE+18">Sí</button>
@@ -105,8 +106,10 @@
                     <button class="buttonModalCE" id="FALSESuspendidoLluvia">No</button>
                 </div>
             </div>
-            <div id="botonCrearEventoCE">
-                <button id="buttonCrearEvento">Crear evento <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+ 
+            </div>
+                       <div id="botonCrearEventoCE">
+                <button id="buttonCrearEvento" class="botonAmarillo">Crear evento <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M16 19H22M16 2V6M19 16V22M21 12.598V6C21 5.46957 20.7893 4.96086 20.4142 4.58579C20.0391 4.21071 19.5304 4 19 4H5C4.46957 4 3.96086 4.21071 3.58579 4.58579C3.21071 4.96086 3 5.46957 3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H13.5M3 10H21M8 2V6" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg></button>
         </div>
@@ -114,17 +117,17 @@
 
     <footer>
         <div>
-            <a href="index.html"><img src="logo.png" alt="Volver a inicio" id="logoFooter"></a>
+            <a href="index.html"><img src="img/logo.png" alt="Volver a inicio" id="logoFooter"></a>
             <h4>Descubrí. Viví. Compartí.</h4>
             <p>© 2025 ¿Qué Hay? Todos los derechos reservados.</p>
         </div>
-        <div>
+        <div id="linksFooter">
             <h4>Links</h4>
             <a href="index.html">Inicio</a>
             <a href="">Crear Evento</a>
             <a href="">Perfil</a>
         </div>
-        <div>
+        <div id="redesFooter">
             <h4>Redes sociales</h4>
             <a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
