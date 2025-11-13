@@ -8,7 +8,10 @@ const userSchema = new mongoose.Schema({
     descripcion: String,
     precio: Number,
     location: String,
-    categoria: Array
+    categoria: String,
+    menoresDeEdad: Boolean,
+    techado: Boolean,
+    presencial: Boolean
 });
 
 module.exports = mongoose.model("evento", userSchema)

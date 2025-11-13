@@ -39,22 +39,32 @@ app.delete("/eventos/:id", async (req, res) => {
 });
 
 app.post('/crear', async (req, res) => {
-    const body = req.body
-    const creadorEvento = body.creadorEvento
-    const nombreEvento = body.nombreEvento
-    const linkImagen = body.linkImagen
-    const fecha = body.fecha
-    const descripcion = body.descripcion
-    const precio = body.precio
-    const location = body.location
-    const categoria = body.categoria
-    if (!creadorEvento || !nombreEvento || !linkImagen || !fecha || !descripcion || !precio || !location || !categoria) {
-        return res.status(400).send('Faltan datos obligatorios');
-    }
-    const eventoNuevo = await evento.create({nombreEvento: nombreEvento, linkImagen: linkImagen, fecha: fecha, descripcion: descripcion, precio: precio, location: location, categoria: categoria});
-    res.send('usuario creado con exito')
-    console.log(eventoNuevo);
-})
+  try {
+    const body = req.body;
+
+    const nuevoEvento = new evento({
+      creadorEvento: body.creadorEvento || [],
+      nombreEvento: body.nombreEvento,
+      linkImagen: body.linkImagen || [],
+      fecha: body.fecha,
+      descripcion: body.descripcion,
+      precio: body.precio,
+      location: body.location,
+      categoria: body.categoria,
+      menoresDeEdad: body.menoresDeEdad ?? false,
+      techado: body.techado ?? false,
+      presencial: body.presencial ?? true
+    });
+
+    await nuevoEvento.save();
+    res.status(201).send('Evento creado con éxito');
+    console.log('Nuevo evento:', nuevoEvento);
+  } catch (error) {
+    console.error('Error al crear el evento:', error);
+    res.status(500).send('Error al crear el evento');
+  }
+});
+
 
 
 app.put('/eventos/:id', async (req, res) => {
