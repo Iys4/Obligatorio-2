@@ -7,7 +7,7 @@ const { randomInt } = require('crypto');
 
 async function iniciar(){
     try{
-        await mongoose.connect("mongodb://localhost:27017");
+        await mongoose.connect("mongodb+srv://Isma:Obligatorio2CarmenIsma@cluster0.agxgzbc.mongodb.net/");
         console.log("Conectado a la base de datos");
 
         app.listen(port, () => {
