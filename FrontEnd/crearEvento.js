@@ -1,0 +1,127 @@
+// crearEvento.js
+botonCrearEventoCE = document.querySelector("#botonCrearEventoCE");
+botonCrearEventoCE.addEventListener("click", async () => {
+    try {
+      // 1️⃣ Obtener los valores de los inputs
+      const nombreEvento = document.querySelector("#nombrarEventoCE input").value;
+      const descripcion = document.querySelector("#descripcionEventoCE input").value;
+      const precio = Number(document.querySelector("#inputPrecio input").value);
+      const location = document.querySelector("#inputUbicacion input").value;
+      const fecha = document.querySelector("#inputFecha input").value;
+      const categoria = document.querySelector("#selectCategoriaCE").value;
+
+      const linkImagen = document.querySelector("#inputLinkImagen0");
+
+      const menoresDeEdad = true;
+      const techado = false;
+      const presencial = true;
+
+      // 2️⃣ Crear el objeto evento
+      const nuevoEvento = {
+        creadorEvento: ["admin"], // o el usuario logueado
+        nombreEvento,
+        linkImagen,
+        fecha,
+        descripcion,
+        precio,
+        location,
+        categoria,
+        edad18,
+        suspendidoLluvia,
+        presencial
+      };
+
+      console.log("Enviando evento:", nuevoEvento);
+
+      // 3️⃣ Enviar el evento al backend
+      const response = await fetch("http://localhost:3000/crear", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(nuevoEvento)
+      });
+
+      // 4️⃣ Leer respuesta
+      if (response.ok) {
+        const data = await response.text();
+        alert("Evento creado con éxito ✅");
+        console.log("Servidor respondió:", data);
+      } else {
+        const errorText = await response.text();
+        alert("Error al crear evento: " + errorText);
+        console.error(errorText);
+      }
+
+    } catch (error) {
+      console.error("Error en la creación del evento:", error);
+      alert("Ocurrió un error al enviar el formulario.");
+    }
+  });
+
+  const TRUE18 = document.querySelector("#TRUE18");
+  const FALSE18 = document.querySelector("#FALSE18");
+  let edad18 = true;
+
+    TRUE18.addEventListener("click", () => {
+        if (edad18 === false) {
+            edad18 = true;}
+            TRUE18.style.backgroundColor = "green";
+            FALSE18.style.backgroundColor = "white";
+            console.log(edad18);
+    });
+
+        FALSE18.addEventListener("click", () => {
+        if (edad18 === true) {
+            edad18 = false;}
+            FALSE18.style.backgroundColor = "green";
+            TRUE18.style.backgroundColor = "white";
+    });
+
+    // PRESENCIAL
+const TRUEPresencial = document.querySelector("#TRUETechado");
+const FALSEPresencial = document.querySelector("#FALSETechado");
+let presencial = true;
+
+TRUEPresencial.addEventListener("click", () => {
+    if (presencial === false) {
+        presencial = true;
+    }
+    TRUEPresencial.style.backgroundColor = "green";
+    FALSEPresencial.style.backgroundColor = "white";
+    console.log(presencial);
+});
+
+FALSEPresencial.addEventListener("click", () => {
+    if (presencial === true) {
+        presencial = false;
+    }
+    FALSEPresencial.style.backgroundColor = "green";
+    TRUEPresencial.style.backgroundColor = "white";
+    console.log(presencial);
+});
+
+
+// SUSPENDIDO POR LLUVIA
+const TRUESuspendidoLluvia = document.querySelector("#TRUESuspendidoLluvia");
+const FALSESuspendidoLluvia = document.querySelector("#FALSESuspendidoLluvia");
+let suspendidoLluvia = true;
+
+TRUESuspendidoLluvia.addEventListener("click", () => {
+    if (suspendidoLluvia === false) {
+        suspendidoLluvia = true;
+    }
+    TRUESuspendidoLluvia.style.backgroundColor = "green";
+    FALSESuspendidoLluvia.style.backgroundColor = "white";
+    console.log(suspendidoLluvia);
+});
+
+FALSESuspendidoLluvia.addEventListener("click", () => {
+    if (suspendidoLluvia === true) {
+        suspendidoLluvia = false;
+    }
+    FALSESuspendidoLluvia.style.backgroundColor = "green";
+    TRUESuspendidoLluvia.style.backgroundColor = "white";
+    console.log(suspendidoLluvia);
+});
+
