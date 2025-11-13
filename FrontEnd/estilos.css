@@ -220,6 +220,7 @@ h2 {
 .evento {
     padding: 11px;
     width: 20%;
+    min-width: 240px;
     height: 45vh;
     border-radius: 23.889px;
     border: 2px solid #000;
@@ -344,10 +345,13 @@ h5 {
 }
 
 #contenedorEventosMain {
+    display: flex;
+    flex-wrap: wrap;
     width: 75vw;
+    gap: 1em;
 }
 
-#contenedorEventosYSelectMain {
+#contenedorEventosYFiltroMain {
     display: flex;
 }
 
