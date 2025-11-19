@@ -47,7 +47,7 @@ app.post('/crear', async (req, res) => {
     const nuevoEvento = new evento({
       creadorEvento: body.creadorEvento || [],
       nombreEvento: body.nombreEvento,
-      linkImagen: body.linkImagen || [],
+      linksImagenes: body.linksImagenes || [],
       fecha: body.fecha,
       descripcion: body.descripcion,
       precio: body.precio,
