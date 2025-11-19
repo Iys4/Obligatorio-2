@@ -1,6 +1,8 @@
 // crearEvento.js
 botonCrearEventoCE = document.querySelector("#botonCrearEventoCE");
+let linksImagenes = [];
 botonCrearEventoCE.addEventListener("click", async () => {
+    console.log(linksImagenes);
     try {
       // 1️⃣ Obtener los valores de los inputs
       const nombreEvento = document.querySelector("#nombrarEventoCE input").value;
@@ -9,9 +11,6 @@ botonCrearEventoCE.addEventListener("click", async () => {
       const location = document.querySelector("#inputUbicacion input").value;
       const fecha = document.querySelector("#inputFecha input").value;
       const categoria = document.querySelector("#selectCategoriaCE").value;
-
-      const linkImagen = document.querySelector("#inputLinkImagen0");
-
       const menoresDeEdad = true;
       const techado = false;
       const presencial = true;
@@ -20,7 +19,7 @@ botonCrearEventoCE.addEventListener("click", async () => {
       const nuevoEvento = {
         creadorEvento: ["admin"], // o el usuario logueado
         nombreEvento,
-        linkImagen,
+        linkImagen: linksImagenes,
         fecha,
         descripcion,
         precio,
@@ -123,5 +122,30 @@ FALSESuspendidoLluvia.addEventListener("click", () => {
     FALSESuspendidoLluvia.style.backgroundColor = "green";
     TRUESuspendidoLluvia.style.backgroundColor = "white";
     console.log(suspendidoLluvia);
+});
+
+const agregarImagenCE = document.querySelector("#agregarImagenCE");
+const agregarImagenButt = document.querySelector("#agregarImagenButt");
+const contenedorDeImagenesCE = document.querySelector("#contenedorDeImagenesCE");
+const inputLinkImagen0 = document.querySelector("#inputLinkImagen0");
+let contadorDeImagenesCE = 1;
+
+agregarImagenButt.addEventListener("click", () => {
+  const URLimagen = inputLinkImagen0.value.trim();
+
+  if (!URLimagen) {
+    alert("Por favor ingresa una URL de imagen");
+    return;
+  }
+
+  contenedorDeImagenesCE.innerHTML += `
+    <div id="imagenAgregarCE${contadorDeImagenesCE}" class="contenedorImagenCE">
+      <img src="${URLimagen}" alt="Imagen ${contadorDeImagenesCE}">
+    </div>
+  `;
+  linksImagenes.push(URLimagen);
+  console.log(linksImagenes);
+  contadorDeImagenesCE++;
+  inputLinkImagen0.value = ""; // limpia el input
 });
 
