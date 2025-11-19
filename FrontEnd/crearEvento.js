@@ -11,15 +11,15 @@ botonCrearEventoCE.addEventListener("click", async () => {
       const location = document.querySelector("#inputUbicacion input").value;
       const fecha = document.querySelector("#inputFecha input").value;
       const categoria = document.querySelector("#selectCategoriaCE").value;
-      const menoresDeEdad = true;
-      const techado = false;
-      const presencial = true;
+      let menoresDeEdad = true;
+      let techado = false;
+      let presencial = true;
 
       // 2️⃣ Crear el objeto evento
       const nuevoEvento = {
         creadorEvento: ["admin"], // o el usuario logueado
         nombreEvento,
-        linkImagen: linksImagenes,
+        linksImagenes,
         fecha,
         descripcion,
         precio,
@@ -29,7 +29,7 @@ botonCrearEventoCE.addEventListener("click", async () => {
         suspendidoLluvia,
         presencial
       };
-
+      console.log(nuevoEvento);
       console.log("Enviando evento:", nuevoEvento);
 
       // 3️⃣ Enviar el evento al backend

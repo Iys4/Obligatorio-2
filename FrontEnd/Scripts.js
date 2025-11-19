@@ -18,9 +18,10 @@ async function listarEventos() {
     contenedorEventosMain.innerHTML = ""; 
 
     arrayEventos.forEach(evento => {
+      console.log(evento);
       contenedorEventosMain.innerHTML += `
         <div class="evento">
-          <img src="${evento.linkImagen[0] || ''}" alt="imagen de evento" class="imagenEventoMain">
+          <img src="${evento.linksImagenes[0] || ''}" alt="imagen de evento" class="imagenEventoMain">
           <h4>${evento.nombreEvento}</h4>
           <h5>${new Date(evento.fecha).toLocaleDateString()}</h5>
           <div class="ubicacionEvento">

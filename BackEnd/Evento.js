@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const userSchema = new mongoose.Schema({
     creadorEvento: Array,
     nombreEvento: String,
-    linkImagen: Array,
+    linksImagenes: Array,
     fecha: Date,
     descripcion: String,
     precio: Number,
