@@ -258,6 +258,23 @@ h2 {
     justify-content: space-around;
 }
 
+.evento img {
+    object-fit: cover;
+}
+
+.botonBlanco{
+    transition: 0.3s;
+}
+
+#tiposDeEventosDropDown {
+    display: flex;
+    flex-direction: column;
+}
+
+.botonBlanco:hover {
+    background-color: #fff2c7;
+}
+
 .imagenEventoMain {
     height: 55%;
     border-radius: 24px;

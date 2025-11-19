@@ -11,10 +11,8 @@ async function obtenerEventos() {
 }
 
 
-async function listarEventos() {
+async function listarEventos(arrayEventos) {
   try {
-    const arrayEventos = await obtenerEventos();
-
     contenedorEventosMain.innerHTML = ""; 
 
     arrayEventos.forEach(evento => {
@@ -55,22 +53,105 @@ async function listarEventos() {
     console.log('Error al listar los eventos');
   }
 }
+cargarInicial();
+async function cargarInicial(){
+  const arrayEventos = await obtenerEventos();
+  listarEventos(arrayEventos);
+}
 
-listarEventos();
-
-const btnPopulares = document.querySelector('#botonPopularesMain');
-const btnSiguiendo = document.querySelector('#botonSiguiendoMain');
-const btnPrecio = document.querySelector('#botonPrecioMain');
-
-btnPrecio.addEventListener('click', filtrarPrecio);
-
+const botonPopularesMain = document.querySelector('#botonPopularesMain');
+botonPopularesMain.addEventListener('click', filtrarPopulares);
+const botonSiguiendoMain = document.querySelector('#botonSiguiendoMain');
+botonSiguiendoMain.addEventListener('click', filtrarSiguiendo);
+const botonPrecioMain = document.querySelector('#botonPrecioMain');
+botonPrecioMain.addEventListener('click', filtrarPrecio);
+async function filtrarPopulares() {
+  console.log('Filtrando por populares'); 
+}
+async function filtrarSiguiendo() {
+  console.log('Filtrando por siguiendo'); 
+}
+let filtroPrecio = 0;
 async function filtrarPrecio() {
+  console.log('Filtrando por precio');
+  if (filtroPrecio === 0) {
+    filtroPrecio = 1;
+    botonPrecioMain.style.backgroundColor = '#FFD700';
+  
   try {
     const arrayEventos = await obtenerEventos(); 
+    console.log(typeof arrayEventos[0].precio);
+    const eventosOrdenados = [...arrayEventos].sort((b, a) => a.precio - b.precio);
+    listarEventos(eventosOrdenados);
+  } catch (e) {
+    console.log('Error al filtrar por precio');
+  }} else if (filtroPrecio === 1) {
+    filtroPrecio = 2;
+    botonPrecioMain.style.backgroundColor = '#ff00eaff';
+      try {
+    const arrayEventos = await obtenerEventos(); 
+    console.log(typeof arrayEventos[0].precio);
     const eventosOrdenados = [...arrayEventos].sort((a, b) => a.precio - b.precio);
     listarEventos(eventosOrdenados);
   } catch (e) {
     console.log('Error al filtrar por precio');
+  }
+  } else {
+    botonPrecioMain.style.backgroundColor = '#FFFFFF';
+    filtroPrecio = 0;
+    cargarInicial();
+  }
+}
+
+const tipoDeEventoSelect = document.querySelector('#tipoDeEventoSelect');
+tipoDeEventoSelect.addEventListener('click', dropdownTipoDeEvento);
+let tipoDeEventoAbierto = true;
+const tiposDeEventosDropDown = document.querySelector('#tiposDeEventosDropDown');
+
+function dropdownTipoDeEvento(){
+  console.log('click en tipo de evento');
+  if (tipoDeEventoAbierto === true) {
+    tipoDeEventoAbierto = false;
+    tiposDeEventosDropDown.style.display = "none";
+  }
+}
+
+const elegirFechaMain = document.querySelector('#elegirFechaMain');
+elegirFechaMain.addEventListener('change', filtrarFecha);
+
+async function filtrarFecha() {
+  const fechaSeleccionada = new Date(elegirFechaMain.value);
+  console.log('Filtrando por fecha:', fechaSeleccionada);}
+
+const inpBuscarMain = document.querySelector('#inpBuscarMain');
+inpBuscarMain.addEventListener('input', filtrarBusqueda);
+
+async function filtrarBusqueda() {
+  const texto = inpBuscarMain.value.toLowerCase().trim();
+
+  try {
+    const eventos = await obtenerEventos();
+
+    const filtrados = eventos.filter(evento => {
+      const nombre = evento.nombreEvento?.toLowerCase() || "";
+      const creador = Array.isArray(evento.creadorEvento)
+        ? evento.creadorEvento.join(" ").toLowerCase()
+        : "";
+      const categoria = evento.categoria?.toLowerCase() || "";
+      const descripcion = evento.descripcion?.toLowerCase() || "";
+
+      return (
+        nombre.includes(texto) ||
+        creador.includes(texto) ||
+        categoria.includes(texto) ||
+        descripcion.includes(texto)
+      );
+    });
+
+    listarEventos(filtrados);
+
+  } catch (error) {
+    console.error("Error al filtrar la búsqueda:", error);
   }
 }
 
