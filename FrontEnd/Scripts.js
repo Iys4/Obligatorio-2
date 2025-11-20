@@ -1,5 +1,6 @@
 const contenedorEventosMain = document.querySelector('#contenedorEventosMain');
-
+const eventosGlobal = await obtenerEventos();
+console.log(eventosGlobal);
 async function obtenerEventos() {
   const response = await fetch('http://localhost:3000/eventos', {
     method: 'GET',
@@ -43,11 +44,12 @@ async function listarEventos(arrayEventos) {
                                 </svg>
                                 Me interesa
                             </button>
+                            <a class="botonAmarilloTiny" id="${evento._id}" href="paginaEvento.html?id=${evento._id}"></a>
                         </div>
         </div>
 
       `;
-    });
+});
   }
   catch (e) {
     console.log('Error al listar los eventos');
@@ -55,7 +57,7 @@ async function listarEventos(arrayEventos) {
 }
 cargarInicial();
 async function cargarInicial(){
-  const arrayEventos = await obtenerEventos();
+  const arrayEventos = eventosGlobal;
   listarEventos(arrayEventos);
 }
 
@@ -79,7 +81,7 @@ async function filtrarPrecio() {
     botonPrecioMain.style.backgroundColor = '#FFD700';
   
   try {
-    const arrayEventos = await obtenerEventos(); 
+    const arrayEventos = eventosGlobal;
     console.log(typeof arrayEventos[0].precio);
     const eventosOrdenados = [...arrayEventos].sort((b, a) => a.precio - b.precio);
     listarEventos(eventosOrdenados);
@@ -89,7 +91,7 @@ async function filtrarPrecio() {
     filtroPrecio = 2;
     botonPrecioMain.style.backgroundColor = '#ff00eaff';
       try {
-    const arrayEventos = await obtenerEventos(); 
+    const arrayEventos = eventosGlobal;
     console.log(typeof arrayEventos[0].precio);
     const eventosOrdenados = [...arrayEventos].sort((a, b) => a.precio - b.precio);
     listarEventos(eventosOrdenados);
@@ -130,7 +132,7 @@ async function filtrarBusqueda() {
   const texto = inpBuscarMain.value.toLowerCase().trim();
 
   try {
-    const eventos = await obtenerEventos();
+    const eventos = eventosGlobal;
 
     const filtrados = eventos.filter(evento => {
       const nombre = evento.nombreEvento?.toLowerCase() || "";
@@ -154,4 +156,40 @@ async function filtrarBusqueda() {
     console.error("Error al filtrar la búsqueda:", error);
   }
 }
+
+
+
+const inicioInput = document.getElementById("elegirFechaMain");
+const finInput = document.getElementById("elegirFechaFinalMain");
+
+
+function filtrarPorFecha() {
+    const eventos = eventosGlobal;
+    const inicio = inicioInput.value ? new Date(inicioInput.value) : null;
+    const fin = finInput.value ? new Date(finInput.value) : null;
+    console.log(inicio, fin);
+    eventosGlobal = eventosGlobal.map(ev => ({
+    ...ev,
+    fecha: new Date(ev.fecha)
+}));
+    const eventosFiltrados = eventos.filter(ev => {
+        const fechaEv = ev.fecha;
+        // Si hay fecha inicial y el evento es anterior → descartar
+        if (fechaEv < inicio) {
+          console.log("FILTRANDO INICIO");
+          return false};
+
+        // Si hay fecha final y el evento es posterior → descartar
+        if (fechaEv > fin) return false;
+
+        return true;
+    });
+
+    listarEventos(eventosFiltrados);
+}
+
+inicioInput.addEventListener("change", filtrarPorFecha);
+finInput.addEventListener("change", filtrarPorFecha);
+
+
 
