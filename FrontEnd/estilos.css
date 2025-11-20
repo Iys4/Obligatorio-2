@@ -132,11 +132,12 @@ nav a {
 .imagenPortada {
     width: 100%;
     height: 100%;
-    /*     background-image: url(img/portadafoto.jpg);
-    background-size: cover; */
+    background-image: url(img/portadafoto.png);
+    background-size: cover; 
     background-color: blanchedalmond;
     border-radius: 20px;
     align-content: flex-end;
+
 }
 
 #eventosYCrearEvento {
