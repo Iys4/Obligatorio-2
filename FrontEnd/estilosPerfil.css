@@ -30,7 +30,7 @@ header{
     gap: 20px;
 }
 
-#imagenYNombrePerfil{
+#imagenYDatosPerfil{
     display: flex;
     gap: 3em;
 }
@@ -39,6 +39,11 @@ header{
     display: flex;
     flex-direction: column;
     gap: 1em;
+}
+
+#imagenDatosYBoton{
+    display: flex;
+    justify-content: space-between;
 }
 
 #h3YCrearEvento{
@@ -51,6 +56,27 @@ header{
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
+}
+
+.botonBlancoIcono{
+    height: max-content;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 1em;
+    gap: 6px;
+    border-radius: 57px;
+    border: 2px solid #000;
+    /* Sombra boton */
+    box-shadow: 2px 2px 0 0 #000;
+    color: #000;
+    /* Public/p Semibold */
+    font-family: "Public Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    transition: 0.3s;
 }
 
 footer{

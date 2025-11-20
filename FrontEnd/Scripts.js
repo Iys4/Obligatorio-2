@@ -155,3 +155,9 @@ async function filtrarBusqueda() {
   }
 }
 
+const btnEditar = document.querySelector('#btnEditar')
+btnEditar.addEventListener('click', hacerEditable)
+
+function hacerEditable(){
+  
+}

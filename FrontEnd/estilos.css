@@ -75,6 +75,7 @@ p {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    transition: 0.3s;
 }
 
 * {
@@ -276,10 +277,6 @@ h3{
 
 .evento img {
     object-fit: cover;
-}
-
-.botonBlanco{
-    transition: 0.3s;
 }
 
 #tiposDeEventosDropDown {
