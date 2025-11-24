@@ -103,18 +103,6 @@ app.get('/usuarios', async (req, res) => {
     res.send(usuarios);
 });
 
-app.delete("/usuarios/:id", async (req, res) => {
-    try {
-        const params = req.params;
-        console.log(params);
-        await usuario.findByIdAndDelete(params.id);
-        res.send("Usuario eliminado con exito" + params.id);
-    } catch (error) {
-        console.error('Error al eliminar el usuario:', error);
-        res.status(500).send('Error al eliminar el usuario');
-    }
-}); 
-
 app.post('/crearUsuario', async (req, res) => {
     try {
         const body = req.body;
@@ -147,7 +135,30 @@ app.post('/crearUsuario', async (req, res) => {
     }
 });
 
+app.get('/usuarios/:id', async (req, res) => {
+  try {
+    const usuarioEncontrado = await usuario.findById(req.params.id);
+    if (!usuarioEncontrado) {
+      return res.status(404).send("Usuario no encontrado");
+    }
+    res.json(usuarioEncontrado);
+  } catch (error) {
+    console.error("Error obteniendo usuario:", error);
+    res.status(500).send("Error en el servidor");
+  }
+});
 
+app.delete("/usuarios/:id", async (req, res) => {
+    try {
+        const params = req.params;
+        console.log(params);
+        await usuario.findByIdAndDelete(params.id);
+        res.send("Usuario eliminado con exito" + params.id);
+    } catch (error) {
+        console.error('Error al eliminar el usuario:', error);
+        res.status(500).send('Error al eliminar el usuario');
+    }
+}); 
 
 app.put('/usuarios/:id', async (req, res) => {
     try {

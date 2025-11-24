@@ -13,7 +13,7 @@ function headerLoad (){
                 <a href="index.html" id="inicioHeader">Inicio</a>
                 <a href="crearEvento.html" id="crearEventoHeader">Crear evento</a>
                 <a href="perfil.html" id="perfilHeader">Perfil</a>
-                <button id="btnIniciarSesion">Iniciar sesión</button>
+                <button class="btnIniciarSesion">Iniciar sesión</button>
                 <h2 id="nombreUsuarioHeader">nombre usuario</h2>
             </nav>
         </div>`;
