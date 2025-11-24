@@ -14,7 +14,7 @@ async function obtenerEventos() {
 
 async function listarEventos(arrayEventos) {
   try {
-    contenedorEventosMain.innerHTML = ""; 
+    contenedorEventosMain.innerHTML = "";
 
     arrayEventos.forEach(evento => {
       console.log(evento);
@@ -49,14 +49,14 @@ async function listarEventos(arrayEventos) {
         </div>
 
       `;
-});
+    });
   }
   catch (e) {
     console.log('Error al listar los eventos');
   }
 }
 cargarInicial();
-async function cargarInicial(){
+async function cargarInicial() {
   const arrayEventos = eventosGlobal;
   listarEventos(arrayEventos);
 }
@@ -64,10 +64,10 @@ async function cargarInicial(){
 const botonPrecioMain = document.querySelector('#botonPrecioMain');
 botonPrecioMain.addEventListener('click', filtrarPrecio);
 async function filtrarPopulares() {
-  console.log('Filtrando por populares'); 
+  console.log('Filtrando por populares');
 }
 async function filtrarSiguiendo() {
-  console.log('Filtrando por siguiendo'); 
+  console.log('Filtrando por siguiendo');
 }
 let filtroPrecio = 0;
 async function filtrarPrecio() {
@@ -75,25 +75,26 @@ async function filtrarPrecio() {
   if (filtroPrecio === 0) {
     filtroPrecio = 1;
     botonPrecioMain.style.backgroundColor = '#FFD700';
-  
-  try {
-    const arrayEventos = eventosGlobal;
-    console.log(typeof arrayEventos[0].precio);
-    const eventosOrdenados = [...arrayEventos].sort((b, a) => a.precio - b.precio);
-    listarEventos(eventosOrdenados);
-  } catch (e) {
-    console.log('Error al filtrar por precio');
-  }} else if (filtroPrecio === 1) {
+
+    try {
+      const arrayEventos = eventosGlobal;
+      console.log(typeof arrayEventos[0].precio);
+      const eventosOrdenados = [...arrayEventos].sort((b, a) => a.precio - b.precio);
+      listarEventos(eventosOrdenados);
+    } catch (e) {
+      console.log('Error al filtrar por precio');
+    }
+  } else if (filtroPrecio === 1) {
     filtroPrecio = 2;
     botonPrecioMain.style.backgroundColor = '#ff00eaff';
-      try {
-    const arrayEventos = eventosGlobal;
-    console.log(typeof arrayEventos[0].precio);
-    const eventosOrdenados = [...arrayEventos].sort((a, b) => a.precio - b.precio);
-    listarEventos(eventosOrdenados);
-  } catch (e) {
-    console.log('Error al filtrar por precio');
-  }
+    try {
+      const arrayEventos = eventosGlobal;
+      console.log(typeof arrayEventos[0].precio);
+      const eventosOrdenados = [...arrayEventos].sort((a, b) => a.precio - b.precio);
+      listarEventos(eventosOrdenados);
+    } catch (e) {
+      console.log('Error al filtrar por precio');
+    }
   } else {
     botonPrecioMain.style.backgroundColor = '#FFFFFF';
     filtroPrecio = 0;
@@ -105,20 +106,21 @@ async function filtrarPrecio() {
 function cargarCategorias() {
   console.log('Cargando categorias');
   let categorias = [];
-      const eventos = eventosGlobal;
-    eventos.forEach(evento => {
-      if (evento.categoria && !categorias.includes(evento.categoria)) {
-        categorias.push(evento.categoria);
-      }
-      tiposDeEventosDropDown.innerHTML = '';
-      categorias.forEach(categoria => {
-        tiposDeEventosDropDown.innerHTML += `
+  const eventos = eventosGlobal;
+  eventos.forEach(evento => {
+    if (evento.categoria && !categorias.includes(evento.categoria)) {
+      categorias.push(evento.categoria);
+    }
+    tiposDeEventosDropDown.innerHTML = '';
+    categorias.forEach(categoria => {
+      tiposDeEventosDropDown.innerHTML += `
                 <div data-categoria="conciertos">
                     <p>${categoria}</p>
                 </div>
         `;
-      });
-    });}
+    });
+  });
+}
 
 const tipoDeEventoSelect = document.querySelector('#tipoDeEventoSelect');
 tipoDeEventoSelect.addEventListener('click', dropdownTipoDeEvento);
@@ -126,7 +128,7 @@ let tipoDeEventoAbierto = true;
 const tiposDeEventosDropDown = document.querySelector('#tiposDeEventosDropDown');
 cargarCategorias();
 
-function dropdownTipoDeEvento(){
+function dropdownTipoDeEvento() {
   console.log('click en tipo de evento');
   if (tipoDeEventoAbierto === true) {
     tipoDeEventoAbierto = false;
@@ -142,7 +144,8 @@ elegirFechaMain.addEventListener('change', filtrarFecha);
 
 async function filtrarFecha() {
   const fechaSeleccionada = new Date(elegirFechaMain.value);
-  console.log('Filtrando por fecha:', fechaSeleccionada);}
+  console.log('Filtrando por fecha:', fechaSeleccionada);
+}
 
 const inpBuscarMain = document.querySelector('#inpBuscarMain');
 inpBuscarMain.addEventListener('input', filtrarBusqueda);
@@ -178,27 +181,27 @@ async function filtrarBusqueda() {
 
 
 
-const inicioInput = document.getElementById("elegirFechaMain");
-const finInput = document.getElementById("elegirFechaFinalMain");
+const inicioInput = document.querySelector("#elegirFechaMain");
+const finInput = document.querySelector("#elegirFechaFinalMain");
 
 
 function filtrarPorFecha() {
-    const eventos = eventosGlobal;
-    const inicio = inicioInput.value ? new Date(inicioInput.value) : null;
-    const fin = finInput.value ? new Date(finInput.value) : null;
-    console.log(inicio, fin);
-    let eventosFiltrados = [];
-    for (let i = 0; i < eventos.length; i++) {
-      const element = eventos[i];
-      const fechaEvento = new Date(element.fecha);
-      if (
-        (inicio === null || fechaEvento >= inicio) &&
-        (fin === null || fechaEvento <= fin)
-      ) {
-        eventosFiltrados.push(element);
-      }
+  const eventos = eventosGlobal;
+  const inicio = inicioInput.value ? new Date(inicioInput.value) : null;
+  const fin = finInput.value ? new Date(finInput.value) : null;
+  console.log(inicio, fin);
+  let eventosFiltrados = [];
+  for (let i = 0; i < eventos.length; i++) {
+    const element = eventos[i];
+    const fechaEvento = new Date(element.fecha);
+    if (
+      (inicio === null || fechaEvento >= inicio) &&
+      (fin === null || fechaEvento <= fin)
+    ) {
+      eventosFiltrados.push(element);
     }
-    listarEventos(eventosFiltrados);
+  }
+  listarEventos(eventosFiltrados);
 }
 
 inicioInput.addEventListener("change", filtrarPorFecha);
@@ -206,3 +209,148 @@ finInput.addEventListener("change", filtrarPorFecha);
 
 /* Usuarios */
 
+const inpUsuario = document.querySelector("#inpUsuario");
+const inpContraseña = document.querySelector("#inpContraseña");
+const btnIniciarSesion = document.querySelector(".btnIniciarSesion")
+const btnRegistrar = document.querySelector("#btnRegistrar");
+const perfilHeader = document.querySelector("#perfilHeader");
+const modalIS = document.querySelector("#seccionIniciarSesion")
+
+btnIniciarSesion.addEventListener('click', () => {
+  modalIS.style.display = 'block';
+})
+
+/* Registrar Usuario */
+
+btnRegistrar.addEventListener('click', async () => {
+  try {
+    const nuevoUsuario = {
+      nombreUsuario: inpUsuario.value.trim(),
+      contraseñaUsuario: inpContraseña.value.trim()
+    };
+
+    if (!nuevoUsuario.nombreUsuario || !nuevoUsuario.contraseñaUsuario) {
+      alert("Por favor completa todos los campos.");
+      return;
+    }
+
+    const response = await fetch("http://localhost:3000/crearUsuario", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(nuevoUsuario)
+    });
+
+    if (response.ok) {
+      alert("Usuario creado con éxito ✅");
+      inpUsuario.value = "";
+      inpContraseña.value = "";
+      modalIS.style.display = 'none';
+      perfilHeader.style.display = 'block';
+    } else {
+      const errorText = await response.text();
+      alert("Error al crear usuario: " + errorText);
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Ocurrió un error al crear el usuario.");
+  }
+});
+
+/* Ingresar Usuario */
+
+const btnIngresar = document.querySelector("#btnIngresar");
+const infoPerfil = document.querySelector('#imagenYDatosPerfil');
+
+const usuarioLogueadoId = localStorage.getItem("usuarioLogueadoId");
+if (usuarioLogueadoId) {
+  perfilHeader.style.display = 'block';
+  btnIniciarSesion.style.display = 'none';
+  modalIS.style.display = 'none';
+}
+
+btnIngresar.addEventListener('click', async () => {
+  const usuarioIngresado = inpUsuario.value.trim();
+  const contraseñaIngresada = inpContraseña.value.trim();
+
+  if (!usuarioIngresado || !contraseñaIngresada) {
+    alert("Por favor completa todos los campos.");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:3000/usuarios");
+    const usuarios = await response.json();
+
+    const usuarioValido = usuarios.find(
+      u => u.nombreUsuario === usuarioIngresado && u.contraseñaUsuario === contraseñaIngresada
+    );
+
+    if (usuarioValido) {
+      alert("Ingreso exitoso");
+      inpUsuario.value = "";
+      inpContraseña.value = "";
+      modalIS.style.display = 'none';
+      perfilHeader.style.display = 'block';      
+
+      localStorage.setItem("usuarioLogueadoId", usuarioValido._id);
+      localStorage.setItem("usuarioLogueadoNombre", usuarioValido.nombreUsuario);
+
+      console.log(localStorage.getItem("usuarioLogueadoId"));
+      console.log("Usuario logueado ID:", usuarioValido.nombreUsuario);
+      nombreUsuarioHeader.textContent = localStorage.getItem("usuarioLogueadoNombre");
+      console.log(usuarioValido)
+      mostrarInfoPerfil();
+    } else {
+      alert("Usuario o contraseña incorrectos");
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Ocurrió un error al intentar iniciar sesión.");
+  }
+});
+
+cargarNombreUsuario();
+function cargarNombreUsuario() {
+  nombreUsuarioHeader.textContent = localStorage.getItem("usuarioLogueadoNombre");
+}
+
+async function mostrarInfoPerfil() {
+  const id = localStorage.getItem("usuarioLogueadoId");
+  if (!id) return;
+
+  try {
+    const response = await fetch(`http://localhost:3000/usuarios/${id}`);
+    const usuario = await response.json();
+
+    infoPerfil.innerHTML = `
+      <div id="imagenPerfil"></div>
+
+      <div id="nombreYDatosPerfil">
+        <h2>${usuario.nombreUsuario}</h2>
+
+        <h3>Información</h3>
+
+        <div>
+          <h4>Sobre mí</h4>
+          <p>${usuario.descripcionUsuario || "Sin descripción"}</p>
+        </div>
+
+        <div>
+          <h4>Ubicación</h4>
+          <p>${usuario.ubicacionUsuario || "No especificada"}</p>
+        </div>
+
+        <div>
+          <h4>Intereses</h4>
+          <p>${usuario.interesesUsuario || "Ninguno"}</p>
+        </div>
+
+        <button id="btnGuardar" class="botonBlanco">Guardar</button>
+      </div>
+    `;
+    console.log(usuario)
+  } catch (error) {
+    console.error("Error cargando perfil:", error);
+  }
+}
