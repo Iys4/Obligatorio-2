@@ -1,6 +1,7 @@
 const contenedorEventosMain = document.querySelector('#contenedorEventosMain');
 const eventosGlobal = await obtenerEventos();
 console.log(eventosGlobal);
+console.log("ID usuario logueado:", localStorage.getItem("usuarioLogueadoId"));
 async function obtenerEventos() {
   const response = await fetch('http://localhost:3000/eventos', {
     method: 'GET',
@@ -259,7 +260,6 @@ btnRegistrar.addEventListener('click', async () => {
 /* Ingresar Usuario */
 
 const btnIngresar = document.querySelector("#btnIngresar");
-const infoPerfil = document.querySelector('#imagenYDatosPerfil');
 
 const usuarioLogueadoId = localStorage.getItem("usuarioLogueadoId");
 if (usuarioLogueadoId) {
@@ -299,7 +299,6 @@ btnIngresar.addEventListener('click', async () => {
       console.log("Usuario logueado ID:", usuarioValido.nombreUsuario);
       nombreUsuarioHeader.textContent = localStorage.getItem("usuarioLogueadoNombre");
       console.log(usuarioValido)
-      mostrarInfoPerfil();
     } else {
       alert("Usuario o contraseña incorrectos");
     }
@@ -314,43 +313,5 @@ cargarNombreUsuario();
 function cargarNombreUsuario() {
   nombreUsuarioHeader.textContent = localStorage.getItem("usuarioLogueadoNombre");
 }
-
-async function mostrarInfoPerfil() {
-  const id = localStorage.getItem("usuarioLogueadoId");
-  if (!id) return;
-
-  try {
-    const response = await fetch(`http://localhost:3000/usuarios/${id}`);
-    const usuario = await response.json();
-
-    infoPerfil.innerHTML = `
-      <div id="imagenPerfil"></div>
-
-      <div id="nombreYDatosPerfil">
-        <h2>${usuario.nombreUsuario}</h2>
-
-        <h3>Información</h3>
-
-        <div>
-          <h4>Sobre mí</h4>
-          <p>${usuario.descripcionUsuario || "Sin descripción"}</p>
-        </div>
-
-        <div>
-          <h4>Ubicación</h4>
-          <p>${usuario.ubicacionUsuario || "No especificada"}</p>
-        </div>
-
-        <div>
-          <h4>Intereses</h4>
-          <p>${usuario.interesesUsuario || "Ninguno"}</p>
-        </div>
-
-        <button id="btnGuardar" class="botonBlanco">Guardar</button>
-      </div>
-    `;
-    console.log(usuario)
-  } catch (error) {
-    console.error("Error cargando perfil:", error);
-  }
-}
+  console.log(usuarioLogueadoId)
+  
