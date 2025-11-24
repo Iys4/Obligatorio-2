@@ -61,10 +61,6 @@ async function cargarInicial(){
   listarEventos(arrayEventos);
 }
 
-const botonPopularesMain = document.querySelector('#botonPopularesMain');
-botonPopularesMain.addEventListener('click', filtrarPopulares);
-const botonSiguiendoMain = document.querySelector('#botonSiguiendoMain');
-botonSiguiendoMain.addEventListener('click', filtrarSiguiendo);
 const botonPrecioMain = document.querySelector('#botonPrecioMain');
 botonPrecioMain.addEventListener('click', filtrarPrecio);
 async function filtrarPopulares() {
@@ -105,16 +101,39 @@ async function filtrarPrecio() {
   }
 }
 
+
+function cargarCategorias() {
+  console.log('Cargando categorias');
+  let categorias = [];
+      const eventos = eventosGlobal;
+    eventos.forEach(evento => {
+      if (evento.categoria && !categorias.includes(evento.categoria)) {
+        categorias.push(evento.categoria);
+      }
+      tiposDeEventosDropDown.innerHTML = '';
+      categorias.forEach(categoria => {
+        tiposDeEventosDropDown.innerHTML += `
+                <div data-categoria="conciertos">
+                    <p>${categoria}</p>
+                </div>
+        `;
+      });
+    });}
+
 const tipoDeEventoSelect = document.querySelector('#tipoDeEventoSelect');
 tipoDeEventoSelect.addEventListener('click', dropdownTipoDeEvento);
 let tipoDeEventoAbierto = true;
 const tiposDeEventosDropDown = document.querySelector('#tiposDeEventosDropDown');
+cargarCategorias();
 
 function dropdownTipoDeEvento(){
   console.log('click en tipo de evento');
   if (tipoDeEventoAbierto === true) {
     tipoDeEventoAbierto = false;
     tiposDeEventosDropDown.style.display = "none";
+  } else {
+    tipoDeEventoAbierto = true;
+    tiposDeEventosDropDown.style.display = "block";
   }
 }
 
@@ -168,23 +187,17 @@ function filtrarPorFecha() {
     const inicio = inicioInput.value ? new Date(inicioInput.value) : null;
     const fin = finInput.value ? new Date(finInput.value) : null;
     console.log(inicio, fin);
-    eventosGlobal = eventosGlobal.map(ev => ({
-    ...ev,
-    fecha: new Date(ev.fecha)
-}));
-    const eventosFiltrados = eventos.filter(ev => {
-        const fechaEv = ev.fecha;
-        // Si hay fecha inicial y el evento es anterior → descartar
-        if (fechaEv < inicio) {
-          console.log("FILTRANDO INICIO");
-          return false};
-
-        // Si hay fecha final y el evento es posterior → descartar
-        if (fechaEv > fin) return false;
-
-        return true;
-    });
-
+    let eventosFiltrados = [];
+    for (let i = 0; i < eventos.length; i++) {
+      const element = eventos[i];
+      const fechaEvento = new Date(element.fecha);
+      if (
+        (inicio === null || fechaEvento >= inicio) &&
+        (fin === null || fechaEvento <= fin)
+      ) {
+        eventosFiltrados.push(element);
+      }
+    }
     listarEventos(eventosFiltrados);
 }
 
@@ -244,6 +257,7 @@ btnRegistrar.addEventListener('click', async () => {
 
 const btnIngresar = document.querySelector("#btnIngresar"); 
 
+
 const usuarioLogueadoId = localStorage.getItem("usuarioLogueadoId");
 if (usuarioLogueadoId) {
   perfilHeader.style.display = 'block';
@@ -275,6 +289,10 @@ btnIngresar.addEventListener('click', async () => {
       perfilHeader.style.display = 'block';
 
       localStorage.setItem("usuarioLogueadoId", usuarioValido._id);
+      localStorage.setItem("usuarioLogueadoNombre", usuarioValido.nombreUsuario);
+      console.log(localStorage.getItem("usuarioLogueadoId"));
+      console.log("Usuario logueado ID:", usuarioValido.nombreUsuario);
+      nombreUsuarioHeader.textContent = localStorage.getItem("usuarioLogueadoNombre");
     } else {
       alert("Usuario o contraseña incorrectos");
     }
@@ -284,3 +302,7 @@ btnIngresar.addEventListener('click', async () => {
     alert("Ocurrió un error al intentar iniciar sesión.");
   }
 });
+cargarNombreUsuario();
+function cargarNombreUsuario() {
+  nombreUsuarioHeader.textContent = localStorage.getItem("usuarioLogueadoNombre");
+}
