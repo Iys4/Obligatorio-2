@@ -113,7 +113,7 @@ app.delete("/usuarios/:id", async (req, res) => {
         console.error('Error al eliminar el usuario:', error);
         res.status(500).send('Error al eliminar el usuario');
     }
-});
+}); 
 
 app.post('/crearUsuario', async (req, res) => {
     try {
@@ -133,7 +133,7 @@ app.post('/crearUsuario', async (req, res) => {
             contraseñaUsuario: body.contraseñaUsuario,
             descripcionUsuario: body.descripcionUsuario || "",
             ubicacionUsuario: body.ubicacionUsuario || "",
-            interesesUsuario: body.interesesUsuario || [],
+            interesesUsuario: body.interesesUsuario || "",
             eventosUsuario: [],
             eventosSeguidos: []
         });
@@ -171,7 +171,7 @@ app.put('/usuarios/:id', async (req, res) => {
         console.error('Error al actualizar el usuario:', error);
         res.status(500).send('Error al actualizar el usuario');
     }
-});
+}); 
 
 
 

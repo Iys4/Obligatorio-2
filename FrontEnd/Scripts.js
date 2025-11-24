@@ -191,5 +191,96 @@ function filtrarPorFecha() {
 inicioInput.addEventListener("change", filtrarPorFecha);
 finInput.addEventListener("change", filtrarPorFecha);
 
+/* Usuarios */
 
+const inpUsuario = document.querySelector("#inpUsuario");
+const inpContraseña = document.querySelector("#inpContraseña");
+const btnIniciarSesion = document.querySelector("#btnIniciarSesion")
+const btnRegistrar = document.querySelector("#btnRegistrar");
+const perfilHeader = document.querySelector("#perfilHeader");
+const modalIS = document.querySelector("#seccionIniciarSesion")
 
+btnIniciarSesion.addEventListener('click', () => {
+  modalIS.style.display = 'block';
+})
+
+/* Registrar Usuario */
+
+btnRegistrar.addEventListener('click', async () => {
+  try {
+    const nuevoUsuario = {
+      nombreUsuario: inpUsuario.value.trim(),
+      contraseñaUsuario: inpContraseña.value.trim()
+    };
+
+    if (!nuevoUsuario.nombreUsuario || !nuevoUsuario.contraseñaUsuario) {
+      alert("Por favor completa todos los campos.");
+      return;
+    }
+
+    const response = await fetch("http://localhost:3000/crearUsuario", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(nuevoUsuario)
+    });
+
+    if (response.ok) {
+      alert("Usuario creado con éxito ✅");
+      inpUsuario.value = "";
+      inpContraseña.value = "";
+      modalIS.style.display = 'none';      
+      perfilHeader.style.display = 'block';
+    } else {
+      const errorText = await response.text();
+      alert("Error al crear usuario: " + errorText);
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Ocurrió un error al crear el usuario.");
+  }
+});
+
+/* Ingresar Usuario */
+
+const btnIngresar = document.querySelector("#btnIngresar"); 
+
+const usuarioLogueadoId = localStorage.getItem("usuarioLogueadoId");
+if (usuarioLogueadoId) {
+  perfilHeader.style.display = 'block';
+  modalIS.style.display = 'none';
+}
+
+btnIngresar.addEventListener('click', async () => {
+  const usuarioIngresado = inpUsuario.value.trim();
+  const contraseñaIngresada = inpContraseña.value.trim();
+
+  if (!usuarioIngresado || !contraseñaIngresada) {
+    alert("Por favor completa todos los campos.");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:3000/usuarios");
+    const usuarios = await response.json();
+
+    const usuarioValido = usuarios.find(
+      u => u.nombreUsuario === usuarioIngresado && u.contraseñaUsuario === contraseñaIngresada
+    );
+
+    if (usuarioValido) {
+      alert("Ingreso exitoso");
+      inpUsuario.value = "";
+      inpContraseña.value = "";
+      modalIS.style.display = 'none';
+      perfilHeader.style.display = 'block';
+
+      localStorage.setItem("usuarioLogueadoId", usuarioValido._id);
+    } else {
+      alert("Usuario o contraseña incorrectos");
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Ocurrió un error al intentar iniciar sesión.");
+  }
+});

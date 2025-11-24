@@ -7,7 +7,7 @@
     /*URL to font*/
 }
 
-p {
+p, label {
     font-family: "Public Sans";
     font-size: 16px;
     font-style: normal;
@@ -78,6 +78,23 @@ p {
     transition: 0.3s;
 }
 
+.botonBlancoTiny {
+    display: inline-flex;
+    padding: 0.5em 1em;
+    gap: 6px;
+    border-radius: 57px;
+    border: 2px solid #000;
+    /* Sombra boton */
+    box-shadow: 2px 2px 0 0 #000;
+    color: #000;
+    /* Public/p Semibold */
+    font-family: "Public Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -85,7 +102,7 @@ p {
     text-decoration: none;
 }
 
-a {
+a, nav button {
     color: #000;
     text-align: center;
     /* Public/p Semibold */
@@ -118,7 +135,7 @@ header {
     height: 20vh;
 }
 
-nav a {
+nav a, nav button {
     display: inline-block;
     padding: 10px;
     border-radius: 67.568px;
@@ -167,7 +184,7 @@ h1 {
     font-style: normal;
     font-size: 48px;
     font-weight: 400;
-    line-height: 58px;
+    line-height: 53px;
     /* 120.833% */
 }
 
@@ -229,6 +246,48 @@ h3{
     display: flex;
     padding: 8px 15px;
     align-items: center;
+    border-radius: 25px;
+    border: 2px solid  #000;
+    background: #FFF;
+    /* Sombra boton */
+    box-shadow: 2px 2px 0 0 #000;
+}
+
+.input {
+    font-family: "Public Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    border: none;
+}
+
+#seccionIniciarSesion{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;            
+    top: 50%;                   
+    left: 50%;                 
+    transform: translate(-50%, -50%); 
+    z-index: 9999;
+    background-color: #00000041;
+}
+
+#modalIniciarSesion {
+    width: fit-content;
+    padding: 2em;
+    gap: 1em;
+    border-radius: 25px;
+    border: 2px solid #000;
+    background-color: white;
+            
+}
+
+#modalIniciarSesion h1{
+    text-align: center;
+}
+
+#modalIniciarSesion .input{
+    padding: 8px 15px;
     gap: 6px;
     border-radius: 25px;
     border: 2px solid  #000;
@@ -237,12 +296,16 @@ h3{
     box-shadow: 2px 2px 0 0 #000;
 }
 
-#inpBuscarMain {
-    font-family: "Public Sans";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    border: none;
+#infoModalIniciarSesion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.labelYInput{
+    display: flex;
+    flex-direction: column;
 }
 
 #botonBuscarMain {
@@ -285,6 +348,10 @@ h3{
 }
 
 .botonBlanco:hover {
+    background-color: #fff2c7;
+}
+
+.botonBlancoTiny:hover {
     background-color: #fff2c7;
 }
 
