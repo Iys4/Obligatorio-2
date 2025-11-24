@@ -229,17 +229,8 @@ h3{
 
 
 
-#botonPopularesMain{
-    
-    border-radius: 57px 0px 0px 57px;
-}
-
-#botonSiguiendoMain{
-    border-radius: 0px;
-}
-
 #botonPrecioMain{
-        border-radius:  0px 57px 57px 0px;
+        border-radius:  57px;
 }
 
 #inpBuscarMainYIcono {
