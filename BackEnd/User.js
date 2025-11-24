@@ -7,7 +7,6 @@ const usuarioSchema = new mongoose.Schema({
     ubicacionUsuario: String,
     interesesUsuario: String,
     eventosUsuario: Array,
-    eventosSeguidos: Array,
 });
 
 module.exports = mongoose.model("usuario", usuarioSchema)

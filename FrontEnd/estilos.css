@@ -338,11 +338,7 @@ h3{
     flex-direction: column;
 }
 
-.botonBlanco:hover {
-    background-color: #fff2c7;
-}
-
-.botonBlancoTiny:hover {
+.botonBlanco:hover, .botonBlancoIcono:hover, .botonBlancoTiny:hover{
     background-color: #fff2c7;
 }
 

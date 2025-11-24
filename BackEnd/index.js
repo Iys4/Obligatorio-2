@@ -133,7 +133,6 @@ app.post('/crearUsuario', async (req, res) => {
             ubicacionUsuario: body.ubicacionUsuario || "",
             interesesUsuario: body.interesesUsuario || "",
             eventosUsuario: [],
-            eventosSeguidos: []
         });
 
         await nuevoUsuario.save();
@@ -180,7 +179,6 @@ app.put('/usuarios/:id', async (req, res) => {
         const ubicacionUsuario = body.ubicacionUsuario
         const interesesUsuario = body.interesesUsuario
         const eventosUsuario = body.eventosUsuario || []
-        const eventosSeguidos = body.eventosSeguidos || []
         if (!nombreUsuario || !contraseñaUsuario) {
             return res.status(400).send('Faltan datos obligatorios');
         }
