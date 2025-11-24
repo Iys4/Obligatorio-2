@@ -7,7 +7,7 @@ header{
     margin-bottom: 2em;
 }
 
-#contenedorPerfil {
+#contenedorPerfil, #contenedorEventosPerfil {
     margin: auto;
     padding: 26px 34px;
     width: 60vw;
