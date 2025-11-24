@@ -7,7 +7,7 @@ header{
     margin-bottom: 2em;
 }
 
-#contenedorPerfil {
+#contenedorPerfil, #contenedorEventosPerfil {
     margin: auto;
     padding: 26px 34px;
     width: 60vw;
@@ -22,7 +22,7 @@ header{
 #imagenPerfil{
     width: 15em;
     height: 15em;
-    background-image: url(img/fotoperfil.jpg);
+    background-image: url(img/blankprofile.webp);
     background-size: cover;
     border-radius: 23px;
     border: 3px solid #000;

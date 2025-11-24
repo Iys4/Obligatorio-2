@@ -1,6 +1,7 @@
 const contenedorEventosMain = document.querySelector('#contenedorEventosMain');
 const eventosGlobal = await obtenerEventos();
 console.log(eventosGlobal);
+console.log("ID usuario logueado:", localStorage.getItem("usuarioLogueadoId"));
 async function obtenerEventos() {
   const response = await fetch('http://localhost:3000/eventos', {
     method: 'GET',
@@ -258,7 +259,6 @@ btnRegistrar.addEventListener('click', async () => {
 
 
 const btnIngresar = document.querySelector("#btnIngresar");
-const infoPerfil = document.querySelector('#imagenYDatosPerfil');
 
 const usuarioLogueadoId = localStorage.getItem("usuarioLogueadoId");
 if (usuarioLogueadoId) {
@@ -298,7 +298,6 @@ btnIngresar.addEventListener('click', async () => {
       console.log("Usuario logueado ID:", usuarioValido.nombreUsuario);
       nombreUsuarioHeader.textContent = localStorage.getItem("usuarioLogueadoNombre");
       console.log(usuarioValido)
-      mostrarInfoPerfil();
     } else {
       alert("Usuario o contraseña incorrectos");
     }
