@@ -207,7 +207,7 @@ function filtrarPorFecha() {
 inicioInput.addEventListener("change", filtrarPorFecha);
 finInput.addEventListener("change", filtrarPorFecha);
 
-/* Usuarios */
+/* Usuarios 
 
 const inpUsuario = document.querySelector("#inpUsuario");
 const inpContraseña = document.querySelector("#inpContraseña");
@@ -220,7 +220,6 @@ btnIniciarSesion.addEventListener('click', () => {
   modalIS.style.display = 'block';
 })
 
-/* Registrar Usuario */
 
 btnRegistrar.addEventListener('click', async () => {
   try {
@@ -256,7 +255,7 @@ btnRegistrar.addEventListener('click', async () => {
   }
 });
 
-/* Ingresar Usuario */
+
 
 const btnIngresar = document.querySelector("#btnIngresar");
 const infoPerfil = document.querySelector('#imagenYDatosPerfil');
@@ -313,7 +312,9 @@ btnIngresar.addEventListener('click', async () => {
 cargarNombreUsuario();
 function cargarNombreUsuario() {
   nombreUsuarioHeader.textContent = localStorage.getItem("usuarioLogueadoNombre");
-}
+} 
+*/
+
 
 async function mostrarInfoPerfil() {
   const id = localStorage.getItem("usuarioLogueadoId");

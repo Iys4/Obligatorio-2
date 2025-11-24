@@ -1,5 +1,12 @@
+const modalIniciarSesion = document.querySelector("#modalIniciarSesion");
 const header = document.querySelector("header");
 headerLoad();
+cargarModalIniciarSesion();
+const inpContraseña = document.querySelector("#inpContraseña");
+const btnIniciarSesion = document.querySelector("#btnIniciarSesion")
+const btnRegistrar = document.querySelector("#btnRegistrar");
+const perfilHeader = document.querySelector("#perfilHeader");
+const modalIS = document.querySelector("#seccionIniciarSesion")
 const nombreUsuarioHeader = document.querySelector("#nombreUsuarioHeader");
 cargarNombreUsuario();
 function cargarNombreUsuario() {
@@ -43,11 +50,7 @@ function verificarSesion() {
         verificarSesion();});
 
         const inpUsuario = document.querySelector("#inpUsuario");
-const inpContraseña = document.querySelector("#inpContraseña");
-const btnIniciarSesion = document.querySelector("#btnIniciarSesion")
-const btnRegistrar = document.querySelector("#btnRegistrar");
-const perfilHeader = document.querySelector("#perfilHeader");
-const modalIS = document.querySelector("#seccionIniciarSesion")
+
 
 btnIniciarSesion.addEventListener('click', () => {
   modalIS.style.display = 'block';
@@ -139,3 +142,29 @@ btnIngresar.addEventListener('click', async () => {
     alert("Ocurrió un error al intentar iniciar sesión.");
   }
 });
+
+
+function cargarModalIniciarSesion() {
+    console.log("Cargando modal iniciar sesion");
+    modalIniciarSesion.innerHTML = `   
+
+            <button id="btnCerrarModalIS" class="botonBlanco"><svg width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.1667 24.1667L1.5 1.5M24.1667 1.5L1.5 24.1667" stroke="black" stroke-width="3" stroke-linecap="round"/>
+</svg></button>
+    <div id="infoModalIniciarSesion">
+            <h1>Iniciar<br>sesión</h1>
+            <p>Ingresa con usuario y contraseña.</p>
+            <div class="labelYInput">
+                <label for="inpUsuario">Usuario</label>
+                <input type="text" placeholder="Usuario" class="input" id="inpUsuario">
+            </div>
+            <div class="labelYInput">
+                <label for="inpContraseña">Contraseña</label>
+                <input type="password" placeholder="Contraseña" class="input" id="inpContraseña">
+            </div>
+
+            <div>
+                <button id="btnRegistrar" class="botonBlancoTiny">Registrar</button>
+                <button id="btnIngresar" class="botonBlancoTiny">Ingresar</button>
+            </div>`;
+}

@@ -33,8 +33,10 @@ app.get('/eventos', async (req, res) => {
 app.delete("/eventos/:id", async (req, res) => {
     try {
         const params = req.params;
+        const rawId = req.params.id;
+        const idReal = rawId.trim();
         console.log(params);
-        await evento.findByIdAndDelete(params.id);
+        await evento.findByIdAndDelete(idReal);
         res.send("Evento eliminado con exito" + params.id);
     } catch (error) {
         console.error('Error al eliminar el evento:', error);
@@ -74,27 +76,35 @@ app.post('/crear', async (req, res) => {
 app.put('/eventos/:id', async (req, res) => {
     try {
         const params = req.params;
-        const body = req.body
-        const creadorEvento = body.creadorEvento
-        const nombreEvento = body.nombreEvento
-        const linkImagen = body.linkImagen
-        const fecha = body.fecha
-        const descripcion = body.descripcion
-        const precio = body.precio
-        const location = body.location
-        const categoria = body.categoria
-        if (!creadorEvento || !nombreEvento || !linkImagen || !fecha || !descripcion || !precio || !location || !categoria) {
+        const body = req.body;
+        const creadorEvento = body.creadorEvento;
+        const nombreEvento = body.nombreEvento;
+        const linksImagenes = body.linksImagenes;
+        const fecha = body.fecha;
+        const descripcion = body.descripcion;
+        const precio = body.precio;
+        const location = body.location;
+        const categoria = body.categoria;
+
+        // Validación corregida
+        if (!creadorEvento || !nombreEvento || !linksImagenes || !fecha || !descripcion || !precio || !location || !categoria) {
             return res.status(400).send('Faltan datos obligatorios');
         }
+
         console.log(params);
         console.log(body);
-        await evento.findByIdAndUpdate(params.id, body);
+        idReal = params.id.trim();
+        console.log("ID REAL: " + idReal);
+        await evento.findByIdAndUpdate(idReal, body);
+
         res.send("Evento actualizado con exito " + params.id);
+
     } catch (error) {
         console.error('Error al actualizar el evento:', error);
         res.status(500).send('Error al actualizar el evento');
     }
 });
+
 
 /* Usuarios */
 
