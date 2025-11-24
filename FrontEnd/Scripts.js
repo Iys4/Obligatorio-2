@@ -298,7 +298,7 @@ btnIngresar.addEventListener('click', async () => {
       console.log(localStorage.getItem("usuarioLogueadoId"));
       console.log("Usuario logueado ID:", usuarioValido.nombreUsuario);
       nombreUsuarioHeader.textContent = localStorage.getItem("usuarioLogueadoNombre");
-
+      console.log(usuarioValido)
       mostrarInfoPerfil();
     } else {
       alert("Usuario o contraseña incorrectos");
@@ -343,12 +343,13 @@ async function mostrarInfoPerfil() {
 
         <div>
           <h4>Intereses</h4>
-          <p>${usuario.interesesUsuario?.join(", ") || "Ninguno"}</p>
+          <p>${usuario.interesesUsuario || "Ninguno"}</p>
         </div>
 
         <button id="btnGuardar" class="botonBlanco">Guardar</button>
       </div>
     `;
+    console.log(usuario)
   } catch (error) {
     console.error("Error cargando perfil:", error);
   }
