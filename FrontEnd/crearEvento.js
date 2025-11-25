@@ -1,5 +1,5 @@
 // crearEvento.js
-botonCrearEventoCE = document.querySelector("#botonCrearEventoCE");
+const botonCrearEventoCE = document.querySelector("#buttonCrearEvento");
 let linksImagenes = [];
 botonCrearEventoCE.addEventListener("click", async () => {
     console.log(linksImagenes);
@@ -15,9 +15,9 @@ botonCrearEventoCE.addEventListener("click", async () => {
       let techado = false;
       let presencial = true;
 
-      // 2️⃣ Crear el objeto evento
+      const usuarioLogueado = localStorage.getItem("usuarioLogueadoNombre");
       const nuevoEvento = {
-        creadorEvento: ["admin"], // o el usuario logueado
+        creadorEvento: [usuarioLogueado],
         nombreEvento,
         linksImagenes,
         fecha,
