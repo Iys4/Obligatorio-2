@@ -48,8 +48,9 @@ app.post('/crear', async (req, res) => {
     try {
         const body = req.body;
 
+        // 1️⃣ Crear el evento
         const nuevoEvento = new evento({
-            creadorEvento: body.creadorEvento || [],
+            creadorEvento: [body.creadorEvento], // solo nombre del usuario
             nombreEvento: body.nombreEvento,
             linksImagenes: body.linksImagenes || [],
             fecha: body.fecha,
@@ -62,14 +63,27 @@ app.post('/crear', async (req, res) => {
             presencial: body.presencial ?? true
         });
 
-        await nuevoEvento.save();
-        res.status(201).send('Evento creado con éxito');
-        console.log('Nuevo evento:', nuevoEvento);
+        const eventoGuardado = await nuevoEvento.save();
+        console.log('Evento creado:', eventoGuardado);
+
+        // 2️⃣ Agregar evento al array del usuario
+        const usuarioDoc = await usuario.findOne({ nombreUsuario: body.creadorEvento });
+        if (usuarioDoc) {
+            usuarioDoc.eventosUsuario.push(eventoGuardado._id); // agregamos el evento al usuario
+            await usuarioDoc.save();
+            console.log(`Evento agregado al usuario: ${usuarioDoc.nombreUsuario}`);
+        } else {
+            console.log("Usuario no encontrado");
+        }
+
+        res.status(201).send('Evento creado y asignado al usuario');
+
     } catch (error) {
         console.error('Error al crear el evento:', error);
         res.status(500).send('Error al crear el evento');
     }
 });
+
 
 
 
