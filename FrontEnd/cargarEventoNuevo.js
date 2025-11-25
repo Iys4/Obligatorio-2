@@ -27,7 +27,6 @@ async function obtenerEventos() {
     document.getElementById("precioEvEsp").textContent = evento.precio + " UYU";
 
     // 4. Detalles
-    document.getElementById("asistenciasEvEsp").textContent = `${evento.asistencias || 0} personas irán`;
     document.getElementById("mayoresEvEsp").textContent = evento.mayores ? "+18" : "Apta todo público";
     document.getElementById("presencialEvEsp").textContent = evento.presencial ? "Presencial" : "Online";
     document.getElementById("lluviaEvEsp").textContent = evento.lluvia ? "No se suspende por lluvia" : "Puede suspenderse";

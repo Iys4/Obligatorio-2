@@ -29,11 +29,15 @@
         <div id="inforEventoEspecifico">
             <img src="" alt="" id="imagenEventoEspecifico">
             <div id="contenedorTextoEventoEsp">
+                <input type="text" id="editNombreEvento" hidden>
                 <h2 id="tituloEvEsp">Evento</h2>
+                <input type="text" id="editFechaEvento" hidden>
                 <h3 id="fechaEvEsp">22/04/2022</h3>
+                <input type="text" id="editUbiEvento" hidden>
                 <p id="ubiEvEsp">Casa</p>
                 <p id="creadorEvEsp">Ismael</p>
                 <div id="precioBoton">
+                    <input type="text" id="edirPrecioEvento" hidden>
                 <h3 id="precioEvEsp">200</h3>
                 <button id="botonMeIntesaEvEsp" class="botonBlanco">Me interesa</button>
             </div>
@@ -42,11 +46,30 @@
             <div id="detallesEvEsp">
                 <div id="detallesProfEvEsp">
                     <h3>Detalles</h3>
-                    <p id="asistenciasEvEsp">186 personas iran</p>
+                        <section id="seccionIniciarSesion" hidden>
+<div id="modalIniciarSesion">
+</div>
+    </section>
                     <p id="mayoresEvEsp">+18</p>
+                    <select name="Es apta para mayores?" placeholder="Es apta para mayores?" id="eventoEditarMayores" hidden>
+                        <option value="Es apta para mayores?" hidden>Es apta para mayores?</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                    </select>
                     <p id="presencialEvEsp">Presencial</p>
+                    <select name="Es presencial?" placeholder="Es presencial?" id="eventoEditarPresencial" hidden>
+                        <option value="Es presencial?" hidden>Es presencial?</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
                     <p id="lluviaEvEsp">No se suspende por lluvia</p>
+                    <select name="" id="eventoEditarLluvia" hidden>
+                        <option value="No se suspende por lluvia" hidden>Se suspende por lluvia?</option>
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" id="eventoEditarDescripcion" placeholder="Cantidad de asistencias" hidden>
                     <p id="descripcionEvEsp">Descripcion</p>
+                    <button class="botonBlanco" id="editarDatos">Editar Datos</button>
                 </div>
                 <div id="entradasEvEsp">
                     <h3>Entradas</h3>
