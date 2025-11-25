@@ -173,25 +173,19 @@ app.put('/usuarios/:id', async (req, res) => {
     try {
         const params = req.params;
         const body = req.body
-        const nombreUsuario = body.nombreUsuario
-        const contraseñaUsuario = body.contraseñaUsuario
-        const descripcionUsuario = body.descripcionUsuario
-        const ubicacionUsuario = body.ubicacionUsuario
-        const interesesUsuario = body.interesesUsuario
-        const eventosUsuario = body.eventosUsuario || []
-        if (!nombreUsuario || !contraseñaUsuario) {
-            return res.status(400).send('Faltan datos obligatorios');
-        }
+      
         console.log(params);
         console.log(body);
-        await usuario.findByIdAndUpdate(params.id, body);
+
+        idReal = params.id;
+        console.log("ID REAL: " + idReal);
+        await usuario.findByIdAndUpdate(idReal, body);
+
         res.send("Usuario actualizado con exito " + params.id);
     } catch (error) {
         console.error('Error al actualizar el usuario:', error);
         res.status(500).send('Error al actualizar el usuario');
-    }
-}); 
-
-
+    }   
+});
 
 iniciar();

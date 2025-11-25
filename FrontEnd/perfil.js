@@ -11,6 +11,7 @@ async function mostrarInfoPerfil() {
 
     infoPerfil.innerHTML = `
       <div id="imagenPerfil"></div>
+      <input type="text" id="inpImagenPerfil" placeholder="Pega el link de tu imagen" class="input" style="display: none;">
 
       <div id="nombreYDatosPerfil">
         <h2 class="campoPerfil">${usuario.nombreUsuario || "Usuario"}</h2>
@@ -32,11 +33,16 @@ async function mostrarInfoPerfil() {
           <p class="campoPerfil">${usuario.interesesUsuario || "Ninguno"}</p>
         </div>
 
-        <button id="btnGuardar" class="botonBlanco" hidden>Guardar</button>
+        <button id="btnGuardar" class="botonBlanco" style="display: none;">Guardar</button>
       </div>
     `;
 
     console.log("Usuario cargado:", usuario);
+    const btnGuardar = document.querySelector('#btnGuardar');
+    btnGuardar.addEventListener('click', guardarInfoPerfil);
+    const imagenPerfilDiv = document.querySelector('#imagenPerfil');
+    imagenPerfilDiv.style.backgroundImage = `url(${usuario.imagenPerfil || 'img/blankprofile.webp'})`;
+
   } catch (error) {
     console.error("Error cargando perfil:", error);
   }
@@ -57,35 +63,35 @@ function hacerPerfilEditable() {
     const input = document.createElement("input");
     input.type = "text";
     input.value = valor;
-    input.className = "inputPerfil";
+    input.className = "inputPerfil input";
 
     p.replaceWith(input);
   });
+  btnGuardar.style.display = 'block';
+  inpImagenPerfil.style.display = 'block';
+
 }
 
-/* Guardar Info Perfil */
-
-const btnGuardar = document.querySelector('#btnGuardar')
-btnGuardar.addEventListener('click', guardarInfoPerfil)
-
-async function guardarInfoPerfil(){
+async function guardarInfoPerfil() {
   const inputsPerfil = document.querySelectorAll(".inputPerfil");
-
-  inputsPerfil.forEach(input => {
-    const valor = input.value.trim() || "";
-    const p = document.createElement("p");
-    p.className = "campoPerfil";
-    p.textContent = valor;
-    input.replaceWith(p);
-  });
 
   const nombreUsuario = inputsPerfil[0].value.trim();
   const descripcionUsuario = inputsPerfil[1].value.trim();
   const ubicacionUsuario = inputsPerfil[2].value.trim();
   const interesesUsuario = inputsPerfil[3].value.trim();
+
+  inputsPerfil.forEach(input => {
+    const p = document.createElement("p");
+    p.className = "campoPerfil";
+    p.textContent = input.value.trim() || "";
+    input.replaceWith(p);
+  });
+
+  btnGuardar.style.display = 'none';
+
   try {
     const response = await fetch(`http://localhost:3000/usuarios/${id}`, {
-      method: "PUT", 
+      method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
@@ -96,11 +102,11 @@ async function guardarInfoPerfil(){
         interesesUsuario
       })
     });
+
     if (!response.ok) throw new Error("No se pudo actualizar el perfil");
     alert("Perfil actualizado con éxito");
   } catch (error) {
     console.error("Error actualizando perfil:", error);
     alert("Ocurrió un error al actualizar el perfil.");
-  }    
-
+  }
 }

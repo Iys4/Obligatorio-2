@@ -7,6 +7,10 @@ const usuarioSchema = new mongoose.Schema({
     ubicacionUsuario: String,
     interesesUsuario: String,
     eventosUsuario: Array,
+    imagenPerfil: {
+    type: String,
+    default: "img/blankprofile.webp"
+}
 });
 
 module.exports = mongoose.model("usuario", usuarioSchema)
