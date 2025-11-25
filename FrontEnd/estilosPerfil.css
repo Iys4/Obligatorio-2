@@ -55,6 +55,12 @@ header{
     box-shadow: 2px 2px 0 0 #000;
 }
 
+#botonesPerfil{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
 #h3YCrearEvento{
     display: flex;
     align-items: center;

@@ -78,6 +78,28 @@ p, label {
     transition: 0.3s;
 }
 
+.botonRojoIcono {
+    height: max-content;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 1em;
+    gap: 6px;
+    border-radius: 57px;
+    border: 2px solid #000;
+    /* Sombra boton */
+    box-shadow: 2px 2px 0 0 #000;
+    color: #000;
+    /* Public/p Semibold */
+    font-family: "Public Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    transition: 0.3s;
+    background-color: rgb(255, 107, 107);
+}
+
 .botonBlancoTiny {
     display: inline-flex;
     padding: 0.5em 1em;

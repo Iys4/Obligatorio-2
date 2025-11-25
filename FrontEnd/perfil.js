@@ -185,18 +185,11 @@ async function obtenerEventosUsuario() {
 
 /* Mostrar eventos creados por el usuario */
 
-async function mostrarEventosUsuario() {
-  if (!id) return;
-
+async function mostrarEventosUsuario(nombreUsuario) {
   try {
-    const response = await fetch(`http://localhost:3000/usuarios/${id}`);
-    if (!response.ok) throw new Error("No se pudo obtener el usuario");
-    const usuario = await response.json();
-    const nombreUsuario = usuario.nombreUsuario;
-    const eventos = await obtenerEventosUsuario()
-    console.log(eventos);
-    const eventosUsuario = eventos.filter(evento => evento.creadorEvento.includes(nombreUsuario));
-
+    const response = await fetch(`http://localhost:3000/usuarios/${nombreUsuario}/eventos`);
+    if (!response.ok) throw new Error("No se pudo obtener los eventos");
+    const eventosUsuario = await response.json();
 
     const contenedorEventosPerfil = document.querySelector('#contenedorEventosPerfil');
     contenedorEventosPerfil.innerHTML = "";
@@ -235,10 +228,35 @@ async function mostrarEventosUsuario() {
       `;
     });
 
+
   } catch (e) {
     console.error("Error al listar los eventos:", e);
   }
 }
 
+const nombreUsuario = localStorage.getItem("usuarioLogueadoNombre");
+mostrarEventosUsuario(nombreUsuario);
 
-mostrarEventosUsuario();
+const btnEliminarUsuario = document.querySelector('#btnEliminarUsuario');
+btnEliminarUsuario.addEventListener('click', eliminarUsuario);
+
+/* Eliminar usuario */
+
+async function eliminarUsuario() {
+  if (!confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.")) {
+    return;
+  }
+  try {
+    const response = await fetch(`http://localhost:3000/usuarios/${id}`, {
+      method: "DELETE"
+    });
+    if (!response.ok) throw new Error("No se pudo eliminar el usuario");
+    alert("Cuenta eliminada con éxito");
+    localStorage.removeItem("usuarioLogueadoId");
+    localStorage.removeItem("usuarioLogueadoNombre");
+    window.location.href = "index.html";
+  } catch (error) {
+    console.error("Error eliminando usuario:", error);
+    alert("Ocurrió un error al eliminar la cuenta.");
+  }
+}

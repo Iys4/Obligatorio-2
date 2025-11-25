@@ -67,11 +67,11 @@ app.post('/crear', async (req, res) => {
         console.log('Evento creado:', eventoGuardado);
 
         // 2️⃣ Agregar evento al array del usuario
-        const usuarioDoc = await usuario.findOne({ nombreUsuario: body.creadorEvento });
-        if (usuarioDoc) {
-            usuarioDoc.eventosUsuario.push(eventoGuardado._id); // agregamos el evento al usuario
-            await usuarioDoc.save();
-            console.log(`Evento agregado al usuario: ${usuarioDoc.nombreUsuario}`);
+        const usuarioCreador = await usuario.findOne({ nombreUsuario: body.creadorEvento });
+        if (usuarioCreador) {
+            usuarioCreador.eventosUsuario.push(eventoGuardado._id); // agregamos el evento al usuario
+            await usuarioCreador.save();
+            console.log(`Evento agregado al usuario: ${usuarioCreador.nombreUsuario}`);
         } else {
             console.log("Usuario no encontrado");
         }
@@ -202,16 +202,15 @@ app.put('/usuarios/:id', async (req, res) => {
     }
 });
 
-app.get('/eventos/usuario/:id', async (req, res) => {
-    try {
-        const id = req.params.id;
-        const eventosUsuario = await evento.find({ creadorEvento: id });
-        res.json(eventosUsuario);
-    }
-    catch (error) {
-        console.error('Error al obtener eventos del usuario:', error);
-        res.status(500).send('Error al obtener eventos del usuario');
-    }
+app.get('/usuarios/:nombreUsuario/eventos', async (req, res) => {
+  try {
+    const { nombreUsuario } = req.params;
+    const eventos = await evento.find({ creadorEvento: nombreUsuario });
+    res.json(eventos);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error al obtener eventos del usuario');
+  }
 });
 
 iniciar();
