@@ -143,6 +143,10 @@ btnIngresar.addEventListener('click', async () => {
   }
 });
 
+const btnCerrarModalIS = document.querySelector("#btnCerrarModalIS");
+btnCerrarModalIS.addEventListener("click", () => {
+    modalIS.style.display = "none";
+});
 
 function cargarModalIniciarSesion() {
     console.log("Cargando modal iniciar sesion");
@@ -168,3 +172,4 @@ function cargarModalIniciarSesion() {
                 <button id="btnIngresar" class="botonBlancoTiny">Ingresar</button>
             </div>`;
 }
+

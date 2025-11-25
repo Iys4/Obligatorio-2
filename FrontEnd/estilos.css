@@ -113,6 +113,10 @@ a, nav button {
     line-height: normal;
 }
 
+#nombreUsuarioHeader{
+    margin-left: 1em;
+}
+
 body {
     background-color: #E3EBFF;
 }
@@ -133,6 +137,11 @@ header {
     background-color: #BFCEFF;
     display: flex;
     height: 20vh;
+}
+
+nav{
+    display: flex;
+    align-items: center;
 }
 
 nav a, nav button {
@@ -252,15 +261,18 @@ h3{
     border: none;
 }
 
-#seccionIniciarSesion{
+#seccionIniciarSesion {
     width: 100vw;
     height: 100vh;
-    position: fixed;            
-    top: 50%;                   
-    left: 50%;                 
-    transform: translate(-50%, -50%); 
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 9999;
-    background-color: #00000041;
+    background-color: rgba(0,0,0,0.25);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #modalIniciarSesion {
@@ -270,7 +282,7 @@ h3{
     border-radius: 25px;
     border: 2px solid #000;
     background-color: white;
-            
+    position: relative; /* ya no absolute */
 }
 
 #modalIniciarSesion h1{

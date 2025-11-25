@@ -11,7 +11,7 @@ app.use(cors());
 
 async function iniciar() {
     try {
-        await mongoose.connect("mongodb+srv://Isma:Obligatorio2CarmenIsma@cluster0.agxgzbc.mongodb.net/"); 
+        await mongoose.connect("mongodb+srv://Isma:Obligatorio2CarmenIsma@cluster0.agxgzbc.mongodb.net/");
         console.log("Conectado a la base de datos");
 
         app.listen(port, () => {
@@ -86,7 +86,6 @@ app.put('/eventos/:id', async (req, res) => {
         const location = body.location;
         const categoria = body.categoria;
 
-        // Validación corregida
         if (!creadorEvento || !nombreEvento || !linksImagenes || !fecha || !descripcion || !precio || !location || !categoria) {
             return res.status(400).send('Faltan datos obligatorios');
         }
@@ -133,6 +132,7 @@ app.post('/crearUsuario', async (req, res) => {
             ubicacionUsuario: body.ubicacionUsuario || "",
             interesesUsuario: body.interesesUsuario || "",
             eventosUsuario: [],
+            imagenPerfil: body.imagenPerfil ||"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png",
         });
 
         await nuevoUsuario.save();
@@ -145,16 +145,16 @@ app.post('/crearUsuario', async (req, res) => {
 });
 
 app.get('/usuarios/:id', async (req, res) => {
-  try {
-    const usuarioEncontrado = await usuario.findById(req.params.id);
-    if (!usuarioEncontrado) {
-      return res.status(404).send("Usuario no encontrado");
+    try {
+        const usuarioEncontrado = await usuario.findById(req.params.id);
+        if (!usuarioEncontrado) {
+            return res.status(404).send("Usuario no encontrado");
+        }
+        res.json(usuarioEncontrado);
+    } catch (error) {
+        console.error("Error obteniendo usuario:", error);
+        res.status(500).send("Error en el servidor");
     }
-    res.json(usuarioEncontrado);
-  } catch (error) {
-    console.error("Error obteniendo usuario:", error);
-    res.status(500).send("Error en el servidor");
-  }
 });
 
 app.delete("/usuarios/:id", async (req, res) => {
@@ -167,13 +167,13 @@ app.delete("/usuarios/:id", async (req, res) => {
         console.error('Error al eliminar el usuario:', error);
         res.status(500).send('Error al eliminar el usuario');
     }
-}); 
+});
 
 app.put('/usuarios/:id', async (req, res) => {
     try {
         const params = req.params;
         const body = req.body
-      
+
         console.log(params);
         console.log(body);
 
@@ -185,7 +185,19 @@ app.put('/usuarios/:id', async (req, res) => {
     } catch (error) {
         console.error('Error al actualizar el usuario:', error);
         res.status(500).send('Error al actualizar el usuario');
-    }   
+    }
+});
+
+app.get('/eventos/usuario/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const eventosUsuario = await evento.find({ creadorEvento: id });
+        res.json(eventosUsuario);
+    }
+    catch (error) {
+        console.error('Error al obtener eventos del usuario:', error);
+        res.status(500).send('Error al obtener eventos del usuario');
+    }
 });
 
 iniciar();
