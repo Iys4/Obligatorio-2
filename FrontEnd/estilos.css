@@ -355,7 +355,7 @@ h3{
     padding: 11px;
     width: 20%;
     min-width: 240px;
-    height: 45vh;
+    max-height: 90vh;
     border-radius: 23.889px;
     border: 2px solid #000;
     background: #F0F0F0;

@@ -61,8 +61,9 @@ function verificarAutenticacion() {
     console.log("Usuario logueado:", usuarioLogueado);
     const creadorEvento = evento.creadorEvento[0] || evento.creador || "";
     console.log("Creador del evento:", creadorEvento);
+    if (usuarioLogueado === creadorEvento) {console.log("el usuario es distinto")}
     // Se fija si el creador es el mismo que el logeado o admin
-    const esCreador = usuarioLogueado && usuarioLogueado === creadorEvento || usuarioLogueado === "Admin";
+    const esCreador =  usuarioLogueado === creadorEvento[0] || usuarioLogueado === "Admin";
     console.log("Es creador o admin:", esCreador);
     
     // Enable/disable edit and delete buttons
