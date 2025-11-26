@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&family=Jacquard+24&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
 @font-face {
     font-family: 'Extend';
     /*a name to be used later*/
@@ -117,23 +124,7 @@ p, label {
     line-height: normal;
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-}
 
-a, nav button {
-    color: #000;
-    text-align: center;
-    /* Public/p Semibold */
-    font-family: "Public Sans";
-    font-size: 16px;
-    text-decoration: none;
-    font-weight: 600;
-    line-height: normal;
-}
 
 #nombreUsuarioHeader{
     margin-left: 1em;
@@ -145,20 +136,18 @@ body {
 
 .contenedor {
     margin: auto;
-    width: 95%;
-    max-width: 1920px;
-}
-
-header .contenedor {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    max-width: 95%;
 }
 
 header {
     background-color: #BFCEFF;
-    display: flex;
     height: 20vh;
+    display: flex;
+}
+
+header div{
+    display: flex;
+    justify-content: space-between;
 }
 
 nav{
@@ -168,14 +157,12 @@ nav{
 
 nav a, nav button {
     display: inline-block;
-    padding: 10px;
-    border-radius: 67.568px;
-    border: 2.333px solid #000;
-    background: #FFF;
-    box-shadow: 2.333px 2.333px 0 0 #000;
-    margin-left: 0.5em;
-    font-size: 18px;
     padding: 1em;
+}
+
+header .botonBlanco{
+    font-size: 18px;
+    background-color: white;
 }
 
 #contenedorImagenPortada {
@@ -187,7 +174,7 @@ nav a, nav button {
 .imagenPortada {
     width: 100%;
     height: 100%;
-    background-image: url(img/portadafoto.png);
+    background-image: url(img/portada.jpg);
     background-size: cover; 
     background-color: blanchedalmond;
     border-radius: 20px;
@@ -450,6 +437,7 @@ h5 {
 #listaExplorarMain {
     display: flex;
     width: 20vw;
+    height: fit-content;
     flex-direction: column;
     align-items: flex-end;
     gap: 7px;
@@ -457,6 +445,7 @@ h5 {
     border-radius: var(--Border-radius, 5px);
     border: 2px solid var(--Border, #000);
     background: #FFF;
+    display: none;
 
     /* Sombra boton */
     box-shadow: 2px 2px 0 0 #000;
@@ -491,6 +480,7 @@ footer {
     gap: 10px;
     flex-shrink: 0;
     background: #BFCEFF;
+    margin-top: 2em;
 }
 
 #logoFooter {
@@ -518,4 +508,30 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+
+@media (max-width: 998px){
+    #filtrosMain {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #filtrosMain > * {
+        width: 100%;   
+    }
+}
+
+@media (max-width: 768px){
+header .contenedor{
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+
+
+    header nav button {
+        flex: 0 1 auto; 
+    }
 }

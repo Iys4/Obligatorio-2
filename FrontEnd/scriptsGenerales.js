@@ -14,14 +14,14 @@ function cargarNombreUsuario() {
 }
 
 function headerLoad (){
-    header.innerHTML = `        <div class="contenedor header">
+    header.innerHTML = `        <div class="contenedor">
             <a href="index.html"><img src="img/logo.png" alt="volver a inicio" id="logoHeader"></a>
             <nav>
-                <a href="index.html" id="inicioHeader">Inicio</a>
-                <a href="crearEvento.html" id="crearEventoHeader">Crear evento</a>
-                <a href="perfil.html" id="perfilHeader">Perfil</a>
-                <button id="btnIniciarSesion">Iniciar sesión</button>
-                <button id="btnCerrarSesion">Cerrar Sesion</button>
+                <a href="index.html" id="inicioHeader" class="botonBlanco">Inicio</a>
+                <a href="crearEvento.html" id="crearEventoHeader" class="botonBlanco">Crear evento</a>
+                <a href="perfil.html" id="perfilHeader" class="botonBlanco">Perfil</a>
+                <button id="btnIniciarSesion" class="botonBlanco">Iniciar sesión</button>
+                <button id="btnCerrarSesion" class="botonBlanco">Cerrar Sesion</button>
                 <h2 id="nombreUsuarioHeader">nombre usuario</h2>
             </nav>
         </div>`;

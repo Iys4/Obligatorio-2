@@ -94,6 +94,22 @@ async function filtrarPrecio() {
   }
 }
 
+// boton Filtrar Modal
+
+document.querySelector('#btnFiltrarMain').addEventListener('click', () => {
+  const listaExplorar = document.querySelector('#listaExplorarMain');
+
+  if (listaExplorar.style.display === 'block') {
+    listaExplorar.style.display = 'none';
+  } else {
+    listaExplorar.style.display = 'block';
+  }
+});
+
+// boton Filtrar cerrar Modal
+
+
+
 
 function cargarCategorias() {
   console.log('Cargando categorias');

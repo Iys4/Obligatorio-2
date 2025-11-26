@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <div class="contenedor header">
+        <div class="contenedor">
             <a href="index.html"><img src="img/logo.png" alt="volver a inicio" id="logoHeader"></a>
             <nav>
                 <a href="index.html" id="inicioHeader">Inicio</a>
@@ -64,7 +64,7 @@
                         </svg>
                     </button>
                 </div>
-                <button id="botonFiltrarMain" class="botonBlanco">
+                <button id="btnFiltrarMain" class="botonBlanco">
                     Filtrar
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 5H22M6 12H18M9 19H15" stroke="black" stroke-linecap="round"
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-            <div id="listaExplorarMain">
+            <div id="listaExplorarMain" >
                 <div class="opcionesMenu" id="tipoDeEventoSelect">Tipo de evento<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none">
                         <path d="M6 9L12 15L18 9" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
@@ -201,11 +201,10 @@
                         <path d="M6 9L12 15L18 9" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                <div id="filtrarEventosPresencial"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path
-                            d="M11.9 12.1L16.414 7.58602M16.414 7.58602C16.7891 7.21103 16.9999 6.70241 17 6.17202V4.82802C17.0001 4.29763 17.2109 3.789 17.586 3.41402L18.7 2.30002C18.8869 2.11679 19.1382 2.01416 19.4 2.01416C19.6618 2.01416 19.9131 2.11679 20.1 2.30002L21.7 3.90002C21.8832 4.08695 21.9859 4.33826 21.9859 4.60002C21.9859 4.86177 21.8832 5.11309 21.7 5.30002L20.586 6.41402C20.211 6.78912 19.7024 6.9999 19.172 7.00002H17.828C17.2976 7.00013 16.789 7.21092 16.414 7.58602ZM6 16L8 18M8.23 9.85002C8.45726 9.30246 8.84165 8.83451 9.33465 8.50525C9.82765 8.17599 10.4072 8.00018 11 8.00002C12.3261 8.00002 13.5979 8.5268 14.5355 9.46448C15.4732 10.4022 16 11.6739 16 13C15.9998 13.5929 15.824 14.1724 15.4948 14.6654C15.1655 15.1584 14.6976 15.5428 14.15 15.77L13.23 16.15C12.8651 16.3023 12.5534 16.5592 12.3345 16.8885C12.1156 17.2178 11.9992 17.6046 12 18C12 19.0609 11.5786 20.0783 10.8284 20.8284C10.0783 21.5786 9.06087 22 8 22C6.4087 22 4.88258 21.3679 3.75736 20.2427C2.63214 19.1174 2 17.5913 2 16C2 14.9392 2.42143 13.9217 3.17157 13.1716C3.92172 12.4214 4.93913 12 6 12C6.39542 12.0008 6.78221 11.8844 7.11149 11.6655C7.44077 11.4466 7.69776 11.135 7.85 10.77L8.23 9.85002Z"
-                            stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                <div id="filtrarEventosPresencial"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H6C4.93913 15 3.92172 15.4214 3.17157 16.1716C2.42143 16.9217 2 17.9391 2 19V21M16 3.128C16.8578 3.35037 17.6174 3.85126 18.1597 4.55206C18.702 5.25286 18.9962 6.11389 18.9962 7C18.9962 7.88611 18.702 8.74714 18.1597 9.44794C17.6174 10.1487 16.8578 10.6496 16 10.872M22 21V19C21.9993 18.1137 21.7044 17.2528 21.1614 16.5523C20.6184 15.8519 19.8581 15.3516 19 15.13M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
                     <p>Presencial</p>
                 </div>
                 <div id="filtrarEventosVirtuales"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -214,17 +213,6 @@
                             stroke="black" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     <p>Virtual</p>
-                </div>
-                <div class="opcionesMenu">Precio <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none">
-                        <path d="M6 9L12 15L18 9" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></div>
-                <div>
-                    <p>Mínimo</p>
-                </div>
-                <div>
-                    <p>Máximo</p>
-                </div>
                 </div>
             </div>
     <section id="seccionIniciarSesion" hidden>
