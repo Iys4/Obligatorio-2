@@ -1,28 +1,31 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Evento</title>
-        <link rel="stylesheet" href="estilos.css">
-        <link rel="stylesheet" href="estilosEventoDetail.css">
-    </head>
-    <body>
-        
-    </body>
-    </html>
-    <header>
-        <div class="contenedor header">
-            <a href="index.html"><img src="img/logo.png" alt="volver a inicio" id="logoHeader"></a>
-            <nav>
-                <a href="index.html" id="inicioHeader">Inicio</a>
-                <button id="btnIniciarSesion">Iniciar sesión</button>
-                <h2 id="nombreUsuarioHeader">nombre usuario</h2>
-                <a href="crearEvento.html" id="crearEventoHeader">Crear evento</a>
-                <a href="perfil.html" id="perfilHeader">Perfil</a>
-            </nav>
-        </div>
-    </header>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="estilosEventoDetail.css">
+</head>
+
+<body>
+
+</body>
+
+</html>
+<header>
+    <div class="contenedor header">
+        <a href="index.html"><img src="img/logo.png" alt="volver a inicio" id="logoHeader"></a>
+        <nav>
+            <a href="index.html" id="inicioHeader">Inicio</a>
+            <button id="btnIniciarSesion">Iniciar sesión</button>
+            <h2 id="nombreUsuarioHeader">nombre usuario</h2>
+            <a href="crearEvento.html" id="crearEventoHeader">Crear evento</a>
+            <a href="perfil.html" id="perfilHeader">Perfil</a>
+        </nav>
+    </div>
+</header>
 <main>
     <div id="contenedorInfo">
 
@@ -34,101 +37,143 @@
                 <input type="text" id="editFechaEvento" hidden>
                 <h3 id="fechaEvEsp">22/04/2022</h3>
                 <input type="text" id="editUbiEvento" hidden>
-                <p id="ubiEvEsp">Casa</p>
-                <p id="creadorEvEsp">Ismael</p>
+                <div class="flex"><svg width="24" height="30" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_117_207)">
+                            <path
+                                d="M22.2617 12.238C22.2617 18.6279 15.1732 25.2826 12.7928 27.3379C12.5711 27.5046 12.3011 27.5948 12.0237 27.5948C11.7462 27.5948 11.4763 27.5046 11.2546 27.3379C8.87421 25.2826 1.78564 18.6279 1.78564 12.238C1.78564 9.52274 2.86429 6.91866 4.7843 4.99865C6.7043 3.07865 9.30839 2 12.0237 2C14.739 2 17.3431 3.07865 19.2631 4.99865C21.1831 6.91866 22.2617 9.52274 22.2617 12.238Z"
+                                stroke="black" stroke-width="2.60002" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M12.0237 16.0773C14.1441 16.0773 15.863 14.3584 15.863 12.238C15.863 10.1177 14.1441 8.39878 12.0237 8.39878C9.90332 8.39878 8.18442 10.1177 8.18442 12.238C8.18442 14.3584 9.90332 16.0773 12.0237 16.0773Z"
+                                stroke="black" stroke-width="2.60002" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_117_207">
+                                <rect width="24" height="30" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <p id="ubiEvEsp">Casa</p>
+                </div>
+                <div class="flex"><svg width="24" height="29" viewBox="0 0 24 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 15.7083C15.4518 15.7083 18.25 13.0034 18.25 9.66667C18.25 6.32995 15.4518 3.625 12 3.625C8.54822 3.625 5.75 6.32995 5.75 9.66667C5.75 13.0034 8.54822 15.7083 12 15.7083ZM12 15.7083C14.6522 15.7083 17.1957 16.7268 19.0711 18.5396C20.9464 20.3525 22 22.8112 22 25.375M12 15.7083C9.34783 15.7083 6.8043 16.7268 4.92893 18.5396C3.05357 20.3525 2 22.8112 2 25.375"
+                            stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p id="creadorEvEsp">Ismael</p>
+                </div>
+
                 <div id="precioBoton">
                     <input type="text" id="edirPrecioEvento" hidden>
-                <h3 id="precioEvEsp">200</h3>
-            </div>
-            </div>
-            </div>
-            <div id="detallesEvEsp">
-                <div id="detallesProfEvEsp">
-                    <h3>Detalles</h3>
-                        <section id="seccionIniciarSesion" hidden>
-<div id="modalIniciarSesion">
-</div>
-    </section>
-                    <p id="mayoresEvEsp">+18</p>
-                    <select name="Es apta para mayores?" placeholder="Es apta para mayores?" id="eventoEditarMayores" hidden>
-                        <option value="Es apta para mayores?" hidden>Es apta para mayores?</option>
-                        <option value="si">Si</option>
-                        <option value="no">No</option>
-                    </select>
-                    <p id="presencialEvEsp">Presencial</p>
-                    <select name="Es presencial?" placeholder="Es presencial?" id="eventoEditarPresencial" hidden>
-                        <option value="Es presencial?" hidden>Es presencial?</option>
-                        <option value="si">Si</option>
-                        <option value="no">No</option>
-                        </select>
-                    <p id="lluviaEvEsp">No se suspende por lluvia</p>
-                    <select name="" id="eventoEditarLluvia" hidden>
-                        <option value="No se suspende por lluvia" hidden>Se suspende por lluvia?</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
-                    </select>
-                    <input type="text" id="eventoEditarDescripcion" placeholder="Cantidad de asistencias" hidden>
-                    <p id="descripcionEvEsp">Descripcion</p>
-                    <button class="botonBlanco" id="editarDatos">Editar Datos</button>
-                    <button class="botonBlanco" id="btnEliminarEvento" hidden style="background-color: #ff6b6b;">Eliminar Evento</button>
-                </div>
-                <div id="entradasEvEsp">
-                    <h3>Entradas</h3>
-                    <button id="botonComprarEvEsp" class="botonBlanco">Comprar entrada</button>
-                </div>
-            </div>
-            <div id="galleriaEvEsp">
-                <h3>Galeria</h3>
-                <div id="contenedorImagenesEvEsp">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
+                    <h3 id="precioEvEsp">200</h3>
                 </div>
             </div>
         </div>
+        <div id="detallesEvEsp">
+            <div id="detallesProfEvEsp">
+                <h3>Detalles</h3>
+                <section id="seccionIniciarSesion" hidden>
+                    <div id="modalIniciarSesion">
+                    </div>
+                </section>
+                <p id="mayoresEvEsp">+18</p>
+                <select name="Es apta para mayores?" placeholder="Es apta para mayores?" id="eventoEditarMayores"
+                    hidden>
+                    <option value="Es apta para mayores?" hidden>Es apta para mayores?</option>
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                </select>
+                <p id="presencialEvEsp">Presencial</p>
+                <select name="Es presencial?" placeholder="Es presencial?" id="eventoEditarPresencial" hidden>
+                    <option value="Es presencial?" hidden>Es presencial?</option>
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                </select>
+                <p id="lluviaEvEsp">No se suspende por lluvia</p>
+                <select name="" id="eventoEditarLluvia" hidden>
+                    <option value="No se suspende por lluvia" hidden>Se suspende por lluvia?</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+                <input type="text" id="eventoEditarDescripcion" placeholder="Cantidad de asistencias" hidden>
+                <p id="descripcionEvEsp">Descripcion</p>
+                <button class="botonBlanco" id="editarDatos"><svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_118_345)">
+                            <path
+                                d="M15.3229 4.74643L19.7537 9.1773M22.1619 6.75361C22.7475 6.1681 23.0766 5.37391 23.0767 4.54577C23.0768 3.71762 22.7479 2.92335 22.1624 2.33769C21.5769 1.75203 20.7827 1.42296 19.9546 1.42285C19.1265 1.42275 18.3322 1.75163 17.7466 2.33714L2.96317 17.1241C2.70598 17.3805 2.51578 17.6962 2.40932 18.0435L0.946041 22.8643C0.917412 22.9601 0.91525 23.0618 0.939783 23.1587C0.964317 23.2557 1.01463 23.3441 1.08539 23.4148C1.15614 23.4854 1.2447 23.5356 1.34167 23.56C1.43863 23.5844 1.54039 23.582 1.63614 23.5533L6.45797 22.0911C6.80487 21.9856 7.12057 21.7965 7.37736 21.5405L22.1619 6.75361Z"
+                                stroke="black" stroke-width="1.84615" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_118_345">
+                                <rect width="24" height="25" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    Editar Datos</button>
+                <button class="botonRojoIcono" id="btnEliminarEvento" hidden style="background-color: #ff6b6b;"><svg
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6M3 6H21M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6"
+                            stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Eliminar Evento</button>
+            </div>
+            <div id="entradasEvEsp">
+                <h3>Entradas</h3>
+                <button id="botonComprarEvEsp" class="botonBlanco">Comprar entrada</button>
+            </div>
+        </div>
+        <div id="galeriaEvEsp">
+            <h3>Galeria</h3>
+            <div id="contenedorImagenesEvEsp">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+            </div>
+        </div>
+    </div>
 
     </div>
 </main>
 
 
-    <footer>
-        <div>
-            <a href="index.html"><img src="img/logo.png" alt="Volver a inicio" id="logoFooter"></a>
-            <h4>Descubrí. Viví. Compartí.</h4>
-            <p>© 2025 ¿Qué Hay? Todos los derechos reservados.</p>
-        </div>
-        <div id="linksFooter">
-            <h4>Links</h4>
-            <a href="index.html">Inicio</a>
-            <a href="">Crear Evento</a>
-            <a href="">Perfil</a>
-        </div>
-        <div id="redesFooter">
-            <h4>Redes sociales</h4>
-            <a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M14.5837 5.4165H14.592M5.83366 1.6665H14.167C16.4682 1.6665 18.3337 3.53198 18.3337 5.83317V14.1665C18.3337 16.4677 16.4682 18.3332 14.167 18.3332H5.83366C3.53247 18.3332 1.66699 16.4677 1.66699 14.1665V5.83317C1.66699 3.53198 3.53247 1.6665 5.83366 1.6665ZM13.3337 9.47484C13.4365 10.1684 13.318 10.8767 12.9951 11.499C12.6722 12.1213 12.1613 12.626 11.535 12.9412C10.9087 13.2564 10.199 13.3662 9.50681 13.2548C8.8146 13.1434 8.17513 12.8166 7.67936 12.3208C7.18359 11.825 6.85677 11.1856 6.74538 10.4933C6.63399 9.80113 6.74371 9.09141 7.05893 8.46515C7.37415 7.83888 7.87881 7.32795 8.50115 7.00504C9.12348 6.68212 9.83179 6.56366 10.5253 6.6665C11.2328 6.77141 11.8877 7.10106 12.3934 7.60676C12.8991 8.11246 13.2288 8.7674 13.3337 9.47484Z"
-                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                Instagram</a>
-            <a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M11.6175 8.66L17.9463 1.25H16.4462L10.9525 7.68375L6.5625 1.25H1.5L8.1375 10.98L1.5 18.75H3L8.8025 11.955L13.4388 18.75H18.5012L11.6175 8.66ZM9.56375 11.065L8.89125 10.0962L3.54 2.3875H5.84375L10.1613 8.60875L10.8337 9.5775L16.4475 17.665H14.1437L9.56375 11.065Z"
-                        fill="black" />
-                </svg>
-                Twitter</a>
-            <a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M2.08309 14.1667C1.50095 11.4194 1.50095 8.58061 2.08309 5.83333C2.15959 5.55434 2.30738 5.30006 2.51193 5.0955C2.71649 4.89095 2.97077 4.74316 3.24976 4.66667C7.7193 3.92622 12.2802 3.92622 16.7498 4.66667C17.0288 4.74316 17.283 4.89095 17.4876 5.0955C17.6921 5.30006 17.8399 5.55434 17.9164 5.83333C18.4986 8.58061 18.4986 11.4194 17.9164 14.1667C17.8399 14.4457 17.6921 14.6999 17.4876 14.9045C17.283 15.1091 17.0288 15.2568 16.7498 15.3333C12.2802 16.0739 7.71929 16.0739 3.24976 15.3333C2.97077 15.2568 2.71649 15.1091 2.51193 14.9045C2.30738 14.6999 2.15959 14.4457 2.08309 14.1667Z"
-                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M8.3331 12.5L12.4998 10L8.3331 7.5V12.5Z" stroke="black" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-                Youtube</a>
-        </div>
-    </footer>
+<footer>
+    <div>
+        <a href="index.html"><img src="img/logo.png" alt="Volver a inicio" id="logoFooter"></a>
+        <h4>Descubrí. Viví. Compartí.</h4>
+        <p>© 2025 ¿Qué Hay? Todos los derechos reservados.</p>
+    </div>
+    <div id="linksFooter">
+        <h4>Links</h4>
+        <a href="index.html">Inicio</a>
+        <a href="">Crear Evento</a>
+        <a href="">Perfil</a>
+    </div>
+    <div id="redesFooter">
+        <h4>Redes sociales</h4>
+        <a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M14.5837 5.4165H14.592M5.83366 1.6665H14.167C16.4682 1.6665 18.3337 3.53198 18.3337 5.83317V14.1665C18.3337 16.4677 16.4682 18.3332 14.167 18.3332H5.83366C3.53247 18.3332 1.66699 16.4677 1.66699 14.1665V5.83317C1.66699 3.53198 3.53247 1.6665 5.83366 1.6665ZM13.3337 9.47484C13.4365 10.1684 13.318 10.8767 12.9951 11.499C12.6722 12.1213 12.1613 12.626 11.535 12.9412C10.9087 13.2564 10.199 13.3662 9.50681 13.2548C8.8146 13.1434 8.17513 12.8166 7.67936 12.3208C7.18359 11.825 6.85677 11.1856 6.74538 10.4933C6.63399 9.80113 6.74371 9.09141 7.05893 8.46515C7.37415 7.83888 7.87881 7.32795 8.50115 7.00504C9.12348 6.68212 9.83179 6.56366 10.5253 6.6665C11.2328 6.77141 11.8877 7.10106 12.3934 7.60676C12.8991 8.11246 13.2288 8.7674 13.3337 9.47484Z"
+                    stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Instagram</a>
+        <a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M11.6175 8.66L17.9463 1.25H16.4462L10.9525 7.68375L6.5625 1.25H1.5L8.1375 10.98L1.5 18.75H3L8.8025 11.955L13.4388 18.75H18.5012L11.6175 8.66ZM9.56375 11.065L8.89125 10.0962L3.54 2.3875H5.84375L10.1613 8.60875L10.8337 9.5775L16.4475 17.665H14.1437L9.56375 11.065Z"
+                    fill="black" />
+            </svg>
+            Twitter</a>
+        <a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M2.08309 14.1667C1.50095 11.4194 1.50095 8.58061 2.08309 5.83333C2.15959 5.55434 2.30738 5.30006 2.51193 5.0955C2.71649 4.89095 2.97077 4.74316 3.24976 4.66667C7.7193 3.92622 12.2802 3.92622 16.7498 4.66667C17.0288 4.74316 17.283 4.89095 17.4876 5.0955C17.6921 5.30006 17.8399 5.55434 17.9164 5.83333C18.4986 8.58061 18.4986 11.4194 17.9164 14.1667C17.8399 14.4457 17.6921 14.6999 17.4876 14.9045C17.283 15.1091 17.0288 15.2568 16.7498 15.3333C12.2802 16.0739 7.71929 16.0739 3.24976 15.3333C2.97077 15.2568 2.71649 15.1091 2.51193 14.9045C2.30738 14.6999 2.15959 14.4457 2.08309 14.1667Z"
+                    stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M8.3331 12.5L12.4998 10L8.3331 7.5V12.5Z" stroke="black" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Youtube</a>
+    </div>
+</footer>
 
-    <script src="scriptsGenerales.js" type="module"></script>
-    <script src="cargarEventoNuevo.js" type="module"></script>
-
+<script src="scriptsGenerales.js" type="module"></script>
+<script src="cargarEventoNuevo.js" type="module"></script>

@@ -69,8 +69,8 @@ function verificarAutenticacion() {
     
     // Enable/disable edit and delete buttons
     if (esCreador) {
-        btnEditar.style.display = "block";
-        btnEliminar.style.display = "block";
+        btnEditar.style.display = "inline-flex";
+        btnEliminar.style.display = "inline-flex";
     } else {
         btnEditar.style.display = "none";
         btnEliminar.style.display = "none";

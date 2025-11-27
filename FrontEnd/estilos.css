@@ -14,6 +14,12 @@
     /*URL to font*/
 }
 
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
 p, label {
     font-family: "Public Sans";
     font-size: 16px;
@@ -130,21 +136,20 @@ body {
 
 .contenedor {
     margin: auto;
-    max-width: 95%;
+    max-width: 90%;
 }
 header .contenedor{
     width: 100%;
+     display: flex;
+    justify-content: space-between;
+    gap: 0.8em;
 }
 
 header {
     background-color: #BFCEFF;
-    height: 20vh;
+    height: fit-content;
     display: flex;
-}
-
-header div{
-    display: flex;
-    justify-content: space-between;
+    padding: 2em;
 }
 
 nav{
@@ -161,6 +166,7 @@ nav a, nav button {
 header .botonBlanco{
     font-size: 18px;
     background-color: white;
+    min-width: fit-content;
 }
 
 #contenedorImagenPortada {
@@ -243,8 +249,9 @@ a{
     margin-bottom: 1em;
 }
 
-#ExpPopSig{
+#PrecioYFechas{
     display: flex;
+    gap: 1em;
 }
 
 #botonPrecioMain{
@@ -278,10 +285,6 @@ a{
     left: 0;
     z-index: 9999;
     background-color: rgba(0,0,0,0.25);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #modalIniciarSesion {
@@ -340,14 +343,12 @@ a{
 
 .evento {
     padding: 11px;
-    width: 20%;
-    min-width: 240px;
-    max-height: 90vh;
     border-radius: 23.889px;
     border: 2px solid #000;
     background: #F0F0F0;
     display: flex;
     flex-direction: column;
+    gap: 0.3em;
 
     justify-content: space-around;
 }
@@ -366,7 +367,8 @@ a{
 }
 
 .imagenEventoMain {
-    height: 55%;
+    height: 200px;
+    aspect-ratio: 1/1;
     border-radius: 24px;
     border: 2px solid #000;
     background: url(<path-to-image>) lightgray 50% / cover no-repeat;
@@ -417,7 +419,7 @@ h5 {
 
 
 #eventosYBoton {
-    justify-content: space-around;
+    justify-content: space-between;
     display: flex;
     color: #000;
     font-family: "Public Sans";
@@ -432,11 +434,13 @@ h5 {
     font-weight: 600;
 }
 
-
+#contenedorFiltroBtn{
+    position: relative;
+}
 
 #listaExplorarMain {
     display: flex;
-    width: 20vw;
+    width: 300px;
     height: fit-content;
     flex-direction: column;
     align-items: flex-end;
@@ -446,7 +450,9 @@ h5 {
     border: 2px solid var(--Border, #000);
     background: #FFF;
     display: none;
-
+    position: absolute;
+    right: 0;
+    top: 63px;
     /* Sombra boton */
     box-shadow: 2px 2px 0 0 #000;
 }
@@ -460,14 +466,9 @@ h5 {
 }
 
 #contenedorEventosMain {
-    display: flex;
-    flex-wrap: wrap;
-    width: 75vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1em;
-}
-
-#contenedorEventosYFiltroMain {
-    display: flex;
 }
 
 footer {
@@ -514,27 +515,52 @@ footer a:hover {
 }
 
 
-@media (max-width: 998px){
+@media (max-width: 1188px){
     #filtrosMain {
         flex-direction: column;
-        align-items: stretch;
         gap: 1em;
     }
+
+    #listaExplorarMain {
+    left: 0;
+    top: 63px;
+}
 
     #filtrosMain > * {
         width: fit-content;   
     }
 }
 
-@media (max-width: 768px){
-header .contenedor{
+@media (max-width: 1046px){
+ header .contenedor{
     flex-wrap: wrap;
     justify-content: center;
-
+}    header .botonBlanco{
+        font-size: 16px;
+    }
 }
+
+@media (max-width: 768px){
+
+
+
+    h1{
+        font-size: 32px;
+    }
+
     header nav button {
         flex: 0 1 auto; 
     }
+
+    #PrecioYFechas{
+        flex-direction: column;
+        gap: 1em;
+}
+
+.botonBlanco{
+    width: fit-content;
+}
+
     footer{
         display: flex;
         flex-direction: column;
@@ -555,10 +581,22 @@ header .contenedor{
     }
 }
 
+@media (max-width: 620px){
+
+    nav{
+        flex-direction: column;
+    }
+
+}
+
 @media (max-width: 425px){
 
-    h1{
-        font-size: 40px;
+    header .botonBlanco{
+        font-size: 14px;
+    }
+
+    #filtrosMain .botonBlanco{
+        font-size: 14px;
     }
 
     h2{

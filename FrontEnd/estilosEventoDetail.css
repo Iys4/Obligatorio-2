@@ -1,23 +1,19 @@
 #contenedorInfo {
 display: flex;
+width: 80%;
 flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 28px;
-padding: 5vh 5vw;
+margin: auto;
+gap: 2em;
 }
 
 #inforEventoEspecifico {
 display: flex;
-width: 80%;
-flex-direction: column;
-align-items: flex-start;
-gap: 23.13px;
+gap: 2em;
 }
 
 #inforEventoEspecifico img {
-width: 100%;
-height: 40vh;
+aspect-ratio: 4 / 3;
+width: 40%;
 object-fit: cover;
 border-radius: 9px;
 border: 2px solid #000;
@@ -28,11 +24,8 @@ box-shadow: 5px 4px 0 0 #000;
     display: flex;
 padding: 27px;
 flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 10px;
+gap: 1em;
 flex: 1 0 0;
-
     border-radius: 9px;
 border: 3px solid #000;
 background: #FFF;
@@ -40,6 +33,8 @@ background: #FFF;
 /* Sombra */
 box-shadow: 5px 4px 0 0 #000;
 }
+
+
 
 #precioBoton {
     display: flex;
@@ -50,20 +45,16 @@ align-self: stretch;
 
 #detallesEvEsp {
 display: flex;
-align-items: center;
-width: 100%;
 flex-direction: column;
 gap: 23.13px;
 }
 
 #detallesEvEsp> div{
 display: flex;
-width: 80%;
 gap: 23.13px;
 }
 
 #descripcionEvEsp {
-    padding: 5vh 5vh 5vh 0vh;
     font-weight: bold;
 }
 
@@ -85,7 +76,6 @@ box-shadow: 5px 4px 0 0 #000;
 
 #entradasEvEsp {
 display: flex;
-width: 30%;
 padding: 27px;
 flex-direction: column;
 align-items: flex-start;
@@ -107,17 +97,18 @@ align-self: stretch;
 }
 
 #contenedorImagenesEvEsp{
-    display: flex;
-align-items: center;
-gap: 23.134px;
+display: flex;
+flex-wrap: wrap;
+gap: 1em;
 align-self: stretch;
 }
 
 #contenedorImagenesEvEsp img {
-width: 20vw;
-height: 20vw;
+width: 15vw;
+height: 15vw;
 border-radius: 7.711px;
 border: 1.714px solid #000;
 background: #FFF;
 box-shadow: 4.284px 3.427px 0 0 #000;
 }
+
