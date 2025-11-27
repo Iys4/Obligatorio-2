@@ -3,18 +3,17 @@ const infoPerfil = document.querySelector('#imagenYDatosPerfil');
 const id = localStorage.getItem("usuarioLogueadoId");
 
 
-/* MOSTRAR PERFIL */
-
+//Mostrar info perfil
 async function mostrarInfoPerfil() {
+  //Si no hay ID no te deja entrar, teoricamente esto es imposible porque el boton de perfil no se puede ver si no estas con la sesh iniciada
   if (!id) return;
-
   try {
+    //Busca la info del usuario y la carga
     const response = await fetch(`${URLbase}/usuarios/${id}`);
     if (!response.ok) throw new Error("No se pudo obtener el usuario");
     const usuario = await response.json();
     console.log(usuario)
-
-
+    //Carga dinamica todo el html de perfil con la informacion relevante
     infoPerfil.innerHTML = `
       <div>
         <div id="imagenPerfil"></div>
@@ -48,7 +47,8 @@ async function mostrarInfoPerfil() {
 
     const imagenPerfil = document.querySelector("#imagenPerfil");
     imagenPerfil.style.backgroundImage = `url(${usuario.imagenPerfil || "img/blankprofile.webp"})`;
-
+    //Carga dinamicamente y agrega los listeners para los botones de guardar y editar perfil
+    //La sintaxis es obviamente chatGPT pero entendemos lo que hizo
     document.querySelector('#btnGuardar').addEventListener('click', guardarInfoPerfil);
     document.querySelector("#btnCambiarImagen").addEventListener("click", cambiarImagenPerfil);
 
@@ -59,8 +59,8 @@ async function mostrarInfoPerfil() {
 
 mostrarInfoPerfil();
 
-/* Hacer Perfil Editable */
-
+//Esconde los datos del perfil y los cambia por inputs para editar. Tambien muestra los botones para confirmar los cambios
+//Crea un array de los diferentes inputs perfil, cada uno con un valor en el array distinto 
 const btnEditar = document.querySelector('#btnEditar');
 btnEditar.addEventListener('click', hacerPerfilEditable);
 
@@ -86,16 +86,15 @@ function hacerPerfilEditable() {
   btnCambiarImagen.style.display = 'block';
 }
 
-/* Guardar info perfil */
-
+//Guarda la info del perfil basado en los contenidos de los inputs. 
+//La primera seccion cambia los inputs por un p nuevo
 async function guardarInfoPerfil() {
   const inputsPerfil = document.querySelectorAll(".inputPerfil");
-
   const nombreUsuario = inputsPerfil[0].value.trim();
   const descripcionUsuario = inputsPerfil[1].value.trim();
   const ubicacionUsuario = inputsPerfil[2].value.trim();
   const interesesUsuario = inputsPerfil[3].value.trim();
-
+  //Esto toma los valores del input y los reemplaza por valores de p. Es un poco gepetosa pero la podemos explicar
   inputsPerfil.forEach(input => {
     const p = document.createElement("p");
     p.className = "campoPerfil";
@@ -107,6 +106,7 @@ async function guardarInfoPerfil() {
   document.querySelector("#inpImagenPerfil").style.display = 'none';
   document.querySelector("#btnCambiarImagen").style.display = 'none';
 
+  //Usa el metodo put para enviar la nueva informacion a la base de datos
   try {
     const response = await fetch(`${URLbase}/usuarios/${id}`, {
       method: "PUT",
@@ -129,7 +129,7 @@ async function guardarInfoPerfil() {
 }
 
 /* Cambiar imagen de perfil */
-
+//Hace lo mismo que arriba pero separado para que puedas cambiar la imagen de perfil independientemente del resto de la info
 async function cambiarImagenPerfil() {
   const imagenPerfil = document.querySelector("#imagenPerfil");
   const inpImagenPerfil = document.querySelector("#inpImagenPerfil");
@@ -165,8 +165,8 @@ async function cambiarImagenPerfil() {
   }
 }
 
-/* Buscar eventos creados por el usuario */
 
+//Busca eventos creados por el usuario para mostrarlo
 async function obtenerEventosUsuario() {
   try {
     const response = await fetch(`${URLbase}/eventos/usuario/${id}`, {
@@ -184,14 +184,14 @@ async function obtenerEventosUsuario() {
   }
 }
 
-/* Mostrar eventos creados por el usuario */
+
+//Muestra los eventos que creo el usuario
 
 async function mostrarEventosUsuario(nombreUsuario) {
   try {
     const response = await fetch(`${URLbase}/usuarios/${nombreUsuario}/eventos`);
     if (!response.ok) throw new Error("No se pudo obtener los eventos");
     const eventosUsuario = await response.json();
-
     const contenedorEventosPerfil = document.querySelector('#contenedorEventosPerfil');
     contenedorEventosPerfil.innerHTML = "";
 

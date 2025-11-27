@@ -3,6 +3,8 @@ const contenedorEventosMain = document.querySelector("#contenedorEventosMain");
 const eventosGlobal = await obtenerEventos();
 console.log(eventosGlobal);
 console.log("ID usuario logueado:", localStorage.getItem("usuarioLogueadoId"));
+
+//Obtiene todos los eventos que hay una sola ves
 async function obtenerEventos() {
   const response = await fetch(`${URLbase}/eventos`, {
     method: "GET",
@@ -13,12 +15,12 @@ async function obtenerEventos() {
   return response.json();
 }
 
+
+//Listamos todos los eventos basados en el array de eventos que le enviamos
 async function listarEventos(arrayEventos) {
   try {
     contenedorEventosMain.innerHTML = "";
-
     arrayEventos.forEach((evento) => {
-      console.log(evento);
       contenedorEventosMain.innerHTML += `
         <div class="evento">
           <img src="${
@@ -48,25 +50,26 @@ async function listarEventos(arrayEventos) {
 
       `;
     });
+    console.log("eventos cargados")
   } catch (e) {
     console.log("Error al listar los eventos");
   }
 }
+//Carga inicial de eventos, con todos los eventos ordenados de forma aleatoria
 cargarInicial();
 async function cargarInicial() {
   const arrayEventos = eventosGlobal;
   listarEventos(arrayEventos);
 }
 
+//FILTROS//
+
+//Filtro que ordena la base de datos por precio, los filtros no se acumulan, filtra toda la base de datos de nuevo
 const botonPrecioMain = document.querySelector("#botonPrecioMain");
 botonPrecioMain.addEventListener("click", filtrarPrecio);
-async function filtrarPopulares() {
-  console.log("Filtrando por populares");
-}
-async function filtrarSiguiendo() {
-  console.log("Filtrando por siguiendo");
-}
 let filtroPrecio = 0;
+
+//Si filtroPrecio es 0 lo cambia a 1 y si es uno a 2. 1 es de mayor a menor y 2 de menor a mayor
 async function filtrarPrecio() {
   console.log("Filtrando por precio");
   if (filtroPrecio === 0) {
@@ -103,8 +106,7 @@ async function filtrarPrecio() {
   }
 }
 
-// boton Filtrar Modal
-
+// Toggle de el boton de filtro de categorias
 document.querySelector("#btnFiltrarMain").addEventListener("click", () => {
   const listaExplorar = document.querySelector("#listaExplorarMain");
 
@@ -115,8 +117,7 @@ document.querySelector("#btnFiltrarMain").addEventListener("click", () => {
   }
 });
 
-// boton Filtrar cerrar Modal
-
+// Cargamos la categorias dinamicamente, si quisieramos armar mas categorias seria mas facil. Tambien hace los listeners
 function cargarCategorias() {
   console.log("Cargando categorias");
   let categorias = [];
@@ -134,6 +135,7 @@ function cargarCategorias() {
                 </div>
         `;
   });
+  //Crea los listeners para todos los items con clase .categoriaMenuIni
   const itemsCategoria = document.querySelectorAll(".categoriaMenuIni");
   itemsCategoria.forEach((item) => {
     item.addEventListener("click", function () {
@@ -142,7 +144,9 @@ function cargarCategorias() {
     });
   });
 }
-//Filtra por evento mandanole la categoria
+
+
+//Filtra por evento mandanole la lista a listarEventos
 function filtrarPorEvento(categoria) {
   console.log("entraste en " + categoria);
   const eventos = eventosGlobal;
@@ -155,6 +159,8 @@ function filtrarPorEvento(categoria) {
   });
 }
 
+
+//Filtros  de presencialidad o de edad, etc.
 const filtrarEventosPresencial = document.querySelector(
   "#filtrarEventosPresencial"
 );
@@ -164,6 +170,8 @@ const filtrarEventosVirtuales = document.querySelector(
 filtrarEventosPresencial.addEventListener("click", filtrarPresenciales);
 filtrarEventosVirtuales.addEventListener("click", filtrarVirtuales);
 
+
+//Envia true o false porque eso es lo que lee el preset de evento
 function filtrarPresenciales() {
   filtrarPresencialVirtual(true);
 }
@@ -172,6 +180,7 @@ function filtrarVirtuales() {
   filtrarPresencialVirtual(false);
 }
 
+//Dependiendo de si es true o false el valor filtra diferentes eventos, fácil.
 function filtrarPresencialVirtual(valor) {
   console.log("filtraste por " + valor);
   const eventos = eventosGlobal;
@@ -184,6 +193,8 @@ function filtrarPresencialVirtual(valor) {
   });
 }
 
+
+//Toggle de tipo de eventos, on/off
 const tipoDeEventoSelect = document.querySelector("#tipoDeEventoSelect");
 tipoDeEventoSelect.addEventListener("click", dropdownTipoDeEvento);
 let tipoDeEventoAbierto = true;
@@ -203,6 +214,9 @@ function dropdownTipoDeEvento() {
   }
 }
 
+
+//FILTRO FECHA Y BUSCADOR
+
 const elegirFechaMain = document.querySelector("#elegirFechaMain");
 elegirFechaMain.addEventListener("change", filtrarFecha);
 
@@ -214,12 +228,13 @@ async function filtrarFecha() {
 const inpBuscarMain = document.querySelector("#inpBuscarMain");
 inpBuscarMain.addEventListener("input", filtrarBusqueda);
 
+//Filtro de busqueda, busca por titulo, creador, descripcion o categoria
 async function filtrarBusqueda() {
   const texto = inpBuscarMain.value.toLowerCase().trim();
 
   try {
     const eventos = eventosGlobal;
-
+    //Const filtrados que filtra todos los eventos si incluyen en los distintos parametros 
     const filtrados = eventos.filter((evento) => {
       const nombre = evento.nombreEvento?.toLowerCase() || "";
       const creador = Array.isArray(evento.creadorEvento)
@@ -245,12 +260,15 @@ async function filtrarBusqueda() {
 const inicioInput = document.querySelector("#elegirFechaMain");
 const finInput = document.querySelector("#elegirFechaFinalMain");
 
+//Filtro por fecha
 function filtrarPorFecha() {
   const eventos = eventosGlobal;
+  //se fija si el valor es un date, se supone que siempre es pero a veces revienta todo
   const inicio = inicioInput.value ? new Date(inicioInput.value) : null;
   const fin = finInput.value ? new Date(finInput.value) : null;
   console.log(inicio, fin);
   let eventosFiltrados = [];
+  //un for loop para ver si la fecha del evento esta dentro del rango de las dos fechas filtro, solo se activa si los dos input tienen cosas
   for (let i = 0; i < eventos.length; i++) {
     const element = eventos[i];
     const fechaEvento = new Date(element.fecha);
