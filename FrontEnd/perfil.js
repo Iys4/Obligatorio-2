@@ -238,11 +238,11 @@ async function mostrarEventosUsuario(nombreUsuario) {
 const nombreUsuario = localStorage.getItem("usuarioLogueadoNombre");
 mostrarEventosUsuario(nombreUsuario);
 
+//Eliminar usuarios
 const btnEliminarUsuario = document.querySelector('#btnEliminarUsuario');
 btnEliminarUsuario.addEventListener('click', eliminarUsuario);
 
-/* Eliminar usuario */
-
+//Primero confirma que la persona quiere eliminar el perfil
 async function eliminarUsuario() {
   if (!confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.")) {
     return;
@@ -251,6 +251,7 @@ async function eliminarUsuario() {
     const response = await fetch(`${URLbase}/usuarios/${id}`, {
       method: "DELETE"
     });
+    //Se elimina el usuario y se elimina el usuario del localStorage
     if (!response.ok) throw new Error("No se pudo eliminar el usuario");
     alert("Cuenta eliminada con éxito");
     localStorage.removeItem("usuarioLogueadoId");

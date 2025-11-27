@@ -1,11 +1,14 @@
 // crearEvento.js
 const URLbase = "https://que-hay-5i96.onrender.com";
+
 const botonCrearEventoCE = document.querySelector("#buttonCrearEvento");
+
 let linksImagenes = [];
+//Toma los valores de todos los inputs y los inserta con el metodo put
 botonCrearEventoCE.addEventListener("click", async () => {
     console.log(linksImagenes);
     try {
-      // 1️⃣ Obtener los valores de los inputs
+      // Obtener los valores de los inputs
       const nombreEvento = document.querySelector("#nombrarEventoCE input").value;
       const descripcion = document.querySelector("#descripcionEventoCE input").value;
       const precio = Number(document.querySelector("#inputPrecio input").value);
@@ -16,6 +19,7 @@ botonCrearEventoCE.addEventListener("click", async () => {
       let techado = false;
       let presencial = true;
 
+      //Toma al usuario en el local storage y lo agrega
       const usuarioLogueado = localStorage.getItem("usuarioLogueadoNombre");
       const nuevoEvento = {
         creadorEvento: [usuarioLogueado],
@@ -33,7 +37,7 @@ botonCrearEventoCE.addEventListener("click", async () => {
       console.log(nuevoEvento);
       console.log("Enviando evento:", nuevoEvento);
 
-      // 3️⃣ Enviar el evento al backend
+      //Enviar el evento al backend
       const response = await fetch(`${URLbase}/crear`, {
         method: "POST",
         headers: {
@@ -42,10 +46,11 @@ botonCrearEventoCE.addEventListener("click", async () => {
         body: JSON.stringify(nuevoEvento)
       });
 
-      // 4️⃣ Leer respuesta
+      //Te da la respuesta y te dice que se creo
       if (response.ok) {
         const data = await response.text();
         alert("Evento creado con éxito ✅");
+        window.location.href = "index.html"
         console.log("Servidor respondió:", data);
       } else {
         const errorText = await response.text();
