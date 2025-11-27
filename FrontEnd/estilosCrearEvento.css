@@ -112,6 +112,10 @@ h3 {
     gap: 1em;
 }
 
+#buttonCrearEvento{
+    align-items: center;
+}
+
 .buttonModalCE{
     padding: 1.5em;
     border-radius: 50px;
@@ -125,6 +129,10 @@ h3 {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+#contenedorButtonsModalCE:nth-child(1){
+    padding: 1.5em 1.6em;
 }
 
 #contenedorEdadModalidadSuspension{
