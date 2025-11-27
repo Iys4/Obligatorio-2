@@ -23,9 +23,8 @@ async function listarEventos(arrayEventos) {
     arrayEventos.forEach((evento) => {
       contenedorEventosMain.innerHTML += `
         <div class="evento">
-          <img src="${
-            evento.linksImagenes[0] || ""
-          }" alt="imagen de evento" class="imagenEventoMain">
+          <img src="${evento.linksImagenes[0] || ""
+        }" alt="imagen de evento" class="imagenEventoMain">
           <h4>${evento.nombreEvento}</h4>
           <h5>${new Date(evento.fecha).toLocaleDateString()}</h5>
           <div class="ubicacionEvento">
@@ -40,11 +39,9 @@ async function listarEventos(arrayEventos) {
           </div>
               <div id="eventosYBoton">
               <p>$${evento.precio}</p>
-                            <a class="botonAmarilloTiny" id="${
-                              evento._id
-                            }" href="paginaEvento.html?id=${
-        evento._id
-      }">Ver evento</a>
+                            <a class="botonAmarilloTiny" id="${evento._id
+        }" href="paginaEvento.html?id=${evento._id
+        }">Ver evento</a>
                         </div>
         </div>
 
