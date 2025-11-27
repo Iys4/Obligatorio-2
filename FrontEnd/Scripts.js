@@ -1,27 +1,29 @@
-const contenedorEventosMain = document.querySelector('#contenedorEventosMain');
+const URLbase = "https://que-hay-5i96.onrender.com";
+const contenedorEventosMain = document.querySelector("#contenedorEventosMain");
 const eventosGlobal = await obtenerEventos();
 console.log(eventosGlobal);
 console.log("ID usuario logueado:", localStorage.getItem("usuarioLogueadoId"));
 async function obtenerEventos() {
-  const response = await fetch('http://localhost:3000/eventos', {
-    method: 'GET',
+  const response = await fetch(`${URLbase}/eventos`, {
+    method: "GET",
     headers: {
-      'Content-Type': 'application/json'
-    }
+      "Content-Type": "application/json",
+    },
   });
   return response.json();
 }
-
 
 async function listarEventos(arrayEventos) {
   try {
     contenedorEventosMain.innerHTML = "";
 
-    arrayEventos.forEach(evento => {
+    arrayEventos.forEach((evento) => {
       console.log(evento);
       contenedorEventosMain.innerHTML += `
         <div class="evento">
-          <img src="${evento.linksImagenes[0] || ''}" alt="imagen de evento" class="imagenEventoMain">
+          <img src="${
+            evento.linksImagenes[0] || ""
+          }" alt="imagen de evento" class="imagenEventoMain">
           <h4>${evento.nombreEvento}</h4>
           <h5>${new Date(evento.fecha).toLocaleDateString()}</h5>
           <div class="ubicacionEvento">
@@ -36,15 +38,18 @@ async function listarEventos(arrayEventos) {
           </div>
               <div id="eventosYBoton">
               <p>$${evento.precio}</p>
-                            <a class="botonAmarilloTiny" id="${evento._id}" href="paginaEvento.html?id=${evento._id}">Ver evento</a>
+                            <a class="botonAmarilloTiny" id="${
+                              evento._id
+                            }" href="paginaEvento.html?id=${
+        evento._id
+      }">Ver evento</a>
                         </div>
         </div>
 
       `;
     });
-  }
-  catch (e) {
-    console.log('Error al listar los eventos');
+  } catch (e) {
+    console.log("Error al listar los eventos");
   }
 }
 cargarInicial();
@@ -53,42 +58,46 @@ async function cargarInicial() {
   listarEventos(arrayEventos);
 }
 
-const botonPrecioMain = document.querySelector('#botonPrecioMain');
-botonPrecioMain.addEventListener('click', filtrarPrecio);
+const botonPrecioMain = document.querySelector("#botonPrecioMain");
+botonPrecioMain.addEventListener("click", filtrarPrecio);
 async function filtrarPopulares() {
-  console.log('Filtrando por populares');
+  console.log("Filtrando por populares");
 }
 async function filtrarSiguiendo() {
-  console.log('Filtrando por siguiendo');
+  console.log("Filtrando por siguiendo");
 }
 let filtroPrecio = 0;
 async function filtrarPrecio() {
-  console.log('Filtrando por precio');
+  console.log("Filtrando por precio");
   if (filtroPrecio === 0) {
     filtroPrecio = 1;
-    botonPrecioMain.style.backgroundColor = '#FFD700';
+    botonPrecioMain.style.backgroundColor = "#FFD700";
 
     try {
       const arrayEventos = eventosGlobal;
       console.log(typeof arrayEventos[0].precio);
-      const eventosOrdenados = [...arrayEventos].sort((b, a) => a.precio - b.precio);
+      const eventosOrdenados = [...arrayEventos].sort(
+        (b, a) => a.precio - b.precio
+      );
       listarEventos(eventosOrdenados);
     } catch (e) {
-      console.log('Error al filtrar por precio');
+      console.log("Error al filtrar por precio");
     }
   } else if (filtroPrecio === 1) {
     filtroPrecio = 2;
-    botonPrecioMain.style.backgroundColor = '#ff00eaff';
+    botonPrecioMain.style.backgroundColor = "#ff00eaff";
     try {
       const arrayEventos = eventosGlobal;
       console.log(typeof arrayEventos[0].precio);
-      const eventosOrdenados = [...arrayEventos].sort((a, b) => a.precio - b.precio);
+      const eventosOrdenados = [...arrayEventos].sort(
+        (a, b) => a.precio - b.precio
+      );
       listarEventos(eventosOrdenados);
     } catch (e) {
-      console.log('Error al filtrar por precio');
+      console.log("Error al filtrar por precio");
     }
   } else {
-    botonPrecioMain.style.backgroundColor = '#FFFFFF';
+    botonPrecioMain.style.backgroundColor = "#FFFFFF";
     filtroPrecio = 0;
     cargarInicial();
   }
@@ -96,50 +105,49 @@ async function filtrarPrecio() {
 
 // boton Filtrar Modal
 
-document.querySelector('#btnFiltrarMain').addEventListener('click', () => {
-  const listaExplorar = document.querySelector('#listaExplorarMain');
+document.querySelector("#btnFiltrarMain").addEventListener("click", () => {
+  const listaExplorar = document.querySelector("#listaExplorarMain");
 
-  if (listaExplorar.style.display === 'block') {
-    listaExplorar.style.display = 'none';
+  if (listaExplorar.style.display === "block") {
+    listaExplorar.style.display = "none";
   } else {
-    listaExplorar.style.display = 'block';
+    listaExplorar.style.display = "block";
   }
 });
 
 // boton Filtrar cerrar Modal
 
-
-
-
 function cargarCategorias() {
-  console.log('Cargando categorias');
+  console.log("Cargando categorias");
   let categorias = [];
   const eventos = eventosGlobal;
-  eventos.forEach(evento => {
+  eventos.forEach((evento) => {
     if (evento.categoria && !categorias.includes(evento.categoria)) {
       categorias.push(evento.categoria);
-    }});
-    tiposDeEventosDropDown.innerHTML = '';
-    categorias.forEach(categoria => {
-      tiposDeEventosDropDown.innerHTML += `
+    }
+  });
+  tiposDeEventosDropDown.innerHTML = "";
+  categorias.forEach((categoria) => {
+    tiposDeEventosDropDown.innerHTML += `
                 <div id="${categoria}" class="categoriaMenuIni">
                     <p>${categoria}</p>
                 </div>
         `;
+  });
+  const itemsCategoria = document.querySelectorAll(".categoriaMenuIni");
+  itemsCategoria.forEach((item) => {
+    item.addEventListener("click", function () {
+      const cat = this.id;
+      filtrarPorEvento(cat);
     });
-        const itemsCategoria = document.querySelectorAll(".categoriaMenuIni")
-        itemsCategoria.forEach(item => {item.addEventListener("click", function() {
-          const cat = this.id;
-          filtrarPorEvento(cat);
-        })})
-
+  });
 }
 //Filtra por evento mandanole la categoria
 function filtrarPorEvento(categoria) {
-console.log("entraste en " + categoria)
+  console.log("entraste en " + categoria);
   const eventos = eventosGlobal;
   const eventosFiltrados = [];
-  eventos.forEach(evento => {
+  eventos.forEach((evento) => {
     if (evento.categoria === categoria) {
       eventosFiltrados.push(evento);
     }
@@ -147,24 +155,28 @@ console.log("entraste en " + categoria)
   });
 }
 
-const filtrarEventosPresencial = document.querySelector("#filtrarEventosPresencial");
-const filtrarEventosVirtuales = document.querySelector("#filtrarEventosVirtuales");
-filtrarEventosPresencial.addEventListener ("click", filtrarPresenciales);
-filtrarEventosVirtuales.addEventListener ("click", filtrarVirtuales);
+const filtrarEventosPresencial = document.querySelector(
+  "#filtrarEventosPresencial"
+);
+const filtrarEventosVirtuales = document.querySelector(
+  "#filtrarEventosVirtuales"
+);
+filtrarEventosPresencial.addEventListener("click", filtrarPresenciales);
+filtrarEventosVirtuales.addEventListener("click", filtrarVirtuales);
 
-function filtrarPresenciales(){
+function filtrarPresenciales() {
   filtrarPresencialVirtual(true);
 }
 
-function filtrarVirtuales(){
+function filtrarVirtuales() {
   filtrarPresencialVirtual(false);
 }
 
 function filtrarPresencialVirtual(valor) {
-  console.log("filtraste por " + valor)
+  console.log("filtraste por " + valor);
   const eventos = eventosGlobal;
   const eventosFiltrados = [];
-  eventos.forEach(evento => {
+  eventos.forEach((evento) => {
     if (evento.presencial === valor) {
       eventosFiltrados.push(evento);
     }
@@ -172,14 +184,16 @@ function filtrarPresencialVirtual(valor) {
   });
 }
 
-const tipoDeEventoSelect = document.querySelector('#tipoDeEventoSelect');
-tipoDeEventoSelect.addEventListener('click', dropdownTipoDeEvento);
+const tipoDeEventoSelect = document.querySelector("#tipoDeEventoSelect");
+tipoDeEventoSelect.addEventListener("click", dropdownTipoDeEvento);
 let tipoDeEventoAbierto = true;
-const tiposDeEventosDropDown = document.querySelector('#tiposDeEventosDropDown');
+const tiposDeEventosDropDown = document.querySelector(
+  "#tiposDeEventosDropDown"
+);
 cargarCategorias();
 
 function dropdownTipoDeEvento() {
-  console.log('click en tipo de evento');
+  console.log("click en tipo de evento");
   if (tipoDeEventoAbierto === true) {
     tipoDeEventoAbierto = false;
     tiposDeEventosDropDown.style.display = "none";
@@ -189,16 +203,16 @@ function dropdownTipoDeEvento() {
   }
 }
 
-const elegirFechaMain = document.querySelector('#elegirFechaMain');
-elegirFechaMain.addEventListener('change', filtrarFecha);
+const elegirFechaMain = document.querySelector("#elegirFechaMain");
+elegirFechaMain.addEventListener("change", filtrarFecha);
 
 async function filtrarFecha() {
   const fechaSeleccionada = new Date(elegirFechaMain.value);
-  console.log('Filtrando por fecha:', fechaSeleccionada);
+  console.log("Filtrando por fecha:", fechaSeleccionada);
 }
 
-const inpBuscarMain = document.querySelector('#inpBuscarMain');
-inpBuscarMain.addEventListener('input', filtrarBusqueda);
+const inpBuscarMain = document.querySelector("#inpBuscarMain");
+inpBuscarMain.addEventListener("input", filtrarBusqueda);
 
 async function filtrarBusqueda() {
   const texto = inpBuscarMain.value.toLowerCase().trim();
@@ -206,7 +220,7 @@ async function filtrarBusqueda() {
   try {
     const eventos = eventosGlobal;
 
-    const filtrados = eventos.filter(evento => {
+    const filtrados = eventos.filter((evento) => {
       const nombre = evento.nombreEvento?.toLowerCase() || "";
       const creador = Array.isArray(evento.creadorEvento)
         ? evento.creadorEvento.join(" ").toLowerCase()
@@ -223,17 +237,13 @@ async function filtrarBusqueda() {
     });
 
     listarEventos(filtrados);
-
   } catch (error) {
     console.error("Error al filtrar la búsqueda:", error);
   }
 }
 
-
-
 const inicioInput = document.querySelector("#elegirFechaMain");
 const finInput = document.querySelector("#elegirFechaFinalMain");
-
 
 function filtrarPorFecha() {
   const eventos = eventosGlobal;

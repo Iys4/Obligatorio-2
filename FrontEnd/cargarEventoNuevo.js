@@ -1,3 +1,4 @@
+const URLbase = "https://que-hay-5i96.onrender.com";
 const params = new URLSearchParams(window.location.search);
     const idEvento = params.get("id");
     // 2. Buscar el evento en la lista global
@@ -5,7 +6,7 @@ const params = new URLSearchParams(window.location.search);
 const eventosGlobal = await obtenerEventos();
 console.log(eventosGlobal);
 async function obtenerEventos() {
-  const response = await fetch('http://localhost:3000/eventos', {
+  const response = await fetch(`${URLbase}/eventos`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -196,7 +197,7 @@ async function enviarPutConCambios(idEvento, originalEvento) {
         mayores: mayoresSel === 'si' ? true : false
     };
 
-    const resp = await fetch(`http://localhost:3000/eventos/${idEvento}`, {
+    const resp = await fetch(`${URLbase}/eventos/${idEvento}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
@@ -265,7 +266,7 @@ async function eliminarEvento(idEvento) {
     if (!confirmar) return;
 
     try {
-        const resp = await fetch(`http://localhost:3000/eventos/${idEvento}`, {
+        const resp = await fetch(`${URLbase}/eventos/${idEvento}`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' }
         });

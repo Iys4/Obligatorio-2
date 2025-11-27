@@ -1,3 +1,4 @@
+const URLbase = "https://que-hay-5i96.onrender.com";
 const infoPerfil = document.querySelector('#imagenYDatosPerfil');
 const id = localStorage.getItem("usuarioLogueadoId");
 
@@ -8,7 +9,7 @@ async function mostrarInfoPerfil() {
   if (!id) return;
 
   try {
-    const response = await fetch(`http://localhost:3000/usuarios/${id}`);
+    const response = await fetch(`${URLbase}/usuarios/${id}`);
     if (!response.ok) throw new Error("No se pudo obtener el usuario");
     const usuario = await response.json();
     console.log(usuario)
@@ -107,7 +108,7 @@ async function guardarInfoPerfil() {
   document.querySelector("#btnCambiarImagen").style.display = 'none';
 
   try {
-    const response = await fetch(`http://localhost:3000/usuarios/${id}`, {
+    const response = await fetch(`${URLbase}/usuarios/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -142,7 +143,7 @@ async function cambiarImagenPerfil() {
   }
 
   try {
-    const response = await fetch(`http://localhost:3000/usuarios/${id}`, {
+    const response = await fetch(`${URLbase}/usuarios/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ imagenPerfil: url })
@@ -168,7 +169,7 @@ async function cambiarImagenPerfil() {
 
 async function obtenerEventosUsuario() {
   try {
-    const response = await fetch(`http://localhost:3000/eventos/usuario/${id}`, {
+    const response = await fetch(`${URLbase}/eventos/usuario/${id}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     });
@@ -187,7 +188,7 @@ async function obtenerEventosUsuario() {
 
 async function mostrarEventosUsuario(nombreUsuario) {
   try {
-    const response = await fetch(`http://localhost:3000/usuarios/${nombreUsuario}/eventos`);
+    const response = await fetch(`${URLbase}/usuarios/${nombreUsuario}/eventos`);
     if (!response.ok) throw new Error("No se pudo obtener los eventos");
     const eventosUsuario = await response.json();
 
@@ -247,7 +248,7 @@ async function eliminarUsuario() {
     return;
   }
   try {
-    const response = await fetch(`http://localhost:3000/usuarios/${id}`, {
+    const response = await fetch(`${URLbase}/usuarios/${id}`, {
       method: "DELETE"
     });
     if (!response.ok) throw new Error("No se pudo eliminar el usuario");
