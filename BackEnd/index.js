@@ -200,15 +200,4 @@ app.put('/usuarios/:id', async (req, res) => {
     }
 });
 
-app.get('/usuarios/:nombreUsuario/eventos', async (req, res) => {
-  try {
-    const { nombreUsuario } = req.params;
-    const eventos = await evento.find({ creadorEvento: nombreUsuario });
-    res.json(eventos);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error al obtener eventos del usuario');
-  }
-});
-
 iniciar();
