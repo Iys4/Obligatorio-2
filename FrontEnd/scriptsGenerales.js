@@ -67,7 +67,7 @@ const inpUsuario = document.querySelector("#inpUsuario");
 
 //Carga el modal de iniciar sesion
 btnIniciarSesion.addEventListener("click", () => {
-  modalIS.style.display = "block";
+  modalIS.style.display = "inline-flex";
 });
 
 //Registra a un usuario nuevo
