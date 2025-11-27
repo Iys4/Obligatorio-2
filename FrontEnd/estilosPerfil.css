@@ -23,6 +23,10 @@ header{
     margin-top: 3em;
 }
 
+.imagenPortada{
+       height: 9em;
+    margin-bottom: 1em;}
+
 #imagenPerfil{
     width: 15em;
     height: 15em;
