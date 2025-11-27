@@ -1,4 +1,5 @@
 // crearEvento.js
+const URLbase = "https://que-hay-5i96.onrender.com";
 const botonCrearEventoCE = document.querySelector("#buttonCrearEvento");
 let linksImagenes = [];
 botonCrearEventoCE.addEventListener("click", async () => {
@@ -33,7 +34,7 @@ botonCrearEventoCE.addEventListener("click", async () => {
       console.log("Enviando evento:", nuevoEvento);
 
       // 3️⃣ Enviar el evento al backend
-      const response = await fetch("http://localhost:3000/crear", {
+      const response = await fetch(`${URLbase}/crear`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

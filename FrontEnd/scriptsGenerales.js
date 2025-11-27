@@ -1,3 +1,4 @@
+const URLbase = "https://que-hay-5i96.onrender.com";
 const modalIniciarSesion = document.querySelector("#modalIniciarSesion");
 const header = document.querySelector("header");
 headerLoad();
@@ -70,7 +71,7 @@ btnRegistrar.addEventListener('click', async () => {
       return;
     }
 
-    const response = await fetch("http://localhost:3000/crearUsuario", {
+    const response = await fetch(`${URLbase}/crearUsuario`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(nuevoUsuario)
@@ -113,7 +114,7 @@ btnIngresar.addEventListener('click', async () => {
   }
 
   try {
-    const response = await fetch("http://localhost:3000/usuarios");
+    const response = await fetch(`${URLbase}/usuarios`);
     const usuarios = await response.json();
 
     const usuarioValido = usuarios.find(
