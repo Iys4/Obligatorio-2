@@ -188,19 +188,32 @@ async function obtenerEventosUsuario() {
 }
 
 
+async function obtenerEventos() {
+  const response = await fetch(`${URLbase}/eventos`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return response.json();
+}
+
 //Muestra los eventos que creo el usuario
 
 async function mostrarEventosUsuario(nombreUsuario) {
+  console.log("mostrando eventos de " + nombreUsuario)
   try {
-    const response = await fetch(`${URLbase}/usuarios/${nombreUsuario}/eventos`);
-    if (!response.ok) throw new Error("No se pudo obtener los eventos");
-    const eventosUsuario = await response.json();
+    const eventosUsuario = await obtenerEventos();
+    console.log(eventosUsuario);
     const contenedorEventosPerfil = document.querySelector('#contenedorEventosPerfil');
     contenedorEventosPerfil.innerHTML = "";
-
     eventosUsuario.forEach(evento => {
+      const nombreUsuarioString = evento.creadorEvento[0];
+      console.log(nombreUsuarioString + nombreUsuario)
+      if(evento.creadorEvento[0] == nombreUsuario){
+        console.log("son iguales!")
       contenedorEventosPerfil.innerHTML += `
-              <div class="evento">
+          <div class="evento">
           <img src="${evento.linksImagenes[0] || ''}" alt="imagen de evento" class="imagenEventoMain">
           <h4>${evento.nombreEvento}</h4>
           <h5>${new Date(evento.fecha).toLocaleDateString()}</h5>
@@ -230,7 +243,7 @@ async function mostrarEventosUsuario(nombreUsuario) {
         </div>
 
       `;
-    });
+  }});
 
 
   } catch (e) {
