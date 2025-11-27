@@ -147,8 +147,9 @@ header .contenedor{
 
 header {
     background-color: #BFCEFF;
-    height: 20vh;
+    height: fit-content;
     display: flex;
+    padding: 2em;
 }
 
 nav{
@@ -246,7 +247,6 @@ a{
     display: flex;
     justify-content: space-between;
     margin-bottom: 1em;
-    align-items: center;
 }
 
 #PrecioYFechas{
@@ -343,14 +343,12 @@ a{
 
 .evento {
     padding: 11px;
-    max-width: 20%;
-    min-width: 240px;
-    max-height: 90vh;
     border-radius: 23.889px;
     border: 2px solid #000;
     background: #F0F0F0;
     display: flex;
     flex-direction: column;
+    gap: 0.3em;
 
     justify-content: space-around;
 }
@@ -369,7 +367,8 @@ a{
 }
 
 .imagenEventoMain {
-    height: 55%;
+    height: 200px;
+    aspect-ratio: 1/1;
     border-radius: 24px;
     border: 2px solid #000;
     background: url(<path-to-image>) lightgray 50% / cover no-repeat;
@@ -420,7 +419,7 @@ h5 {
 
 
 #eventosYBoton {
-    justify-content: space-around;
+    justify-content: space-between;
     display: flex;
     color: #000;
     font-family: "Public Sans";
@@ -441,7 +440,7 @@ h5 {
 
 #listaExplorarMain {
     display: flex;
-    width: 20vw;
+    width: 300px;
     height: fit-content;
     flex-direction: column;
     align-items: flex-end;
@@ -467,14 +466,9 @@ h5 {
 }
 
 #contenedorEventosMain {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1em;
-    justify-content: space-between;
-}
-
-#contenedorEventosYFiltroMain {
-    display: flex;
 }
 
 footer {
@@ -521,32 +515,39 @@ footer a:hover {
 }
 
 
-@media (max-width: 998px){
+@media (max-width: 1188px){
     #filtrosMain {
         flex-direction: column;
-        align-items: stretch;
         gap: 1em;
     }
+
+    #listaExplorarMain {
+    left: 0;
+    top: 63px;
+}
 
     #filtrosMain > * {
         width: fit-content;   
     }
 }
 
-@media (max-width: 768px){
-
-    header .botonBlanco{
+@media (max-width: 1046px){
+ header .contenedor{
+    flex-wrap: wrap;
+    justify-content: center;
+}    header .botonBlanco{
         font-size: 16px;
     }
+}
+
+@media (max-width: 768px){
+
+
 
     h1{
         font-size: 40px;
     }
 
-header .contenedor{
-    flex-wrap: wrap;
-    justify-content: center;
-}
     header nav button {
         flex: 0 1 auto; 
     }
@@ -578,6 +579,14 @@ header .contenedor{
     #redesFooter{
         align-items: center;
     }
+}
+
+@media (max-width: 620px){
+
+    nav{
+        flex-direction: column;
+    }
+
 }
 
 @media (max-width: 425px){

@@ -18,12 +18,16 @@ function headerLoad (){
     header.innerHTML = `        <div class="contenedor">
             <a href="index.html"><img src="img/logo.png" alt="volver a inicio" id="logoHeader"></a>
             <nav>
+            <div class="flex">
                 <a href="index.html" id="inicioHeader" class="botonBlanco">Inicio</a>
                 <a href="crearEvento.html" id="crearEventoHeader" class="botonBlanco">Crear evento</a>
                 <a href="perfil.html" id="perfilHeader" class="botonBlanco">Perfil</a>
                 <button id="btnIniciarSesion" class="botonBlanco">Iniciar sesión</button>
+                </div>
+                <div class="flex">
                 <button id="btnCerrarSesion" class="botonBlanco">Cerrar Sesion</button>
-                <h2 id="nombreUsuarioHeader">nombre usuario</h2>
+                <h4 id="nombreUsuarioHeader">nombre usuario</h4>
+                </div>
             </nav>
         </div>`;
 }
