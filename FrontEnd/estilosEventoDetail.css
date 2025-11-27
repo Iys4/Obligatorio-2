@@ -1,16 +1,15 @@
 #contenedorInfo {
 display: flex;
 flex-direction: column;
-justify-content: center;
 align-items: center;
+margin: auto;
 gap: 28px;
 padding: 5vh 5vw;
 }
 
 #inforEventoEspecifico {
 display: flex;
-width: 80%;
-flex-direction: column;
+width: 60%;
 align-items: flex-start;
 gap: 23.13px;
 }
@@ -26,6 +25,7 @@ box-shadow: 5px 4px 0 0 #000;
 
 #contenedorTextoEventoEsp {
     display: flex;
+    width: 100%;
 padding: 27px;
 flex-direction: column;
 justify-content: center;

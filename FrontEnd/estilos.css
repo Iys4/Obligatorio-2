@@ -134,17 +134,15 @@ body {
 }
 header .contenedor{
     width: 100%;
+     display: flex;
+    justify-content: space-between;
+    gap: 0.8em;
 }
 
 header {
     background-color: #BFCEFF;
     height: 20vh;
     display: flex;
-}
-
-header div{
-    display: flex;
-    justify-content: space-between;
 }
 
 nav{
@@ -161,6 +159,7 @@ nav a, nav button {
 header .botonBlanco{
     font-size: 18px;
     background-color: white;
+    min-width: fit-content;
 }
 
 #contenedorImagenPortada {
@@ -278,10 +277,6 @@ a{
     left: 0;
     z-index: 9999;
     background-color: rgba(0,0,0,0.25);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #modalIniciarSesion {
@@ -527,10 +522,18 @@ footer a:hover {
 }
 
 @media (max-width: 768px){
+
+    header .botonBlanco{
+        font-size: 16px;
+    }
+
+    h1{
+        font-size: 40px;
+    }
+
 header .contenedor{
     flex-wrap: wrap;
     justify-content: center;
-
 }
     header nav button {
         flex: 0 1 auto; 
@@ -557,8 +560,12 @@ header .contenedor{
 
 @media (max-width: 425px){
 
-    h1{
-        font-size: 40px;
+    header .botonBlanco{
+        font-size: 14px;
+    }
+
+    #filtrosMain .botonBlanco{
+        font-size: 14px;
     }
 
     h2{

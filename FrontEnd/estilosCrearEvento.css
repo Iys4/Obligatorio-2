@@ -4,10 +4,14 @@ main {
     align-items: center;
 }
 
+h1{
+    text-align: center;
+}
+
 #contenedorCrearEvento {
     display: flex;
     padding: 26px 34px;
-    width: 60vw;
+    width: 80%;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
@@ -16,7 +20,8 @@ main {
     background: #FFF;
     /* Sombra */
     box-shadow: 5px 4px 0 0 #000;
-    gap: 20px;
+    gap: 1em;
+    margin-top: 2em;
 }
 
 h3 {
@@ -131,8 +136,8 @@ h3 {
     line-height: normal;
 }
 
-#contenedorButtonsModalCE:nth-child(1){
-    padding: 1.5em 1.6em;
+#contenedorButtonsModalCE button:nth-of-type(1){
+    padding: 1.5em 1.65em;
 }
 
 #contenedorEdadModalidadSuspension{
@@ -174,6 +179,25 @@ h3 {
 
     .buttonModalCE{
     padding: 1em;
+}
+
+#contenedorButtonsModalCE button:nth-of-type(1){
+    padding: 1em 1.15em;
+}
+
+#contenedorPrecioUbicacionFecha{
+    display: flex;
+flex-direction: column;
+justify-content: space-between;
+    gap: 1em;
+}
+
+.inputCE{
+    font-size: 14px;
+}
+
+#contenedorCrearEvento{
+    width: 100%;
 }
 
 }
