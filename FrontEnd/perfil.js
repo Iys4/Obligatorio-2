@@ -47,10 +47,12 @@ async function mostrarInfoPerfil() {
 
     const imagenPerfil = document.querySelector("#imagenPerfil");
     imagenPerfil.style.backgroundImage = `url(${usuario.imagenPerfil || "img/blankprofile.webp"})`;
+
     //Carga dinamicamente y agrega los listeners para los botones de guardar y editar perfil
-    //La sintaxis es obviamente chatGPT pero entendemos lo que hizo
-    document.querySelector('#btnGuardar').addEventListener('click', guardarInfoPerfil);
-    document.querySelector("#btnCambiarImagen").addEventListener("click", cambiarImagenPerfil);
+    const btnGuardar = document.querySelector('#btnGuardar')
+    btnGuardar.addEventListener('click', guardarPerfil);
+    const btnCambiarImagen = document.querySelector("#btnCambiarImagen")
+    btnCambiarImagen.addEventListener("click", cambiarImagenPerfil);
 
   } catch (error) {
     console.error("Error cargando perfil:", error);
@@ -59,20 +61,20 @@ async function mostrarInfoPerfil() {
 
 mostrarInfoPerfil();
 
-//Esconde los datos del perfil y los cambia por inputs para editar. Tambien muestra los botones para confirmar los cambios
-//Crea un array de los diferentes inputs perfil, cada uno con un valor en el array distinto 
+// Reemplaza los párrafos del perfil con inputs para editar. Muestra los botones para guardar, el input de la imagen y el boton de cambiar imagen.
+// Crea un array de los diferentes inputs perfil, cada uno con un valor en el array distinto 
+
 const btnEditar = document.querySelector('#btnEditar');
-btnEditar.addEventListener('click', hacerPerfilEditable);
+btnEditar.addEventListener('click', editarPerfil);
 
-function hacerPerfilEditable() {
+function editarPerfil() {
+  const parrafo = document.querySelectorAll(".campoPerfil");
 
-  const camposPerfil = document.querySelectorAll(".campoPerfil");
-
-  camposPerfil.forEach(p => {
-    const valor = p.textContent.trim() || "";
+  parrafo.forEach(p => {
+    const contenido = p.textContent.trim() || "";
     const input = document.createElement("input");
     input.type = "text";
-    input.value = valor;
+    input.value = contenido;
     input.className = "inputPerfil input";
     p.replaceWith(input);
   });
@@ -86,16 +88,17 @@ function hacerPerfilEditable() {
   btnCambiarImagen.style.display = 'block';
 }
 
-//Guarda la info del perfil basado en los contenidos de los inputs. 
-//La primera seccion cambia los inputs por un p nuevo
-async function guardarInfoPerfil() {
-  const inputsPerfil = document.querySelectorAll(".inputPerfil");
-  const nombreUsuario = inputsPerfil[0].value.trim();
-  const descripcionUsuario = inputsPerfil[1].value.trim();
-  const ubicacionUsuario = inputsPerfil[2].value.trim();
-  const interesesUsuario = inputsPerfil[3].value.trim();
+// Guarda la info del perfil basado en el contenido de los inputs. 
+// La primera seccion cambia los inputs por un p nuevo
+
+async function guardarPerfil() {
+  const inputs = document.querySelectorAll(".inputPerfil");
+  const nombreUsuario = inputs[0].value;
+  const descripcionUsuario = inputs[1].value;
+  const ubicacionUsuario = inputs[2].value;
+  const interesesUsuario = inputs[3].value;
   //Esto toma los valores del input y los reemplaza por valores de p. Es un poco gepetosa pero la podemos explicar
-  inputsPerfil.forEach(input => {
+  inputs.forEach(input => {
     const p = document.createElement("p");
     p.className = "campoPerfil";
     p.textContent = input.value.trim() || "";

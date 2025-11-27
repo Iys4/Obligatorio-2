@@ -48,9 +48,8 @@ app.post('/crear', async (req, res) => {
     try {
         const body = req.body;
 
-        // 1️⃣ Crear el evento
         const nuevoEvento = new evento({
-            creadorEvento: [body.creadorEvento], // solo nombre del usuario
+            creadorEvento: [body.creadorEvento], 
             nombreEvento: body.nombreEvento,
             linksImagenes: body.linksImagenes || [],
             fecha: body.fecha,
@@ -66,10 +65,9 @@ app.post('/crear', async (req, res) => {
         const eventoGuardado = await nuevoEvento.save();
         console.log('Evento creado:', eventoGuardado);
 
-        // 2️⃣ Agregar evento al array del usuario
         const usuarioCreador = await usuario.findOne({ nombreUsuario: body.creadorEvento });
         if (usuarioCreador) {
-            usuarioCreador.eventosUsuario.push(eventoGuardado._id); // agregamos el evento al usuario
+            usuarioCreador.eventosUsuario.push(eventoGuardado._id); 
             await usuarioCreador.save();
             console.log(`Evento agregado al usuario: ${usuarioCreador.nombreUsuario}`);
         } else {

@@ -281,20 +281,20 @@ a{
     width: 100vw;
     height: 100vh;
     position: fixed;
-    top: 0;
-    left: 0;
     z-index: 9999;
     background-color: rgba(0,0,0,0.25);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #modalIniciarSesion {
     width: fit-content;
     padding: 2em;
-    gap: 1em;
     border-radius: 25px;
     border: 2px solid #000;
     background-color: white;
-    position: relative; /* ya no absolute */
 }
 
 #modalIniciarSesion h1{
@@ -368,7 +368,6 @@ a{
 
 .imagenEventoMain {
     height: 200px;
-    aspect-ratio: 1/1;
     border-radius: 24px;
     border: 2px solid #000;
     background: url(<path-to-image>) lightgray 50% / cover no-repeat;
