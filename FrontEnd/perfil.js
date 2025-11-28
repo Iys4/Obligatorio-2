@@ -1,4 +1,3 @@
-const URLbase = "https://que-hay-5i96.onrender.com";
 const infoPerfil = document.querySelector('#imagenYDatosPerfil');
 const id = localStorage.getItem("usuarioLogueadoId");
 

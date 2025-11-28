@@ -201,3 +201,76 @@ justify-content: space-between;
 }
 
 }
+
+/* ========================= */
+/* ANIMACIONES PANEL CREAR EVENTO */
+/* ========================= */
+
+/* Inputs CE: hover suave + enfoque */
+.inputCE,
+.contenedorSelectCE {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.25s ease;
+}
+
+.inputCE:hover,
+.contenedorSelectCE:hover {
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0 0 #000;
+}
+
+.inputCE:focus,
+.contenedorSelectCE:focus {
+    outline: none;
+    box-shadow: 4px 4px 0 0 #000;
+    transform: translateY(-2px);
+}
+
+/* Fade-in del contenedor principal */
+#contenedorCrearEvento {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeInUpCE 0.45s ease forwards;
+}
+
+@keyframes fadeInUpCE {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de los recuadros de imágenes */
+.contenedorImagenCE {
+    transition: transform 0.25s ease, box-shadow 0.2s ease;
+}
+
+.contenedorImagenCE:hover {
+    transform: scale(1.04);
+    box-shadow: 6px 5px 0 0 #000;
+}
+
+/* Zoom suave a la imagen interna */
+.contenedorImagenCE img {
+    transition: transform 0.4s ease;
+}
+
+.contenedorImagenCE:hover img {
+    transform: scale(1.08);
+}
+
+/* Botones del modal CE */
+.buttonModalCE {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.buttonModalCE:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 4px 0 0 #000;
+}
+
+.buttonModalCE:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px 0 0 #000;
+}
+
+/* Pequeña animación para co*

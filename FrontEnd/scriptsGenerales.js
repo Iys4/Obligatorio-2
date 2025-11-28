@@ -1,6 +1,7 @@
 //Estos scripts se largan cuando inicia el programa, en general cargan el header y el footer de manera dinamica
 
 const URLbase = "https://que-hay-5i96.onrender.com";
+window.URLbase = URLbase;
 const modalIniciarSesion = document.querySelector("#modalIniciarSesion");
 const header = document.querySelector("header");
 headerLoad();
@@ -192,3 +193,5 @@ function cargarModalIniciarSesion() {
                 <button id="btnIngresar" class="botonBlancoTiny">Ingresar</button>
             </div>`;
 }
+
+export { URLbase };

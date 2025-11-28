@@ -1,5 +1,4 @@
 // crearEvento.js
-const URLbase = "https://que-hay-5i96.onrender.com";
 
 const botonCrearEventoCE = document.querySelector("#buttonCrearEvento");
 

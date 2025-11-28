@@ -1,4 +1,3 @@
-const URLbase = "https://que-hay-5i96.onrender.com";
 const contenedorEventosMain = document.querySelector("#contenedorEventosMain");
 const eventosGlobal = await obtenerEventos();
 console.log(eventosGlobal);

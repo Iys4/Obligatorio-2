@@ -608,3 +608,95 @@ footer a:hover {
     }
 
 }
+
+/* ========================= */
+/*  ANIMACIONES Y TRANSICIONES */
+/* ========================= */
+
+button,
+.botonAmarillo,
+.botonAmarilloTiny,
+.botonBlanco,
+.botonBlancoTiny,
+.botonRojoIcono {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.25s ease;
+}
+
+/* HOVER: botón se levanta ligeramente */
+button:hover,
+.botonAmarillo:hover,
+.botonAmarilloTiny:hover,
+.botonBlanco:hover,
+.botonBlancoTiny:hover,
+.botonRojoIcono:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 4px 0 0 #000;
+}
+
+/* CLICK: efecto "squash" */
+button:active,
+.botonAmarillo:active,
+.botonAmarilloTiny:active,
+.botonBlanco:active,
+.botonBlancoTiny:active,
+.botonRojoIcono:active {
+    transform: scale(0.96) translateY(0);
+    box-shadow: 1px 1px 0 0 #000;
+}
+
+/* Animación para enlaces */
+a {
+    transition: opacity 0.25s ease;
+}
+#listaExplorarMain {
+    z-index: 999;
+}
+
+.categoriaMenuIni {
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+.categoriaMenuIni:hover {
+    transform: translateY(-3px);
+    background-color: #181818;
+    color: #FFF;
+}
+
+/* Fade-in de tarjetas/eventos */
+.evento {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Imágenes escalan suave al pasar el mouse */
+.imagenEventoMain,
+.imagenPortada {
+    transition: transform 0.3s ease;
+}
+
+.imagenEventoMain:hover,
+.imagenPortada:hover {
+    transform: scale(1.03);
+}
+
+/* Hover del menú desplegable */
+#listaExplorarMain div {
+    transition: background-color 0.2s ease;
+}
+
+
+/* Inputs: borde más oscuro al focus */
+input:focus,
+.input:focus {
+    outline: none;
+    box-shadow: 3px 3px 0 0 #000;
+}

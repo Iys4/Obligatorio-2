@@ -122,3 +122,138 @@
         width: 100%;
     }
 }
+
+#contenedorInfo {
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    margin: 2em auto;
+    gap: 2em;
+    animation: fadeIn 0.6s ease-out;
+}
+
+#inforEventoEspecifico {
+    display: flex;
+    gap: 2em;
+    animation: fadeIn 0.8s ease-out;
+}
+
+#inforEventoEspecifico img {
+    aspect-ratio: 4 / 3;
+    width: 40%;
+    object-fit: cover;
+    border-radius: 9px;
+    border: 2px solid #000;
+    box-shadow: 5px 4px 0 0 #000;
+    animation: float 4s ease-in-out infinite;
+}
+
+#inforEventoEspecifico img:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+
+#contenedorTextoEventoEsp {
+    display: flex;
+    padding: 27px;
+    flex-direction: column;
+    gap: 1em;
+    border-radius: 9px;
+    border: 3px solid #000;
+    background: #FFF;
+    width: -webkit-fill-available;
+    justify-content: space-evenly;
+    box-shadow: 5px 4px 0 0 #000;
+    transition: 0.3s;
+}
+
+#contenedorTextoEventoEsp:hover {
+    transform: translateY(-4px);
+}
+
+#precioBoton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+#detallesEvEsp {
+    display: flex;
+    flex-direction: column;
+    gap: 23.13px;
+}
+
+#detallesEvEsp>div {
+    display: flex;
+    gap: 23.13px;
+}
+
+#descripcionEvEsp {
+    font-weight: bold;
+}
+
+#detallesProfEvEsp,
+#entradasEvEsp {
+    display: flex;
+    padding: 27px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0 0;
+    border-radius: 9px;
+    border: 2px solid #000;
+    background: #FFF;
+    box-shadow: 5px 4px 0 0 #000;
+    transition: 0.3s;
+    animation: fadeIn 1s ease-out;
+}
+
+#detallesProfEvEsp:hover,
+#entradasEvEsp:hover {
+    transform: translateY(-4px);
+}
+
+#galeriaEvEsp {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 31px;
+    align-self: stretch;
+}
+
+#contenedorImagenesEvEsp {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
+    gap: 1em;
+    margin-top: 1em;
+}
+
+#contenedorImagenesEvEsp img {
+    aspect-ratio: 1/1;
+    width: -webkit-fill-available;
+    border-radius: 7.711px;
+    border: 1.714px solid #000;
+    background: #FFF;
+    box-shadow: 4.284px 3.427px 0 0 #000;
+    transition: 0.3s;
+}
+
+#contenedorImagenesEvEsp img:hover {
+    transform: scale(1.05);
+}
+
+
+/* -----------------------
+   🔥 ANIMACIONES
+------------------------ */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}

@@ -1,4 +1,3 @@
-const URLbase = "https://que-hay-5i96.onrender.com";
 const params = new URLSearchParams(window.location.search);
     const idEvento = params.get("id");
     // 2. Buscar el evento en la lista global

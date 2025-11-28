@@ -129,4 +129,94 @@ footer{
     width: fit-content;
     }
 
-   }  
+   }
+   
+   /* ========================= */
+/* ANIMACIONES PERFIL */
+/* ========================= */
+
+/* Fade-in general del contenedor */
+#contenedorPerfil,
+#seccionEventosPerfil {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeInContenedorPerfil 0.45s ease forwards;
+}
+
+@keyframes fadeInContenedorPerfil {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación imagen de perfil */
+#imagenPerfil {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#imagenPerfil:hover {
+    transform: scale(1.04);
+    box-shadow: 7px 6px 0 0 #000;
+}
+
+/* Inputs del perfil */
+.inputPerfil,
+#inpImagenPerfil {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.25s ease;
+}
+
+.inputPerfil:hover,
+#inpImagenPerfil:hover {
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0 0 #000;
+}
+
+.inputPerfil:focus,
+#inpImagenPerfil:focus {
+    outline: none;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 0 #000;
+}
+
+/* Botón blanco con icono */
+.botonBlancoIcono {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.botonBlancoIcono:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 4px 0 0 #000;
+}
+
+.botonBlancoIcono:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px 0 0 #000;
+}
+
+/* Animación del grid de eventos */
+#contenedorEventosPerfil {
+    animation: fadeInEventos 0.5s ease;
+}
+
+@keyframes fadeInEventos {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación a cada tarjeta de evento (si las hay dentro del grid) */
+#contenedorEventosPerfil > * {
+    transition: transform 0.25s ease, box-shadow 0.2s ease;
+}
+
+#contenedorEventosPerfil > *:hover {
+    transform: translateY(-4px);
+    box-shadow: 5px 4px 0 0 #000;
+}
+
